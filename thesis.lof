@@ -1,0 +1,18 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Contoh Arsitektur Deep Neural Netowork.\relax }}{6}{figure.caption.13}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Contoh Arsitektur \textit {Convolutional }\textit {Neural Network }.\relax }}{6}{figure.caption.14}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Contoh Arsitektur Recurrent Neural Netowork.\relax }}{7}{figure.caption.15}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Perbedaan proses \textit {training }dan \textit {inference }pada \textit {Deep Learning }.\relax }}{8}{figure.caption.16}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Perkalian matriks pada fully-connected layer saat mengalikan weight dengan input.\relax }}{9}{figure.caption.17}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Contoh Operasi Konvolusi. Image merupakan gambar masukan, convolved feature merupakan keluaran dari konvolusi.\relax }}{10}{figure.caption.18}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Transpose matrix pada \textit {Deep Learning }\textit {inference }.\relax }}{10}{figure.caption.19}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Penjumlahan matriks pada fully-connected layer saat menambahkan bias.\relax }}{11}{figure.caption.20}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Ilustrasi dari arsitektur Tensorflow Lite.\relax }}{13}{figure.caption.21}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Cara kerja OpenCL.\relax }}{14}{figure.caption.22}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces OpenCL work group dan work ite.\relax }}{18}{figure.caption.23}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Perkalian matriks per blok.\relax }}{23}{figure.caption.24}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

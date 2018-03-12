@@ -1,0 +1,32 @@
+%
+% Halaman Abstrak
+%
+% @author  Andreas Febrian
+% @version 1.00
+%
+
+\chapter*{Abstrak}
+
+\vspace*{0.2cm}
+
+\noindent \begin{tabular}{l l p{10cm}}
+	Nama&: & \penulis \\
+	Program Studi&: & \program \\
+	Judul&: & \judul \\
+\end{tabular} \\ 
+
+\vspace*{0.5cm}
+
+\noindent 
+Deep Learning has been widely used in many Artificial Intelligence (AI) application because of its high accuracy. With its impressive advances in AI fields, many developers have started to create innovations on Deep Learning such as creating the possibility to to run Deep Learning on mobile device. Because of its high computational cost and the ability of today's mobile device, it is only possible to do the inference step of Deep Learning. Even for inference, current mobile Deep Learning libraries are not optimal yet because of the lack of support from developers. Popular libraries like Tensorflow Mobile or Tensorflow Lite only supports Deep Learning inference on mobile CPU. In this paper we try to create an accelerator for mobile Deep Learning inference by implementing OpenCL code to support Deep Learning inference on mobile GPU. We want to evaluate the effects of applying the accelerator on mobile Deep Learning inference performance with expectation that it will produce a good performance. We also want to compare the accelerator’s performance to the original CPU implementation’s performance. 
+
+We have implemented OpenCL code on some Deep Learning inference operations including matrix multiplication, matrix convolution, matrix transpose, and vector addition. We test our implementation using Tensorflow Lite demo application on Android devices with some different Convolutional Neural Network models including Inception, LeNet, and MobileNet. The result shows that Deep Learning Inference operations on OpenCL can achieve much better running time for large enough matrix. However, our accelerator could perform much slower than the original Tensorflow Lite functions for small matrix. This is caused by the time taken for OpenCL setup operations like memory allocation and load variable values to GPU memory are much longer than the actual inference operations themself. This can be seen from the similarity of running time on each operations for small matrix, which indicate the bottleneck on OpenCL setup operations. Further optimization on the OpenCL kernels has been applied and it still does not omit the bottleneck.
+\\
+
+\vspace*{0.2cm}
+
+\noindent Kata Kunci: \\ 
+\noindent \todo{Tuliskan kata kunci yang berhubungan dengan laporan 
+	disini} \\
+
+\newpage

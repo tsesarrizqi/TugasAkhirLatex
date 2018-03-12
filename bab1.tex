@@ -1,0 +1,80 @@
+%-----------------------------------------------------------------------------%
+\chapter{\babSatu}
+%-----------------------------------------------------------------------------%
+Karya tulis yang berjudul "OpenCL Accelerator untuk Deep Learning Inference pada Perangkat Mobile" ini didahului dengan pembahasan mengenai latarbelakang penelitian, permasalahan yang ingin diselesaikan, tujuan penelitian, serta metodologi dari penelitian.
+
+%-----------------------------------------------------------------------------%
+\section{Latar Belakang}
+%-----------------------------------------------------------------------------%
+Deep Learning saat ini telah menjadi trend dalam implementasi aplikasi-aplikasi \textit{Artificial Intelligence} seperti klasifikasi gambar, pengenalan bahasa, dan sebagainya. Hal ini disebabkan karena Deep Learning mampu memberikan akurasi yang tinggi jika dibandingkan metode \textit{Machine Learning} biasa. Deep Learning sebenarnya merupakan cabang dari \textit{Machine Learning} yang memanfaatkan \textit{Neural Network} untuk melakukan prediksi suatu label atau skor \cite{deeplearning}. Arsitektur \textit{Neural Network} yang digunakan pada \textit{Deep Learning} (\textit{Deep Neural Network}) memiliki lebih dari satu \textit{hidden layer}. \textit{Deep Learning} terdiri dari dua tahap yaitu \textit{training} (latihan) dan inference. Pada tahap \textit{inference} dilakukan prediksi label atau skor dari suatu data masukan menggunakan model \textit{Neural Network} yang telah dilatih pada tahap \textit{training}.
+
+Dengan meningkatnya popularitas Deep Learning, banyak pengembang perangkat lunak yang mulai berlomba dalam menciptakan inovasi pada bidang Deep Learning. Salah satu inovasi yang menarik adalah penerapan Deep Learning pada perangkat \mobile sehingga aplikasi-aplikasi Deep Learning dapat diakses di mana saja dan kapan saja dengan praktis. Tesorflow \cite{tensorflow} merupakan contoh \deeplearning \framework yang menyediakan dukungan untuk perangkat \mobile melalui \textit{library} Tensorflow Mobile dan Tensorflow Lite. Penerapan Deep Learning pada perangkat \mobile memiliki tantangan tersendiri. Deep Learning dikenal memiliki beban komputasi yang sangat besar karena mengandung sangat banyak operasi-operasi matriks. Sehingga dengan kemampuan perangkat \mobile yang kita saat ini, Deep Learning hanya mungkin dilakukan untuk tahap \inference saja. Saat ini masih sangat sedikit dukungan yang diberikan dari pengembang perangkat lunak untuk \deeplearning \inference pada perangkat mobile. Mayoritas dukungan masih terfokus pada perangkat desktop atau laptop yang memang memiliki fleksibilitas lebih tinggi untuk \deeplearning. Hampir semua penerapan \deeplearning pada perangkat mobile saat ini hanya memanfaatkan CPU untuk komputasi operasi-operasi \inference.
+
+Mengetahui hal ini, penulis tertarik untuk mencoba menerapkan pemrograman GPU pada operasi-operasi \deeplearning \inference. Penulis berhipotesis bahwa GPU dapat membantu meningkatkan performa karena beberapa hal. Pertama, GPU memiliki sangat banyak unit pemrosesan yang yang dapat mengeksekusi suatu pekerjaan secara paralel. Meskipun secara individu unit pemrosesan tersebut lebih lemah dari unit pemrosesan pada CPU, dengan teknik paralelisasi suatu pekerjaan besar dapat dibagi ke banyak unit pemrosesan sehingga secara keseluruhan komputasi dapat berjalan lebih cepat. Kedua, operasi-operasi \deeplearning \inference merupakan operasi-operasi matriks yang sangat mungkin diterapkan secara paralel. Misalnya pada operasi penjumlahan matriks, masing-masing penjumlahan antara dua elemen dari dua matriks pada baris dal kolom yang sama dapat diproses oleh suatu unit pemrosesan tersendiri secara independen dari elemen-elemen lainnya.
+
+Untuk menerapkan penggunaan GPU pada operasi-operasi \deeplearning \inference penulis menggunakan OpenCL yang merupakan antarmuka pemrograman paralel dan \textit{multi-device}. OpenCL API menggunakan bahasa pemrograman C atau C++ sehingga dapat diterapkan pada perangkat mobile. Untuk \framework \deeplearning, penulis memilih Tensorflow beserta Tensorflow Lite dalam penelitian ini karena merupakan \framework \deeplearning paling populer dan memiliki banyak fitur yang salah satunya memungkinakan penggunaan berbagai macam model \nn pada proses \inference. Tensorflow sendiri diimplementasikan dengan bahasa C++ sehingga sesuai dengan OpenCL.
+
+%-----------------------------------------------------------------------------%
+\section{Permasalahan}
+%-----------------------------------------------------------------------------%
+Pada bagian ini akan dijelaskan mengenai definisi permasalahan 
+yang \saya~hadapi dan ingin diselesaikan serta asumsi dan batasan 
+yang digunakan dalam menyelesaikannya.
+
+
+%-----------------------------------------------------------------------------%
+\subsection{Definisi Permasalahan}
+%-----------------------------------------------------------------------------%
+Berikut adalah permasalahan-permasalahan yang mendorong dilaksanakannya penelitian ini.
+\begin{enumerate}
+\item Apakah OpenCL dapat diterapkan pada Tensorflow Lite untuk komputasi dengan menggunakan \mobile GPU?
+\item Bagaimana pengaruh penerapan pemrograman GPU untuk \inference pada model-model \deeplearning pada perangkat \mobile?
+\item Bagaimana perbandingan kecepatan dan penggunaan memori pada operasi-operasi \deeplearning \inference pada perangkat \mobile sebelum dan sesudah penerapan OpenCL?
+\item Operasi-operasi \deeplearning \inference apa saja yang lebih baik dijalankan pada \mobile GPU?
+
+\end{enumerate}
+
+%-----------------------------------------------------------------------------%
+\subsection{Batasan Permasalahan}
+%-----------------------------------------------------------------------------%
+Batasan-batasan penelitian pada Tugas Akhir ini antara lain:
+\begin{enumerate}
+\item Implementasi OpenCL hanya berlaku untuk perangkat \textit{Android} saja.
+\item OpenCL hanya diterapkan pada beberapa operasi \deeplearning \inference pada kode sumber Tensorflow Lite antara lain perkalian matriks, konvolusi matriks, penjumlahan matriks, dan transpose matriks.
+\item Pengujian hanya dilakukan terhadap beberapa arsitektur \conv \nn antara lain Inception, LeNet, dan MobileNet yang telah mencakup semua operasi-operasi penting di Deep Learning.
+\item Penulis mengasumsikan bahwa perangkat yang digunakan hanya menggunakan
+sumber daya multi-core CPU dan GPU beserta memorinya, terlepas dari dorongan performa yang berasal dari perangkat tambahan.
+\end{enumerate}
+
+%-----------------------------------------------------------------------------%
+\section{Tujuan}
+%-----------------------------------------------------------------------------%
+Tujuan dari penelitian ini adalah sebagai berikut.
+\begin{enumerate}
+\item Mengimplementasikan OpenCL code untuk penggunaan mobile GPU pada operasi-operasi Neural Network inference.
+\item Mengetahui pengaruh penggunaan mobile GPU melalui OpenCL pada proses inference pada model-model Deep Learning.
+\item Membandingkan performa dan penggunaan memori pada proses inference sebelum dan sesudah penerapan OpenCL pada perangkat mobile.
+\item Mengetahui operasi-operasi Deep Learning inference pada yang lebih baik bila dijalankan pada GPU melalui OpenCL.
+
+\end{enumerate}
+
+%-----------------------------------------------------------------------------%
+%\section{Posisi Penelitian}
+%-----------------------------------------------------------------------------%
+
+
+%-----------------------------------------------------------------------------%
+\section{Metodologi Penelitian}
+%-----------------------------------------------------------------------------%
+Metodologi penelitian pada Tugas Akhir ini adalah sebagai berikut.
+\begin{enumerate}
+\item Menentukan Tensorflow Lite dan OpenCL sebagai \framework dan API yang digunakan untuk melakukan penelitian.
+\item Mempelajari kode sumber Tensorflow Lite.
+\item Mempelajari OpenCL beserta teknik pemrograman GPU.
+\item Mengimplementasikan OpenCL code untuk beberapa operasi \deeplearning \inference.
+\item Melakukan eksperimen menggunakan hasil implementasi.
+\item Mengoptimalkan implementasi sebelumnya.
+\item Melakukan eksperimen menggunakan hasil implementasi yang sudah dioptimalkan.
+\item Melaporkan hasil eksperimen sebagai karya tulis.
+\end{enumerate}
+
