@@ -1,56 +1,46 @@
 %-----------------------------------------------------------------------------%
 \chapter{\babTiga}
 %-----------------------------------------------------------------------------%
-Pada bagian ini akan dijelaskan metodologi yang digunakan oleh Penulis pada saat melakukan penelitian. Metodologi ini merupakan tahap-tahap yang dilakukan dari awal hingga akhir penelitian.
+Pada bagian ini akan dijelaskan metodologi yang digunakan oleh Penulis pada saat melakukan penelitian. Metodologi terdiri dari metode implementasi OpenCL dan Vulkan serta metode pengujian hasil implementasi.
 
-\section{Menentukan OpenCL dan Tensorflow Lite sebagai framework Penelitian}
+\section{Metode Implementasi }
 %-----------------------------------------------------------------------------%
-Pada penelitian ini Penulis memilih Tensorflow Lite sebagai \framework \deeplearning pada perangkat mobile dengan beberapa alasan. Pertama, Tensorflow, termasuk Tensorflow Lite, merupakan perangkat lunak yang didukung oleh Google. Hingga saat ini Tensorflow masih sangat aktif dikembangkan, bisa dilihat dari frekuensi commit pada repository GitHub Tensorflow. 
-Kedua, antarmuka Tensorflow Lite mudah dipahami dan digunakan.
-Ketiga, Tensorflow Lite memiliki lebih banyak fitur dibandingkan library lain seperti dukungan untuk operasi 8-bit, graph pruning, dan lain-lain.
-Keempat, jika dibandingkan dengan framework lain seperti Torch atau Caffe, Tensorflow Lite memiliki popularitas yang lebih tinggi dilihat dari statistik fork, star, dan watch pada GitHub.
+Deep Learning Inference terdiri dari operasi-operasi matriks. Penerapan Deep Learning Inference menggunakan GPU dapat dilakukan dengan menerapkan OpenCL dan Vulkan pada operasi-operasi matriks terkait. Misalnya pada DNN inference, OpenCL dan Vulkan dapat diterapkan terhadap operasi perkalian matriks-vector untuk dijalankan pada GPU. Pada CNN inference, selain perkalian matriks juga terdapat operasi konvolusi yang dapat dijalankan melalui OpenCL dan Vulkan pada GPU. Dalam penelitian ini penulis hanya berfokus pada dua operasi, perkalian matriks dan convolution.
 
-Kemudian, penulis memilih OpenCL sebagai antarmuka pemrograman GPU adalah karena OpenCL sebenarnya tidak hanya dapat digunakan untuk GPU namun juga perangkat-perangkat lain seperti FPGA atau DSP. Dengan demikian program OpenCL yang dibuat dapat dimodifikasi dengan mudah agar dapat digunakan ulang untuk keperluan eksperimen pada perangkat lain. Selain itu, OpenCL menggunakan bahasa C/C++ dengan beberapa ekstensi yang mudah dipahami. Penggunaan C/C++ mendukung implementasi OpenCL pada Tensorflow.
+Implementasi Deep Learning Inference pada GPU dilakukan melalui Tensorflow Lite sebagai framework Deep Learning Inference pada perangkat mobile. Tensorflow Lite memiliki implementasi kernel berisi operasi-operasi Neural Network inference yang terpisah dari Tensorflow core. Penulis menambahkan dukungan OpenCL dan Vulkan terhadap kernel untuk operasi perkalian matriks dan konvolusi sehingga DNN dan CNN dapat dijalankan pada GPU. Tensorflow Lite tidak memiliki algoritma perkalian matrix-vector. Untuk DNN, ia menggunakan algoritma perkalian matrix biasa. Saat kompilasi, aplikasi dapat memilih untuk menggunakan default kernel (CPU), OpenCL kernel (GPU), atau Vulkan kernel (GPU). \pic~\ref{fig:modifieddiagram} menunjukkan struktur dari Tensorflow Lite dan bagian dimana OpenCL dan Vulkan diterapkan.
 
-\section{Mempelajari kode sumber Tensorflow Lite}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.50\textwidth]
+	{pics/modifieddiagram.png}
+	\caption{Bagian Tensorflow Lite yang dioptimasi.}
+	\label{fig:modifieddiagram}
+\end{figure}
+
+Dalam mengimplementasikan perkalian matriks menggunakan OpenCL dan Vulkan, penulis menggunakan pendekatan multiplication by block (blocking). Perkalian matriks dikerjakan secara bertahap dengan membagi matriks ke dalam beberapa blok. Pendekatan ini didasarkan pada paper \cite{matmulblock}. Motivasi dari pendekatan blocking ini adalah memanfaatkan kemampuan memori lokal (dalam suatu work-group) yang lebih cepat daripada memori global. Perkalian matriks konvensional akan selalu mengambil data dari buffer yang terletak di global memory. Diketahui bahwa perkalian matriks melibatkan pembacaan data yang sama beberapa kali. Misalnya pada perkalian matriks A dan B yang menghasilkan matriks C, untuk mendapatkan nilai baris ke-i pada matriks C dilakukan dot product antara baris ke-i dari matriks A dengan setiap kolom dari matriks B. Pada perkalian matriks biasa, baris ke-i dari matriks A akan dibaca beberapa kali melalui global memory. 
+
+Dengan melakukan perkalian matriks per-blok, keunggulan kecepatan akses local memori dapat dimanfaatkan. Pasangan blok matriks A dan B yang akan dikalikan dimuat terlebih dahulu ke local memory. Block tersebut hanya dibaca satu kali dari global memory selama proses komputasi. Ketika perkalian antar blok dilakukan, banyak data yang sama pada blok tersebut yang dibaca berkali-kali, namun kali ini dibaca melalui local memory. Dengan demikian akan lebih sedikit waktu yang terbuang untuk operasi read memory. Perhatikan bahwa setiap blok matriks masing-masing menggunakan data yang unik. Data pada blok-blok lain tidak dibaca ketika memproses suatu blok. Sehingga tidak ada data yang dibaca lebih dari satu kali dari global memory. \pic~\ref{fig:matmulblock2} menujukkan contoh perkalian matriks pada dengan blocking.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.50\textwidth]
+	{pics/matmul-block1.png}
+	\caption{Perkalian matriks per blok.}
+	\label{fig:matmulblock2}
+\end{figure}
+
+Selain menggunakan block, beban komputasi dibagi ke banyak thread (work item) pada GPU. Satu thread hanya memproses perkalian untuk menghasilkan satu elemen pada matriks output. Jika matriks output merukuran MxN, maka akan terdapat MxN thread. Dengan demikian terjadi reduksi kompleksitas karena semua thread berjalan secara parallel. Kompleksitas perkalian matriks pada GPU dapat dihitung sebagai berikut.
+//Hitung kompleksitas
+
+//Pendekatan implementasi matrix convolution
+Kemudian untuk mengimplementasikan konvolusi matriks juga digunakan pendekatan yang sama yaitu dengan memanfaatkan local memori untuk mempercepat proses pembacaan data. Pendekatan ini mengikuti paper \cite{convblock}. 
+
+Implementasi perkalian matriks dan konvolusi melalui OpenCL dan Vulkan memerlukan persiapan yang cukup panjang sebelum komputasi seperti yang dijelaskan pada bagian landasan teori OpenCL dan Vulkan. Oleh karena itu, penulis mengoptimisasi proses persiapan ini dengan memindahkan beberapa persiapan ke awal mulainya aplikasi sehingga hanya dijalankan satu kali selma aplikasi berjalan. Tidak semua persiapan dapat dipindahkan ke awal jalannya aplikasi karena beberapa persiapan bergantung pada data input yang bersifat dinamis, sehingga tidak dapat dilakukan hanya satu kali ketika aplikasi dijalankan. 
+
+// Pada OpenCL apa saja yang diawal, pada Vulkan apa saja.
+
+\section{Metode Pengujian }
 %-----------------------------------------------------------------------------%
-Penulis mempelajari kode sumber Tensorflow Lite tertuama pada gabian implementasi kernel yang berisi operasi-operasi \deeplearning \inference. Kode sumber Tensorflow Lite ditulis dalam bahasa C dan C++. Berbeda dengan Tenosrflow Mobile dimana kode untuk operasi-operasi tersebut menyatu dengan Tensorflow core, pada Tensorflow Lite terdapat abstraksi tersendiri untuk opperasi-operasi \deeplearning \inference. Vendor dari perangkat mobile dapat memberikan implementasi kernel \deeplearning \inference yang sudah dioptimisasi. Jika tidak diberikan, Tensorflow Lite akan menggunakan implementasi default untuk CPU.
+Setelah implementasi OpenCL dan Vulkan menghasilkan keluaran yang benar, dilakukan pengujian untuk mengetahui performa dari masing-masing implementasi. Kemudian, performa dibandingkan dengan implementasi asli dari Tensorflow serta implementasi multithreading yang sudah dioptimalkan untuk arsitektur ARM. Untuk melakukan pengujian, penulis menggunakan aplikasi demo dari Tensorflow yaitu Tensorflow Lite Camera Demo yang merupakan aplikasi image recognition yang memanfaatkan CNN. Beberapa perangkat android dengan GPU Adreno dan Mali digunakan dalam pengujian ini. Selain melakukan pengujian pada perangkat android, penulis juga melakukan pengujian pada PC untuk mengetahui perbedaan performa pada PC dan android. Penulis melakukan pengujian terhadap beberapa model CNN yang mengandung convolution layer dan fully-connected layer, antara lain Inception, LeNet, dan AlexNet. 
 
-\section{Mempelajari OpenCL}
-%-----------------------------------------------------------------------------%
-Penulis mempelajari mengenai konsep dari OpenCL, yaitu bagaimana OpenCL bekerja. Kemudian, penulis mempelajari cara menggunakan OpenCL dimulai dari mempelajari sintaks-sintaksnya. Terdapat dua bagian yang perlu dipelajari yaitu bagian host dan device. Kedua bagian tersebut menggunakan bahasa C/C++.
-
-Pada bagian host penulis mempelajari bagaimana cara menginisialisasi program OpenCL termasuk cara membuat kernel, membuat program, membuat buffer, membuat queue, dan menjalankan kernel melalui queue. Penulis juga mempelajari tipe-tipe data yang dapat digunakan pada OpenCL. Sedangkan pada bagian device atau kernel penulis mempelajari bagaimana cara membuat fungsi pada kernel, mengambil ID dari work item atau work group, serta cara melakukan sinkronisasi. Dalam mempelajari sintaks host maupun device penulis sudah terlebih dahulu memahami bahasa C/C++ sehingga tinggal mempelajari ekstensi-ekstensi untuk OpenCL saja.
- 
-Setelah mempelajari sintaks, penulis mempelajari metode pemrograman paralel pada OpenCL, misalnya teknik-teknik apa saja yang dapat diterapkan agar program , terutama dalam program operasi-operasi matriks. Penulis juga mempelajari bagaimana cara meng-compile, menjalankan program OpenCL, serta cara menggunakannya pada perangkat mobile.
-
-
-\section{Mengimplementasikan OpenCL accelerator untuk Tensorflow Lite }
-%-----------------------------------------------------------------------------%
-Implementasi accelerator dimulai dengan mengintegrasikan OpenCL dengan Tensorflow Lite. Ini dapat dilakukan dengan mengambil terlebih dahulu library OpenCL dari perangkat mobile yang akan digunakan untuk eksperimen. Library ini dapat diambil dari direktori /system/vendor/lib dengan mengguanakan adb pull. Setelah diperoleh, libaray ini ditempatkan pada direktori library dari Android NDK yang digunakan sehingga dapat terdeteksi oleh compiler ketika mem-build Tensorflow Lite dengan mengikutsertakan nama library pada flag.
-
-Kemudian, diperlukan pula C++ headers untuk dapat memanggil fungsi-fungsi pada OpenCL. Untuk perangkat mobile dapat menggunakan header dari ARM. Header ini diletakkan pada direktori kernel Tensorflow Lite dan edit build file agar Tensorflow Lite mengikutsertakan direktori header tersebut ketika mengcompile. Setelah OpenCL terintegrasi dengan Tensorflow Lite dan dapat berjalan pada perangkat android, penulis memulai implementasi OpenCL code untuk operasi-operasi \deeplearning \inference yang ada pada direktori kernel Tensorflow Lite. Operasi-operasi yang diimplementasikan menggunakan OpenCL antara lain adalah perkalian matriks, konvolusi matriks, transpose matriks, dan penjumlahan matriks.
-
-\section{Melakukan eksperimen terhadap hasil implementasi}
-%-----------------------------------------------------------------------------%
-Setelah implementasi perkalian matriks, konvolusi matriks, transpose matriks, dan penjumlahan matriks menggunakan OpenCL pada Tensorflow Lite selesai dilakukan, penulis mencoba melakukan eksperimen untuk membandingkan kecepatan masing-masing operasi pada proses inference.
-
-Eksperimen dilakukan pada perangkat android pribadi dengan menggunakan aplikasi Tensorflow Lite Demo app yang merupakan sebuah aplikasi image recognition. Performa dari operasi-operasi matriks saat inference diukur menggunakan wall time yang diimplementasikan sendiri oleh penulis menggunakan C++. Penulis menggunakan beberapa model Convolutional Neural Netowork untuk aplikasi ini yaitu Inception, LeNet, dan MobileNet. Saat inference terjadi, model-model tersebut melibatkan semua operasi matriks yang telah diimplementasikan menggunakan OpenCL.   
-
-\section{Mengoptimalkan implementasi sebelumnya}
-%-----------------------------------------------------------------------------%
-Setelah mengevaluasi hasil eksperimen terhadap operasi-operasi yang diimplementasikan menggunakan OpenCL dan membandingkannya dengan implementasi asli dari Tensorflow yang hanya menggunakan CPU, penulis menemukan bahwa kecepatan operasi-operasi tersebut sudah sangat baik untuk matriks-matriks yang cukup besar. Namun, penulis melihat bahwa code OpenCL dari operasi-operasi tersebut terutama pada bagian kernel (device code) masih dapat dioptimalkan, misalnya dengan mengubah skema paralelisasi pemrosesan matriks. Sehingga pada tahap ini penulis pun mencoba melakukan optimisasi dari implementasi OpenCL yang telah dibuat dengan harapan adanya peningkatan performa.
-
-\section{Melakukan eksperimen terhadap hasil implementasi yang sudah dioptimalkan}
-%-----------------------------------------------------------------------------%
-Eksperimen kembali dilakukan pada perangkat yang sama dan skenario yang sama untuk melihat perbedaan performa dari implementasi sebelumnya. Performa yang diperoleh dari hasil eksperimen ini kemudian juga dibandingkan dengan performa implementasi asli operasi-operasi \deeplearning \inference dari Tensorflow Lite.
-
-\section{Mengevaluasi dan Membandingkan Performa Proses \textit{Inference}}
-%-----------------------------------------------------------------------------%
-Evaluasi dari hasil optimisasi dilakukan menggunakan Tensorflow GPU dan Tensorflow CPU yang di-\textit{compile} melalui kode sumber. Model CNN yang digunakan untuk melakukan evaluasi dalah Inception V1. Penulis mengamati performa, efisiensi energi, serta penggunaan memori pada setiap proses \inference pada skenario yang berbeda-beda. Selain melakukan evaluasi pada keseluruhan proses \inference, evaluasi juga dilakukan pada setiap operasi pada \operationgraph. Setelah performa masing-masing proses \inference dievaluasi, penulis membandingkan hasilnya dan melakukan analisis terhadap hasil-hasil tersebut.
-
-\section{Melaporkan hasil penelitian}
-%-----------------------------------------------------------------------------%
-Hasil dari penelitian ini dilaporkan dalam bentuk Tugas Akhir dan dipresentasikan saat Sidang Tugas Akhir.
-
-
+Dalam pengujian, penulis mengamati tiga hal yaitu kecepatan inference, penggunaan memori, dan penggunaan baterai. Selain itu, penulis juga mengamati kecepatan dari masing-masing operasi perkalian matriks dan konvolusi yang terlibat saat proses inference. Penulis kemudian juga mengamati kontribusi proses-proses persiapan OpenCL dan Vulkan terhadap kecepatan dari keseluruhan inference untuk mengetahui letak bottleneck pada inference, terutama pada matriks-matriks kecil. Penulis juga membandingkan performa eksekusi kernel/shader antara OpenCL dan Vulkan untuk mengetahui performa driver dari masing-masing API.

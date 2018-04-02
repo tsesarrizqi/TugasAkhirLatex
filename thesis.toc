@@ -11,46 +11,37 @@
 \contentsline {chapter}{\numberline {1}\uppercase {Pendahuluan}}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Latar Belakang}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Permasalahan}{2}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Definisi Permasalahan}{2}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.1}Definisi Permasalahan}{3}{subsection.1.2.1}
 \contentsline {subsection}{\numberline {1.2.2}Batasan Permasalahan}{3}{subsection.1.2.2}
 \contentsline {section}{\numberline {1.3}Tujuan}{3}{section.1.3}
 \contentsline {section}{\numberline {1.4}Metodologi Penelitian}{4}{section.1.4}
-\contentsline {chapter}{\numberline {2}\uppercase {Landasan Teori}}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Deep Learning}{5}{section.2.1}
-\contentsline {section}{\numberline {2.2}Deep Learning Training dan Inference}{7}{section.2.2}
-\contentsline {section}{\numberline {2.3}Operasi-operasi Deep Learning Inference}{8}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Perkalian Matriks}{8}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Konvolusi Matriks}{9}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Transpose Matriks}{10}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}Penjumlahan Matriks}{11}{subsection.2.3.4}
-\contentsline {section}{\numberline {2.4}Tensorflow}{11}{section.2.4}
-\contentsline {section}{\numberline {2.5}Tensorflow Lite}{12}{section.2.5}
-\contentsline {section}{\numberline {2.6}OpenCL}{13}{section.2.6}
-\contentsline {section}{\numberline {2.7}OpenCL Data Parallelism}{17}{section.2.7}
-\contentsline {chapter}{\numberline {3}\uppercase {Metodologi}}{19}{chapter.3}
-\contentsline {section}{\numberline {3.1}Menentukan OpenCL dan Tensorflow Lite sebagai framework Penelitian}{19}{section.3.1}
-\contentsline {section}{\numberline {3.2}Mempelajari kode sumber Tensorflow Lite}{19}{section.3.2}
-\contentsline {section}{\numberline {3.3}Mempelajari OpenCL}{20}{section.3.3}
-\contentsline {section}{\numberline {3.4}Mengimplementasikan OpenCL accelerator untuk Tensorflow Lite }{20}{section.3.4}
-\contentsline {section}{\numberline {3.5}Melakukan eksperimen terhadap hasil implementasi}{21}{section.3.5}
-\contentsline {section}{\numberline {3.6}Mengoptimalkan implementasi sebelumnya}{21}{section.3.6}
-\contentsline {section}{\numberline {3.7}Melakukan eksperimen terhadap hasil implementasi yang sudah dioptimalkan}{22}{section.3.7}
-\contentsline {section}{\numberline {3.8}Mengevaluasi dan Membandingkan Performa Proses \textit {Inference}}{22}{section.3.8}
-\contentsline {section}{\numberline {3.9}Melaporkan hasil penelitian}{22}{section.3.9}
-\contentsline {chapter}{\numberline {4}\uppercase {Implementasi}}{23}{chapter.4}
-\contentsline {section}{\numberline {4.1}OpenCL Matriks Multiplication}{23}{section.4.1}
-\contentsline {section}{\numberline {4.2}OpenCL Matriks Convolution}{25}{section.4.2}
-\contentsline {section}{\numberline {4.3}OpenCL Matriks Transpose}{25}{section.4.3}
-\contentsline {section}{\numberline {4.4}OpenCL Matriks Addition}{26}{section.4.4}
-\contentsline {chapter}{\numberline {5}\uppercase {Eksperimen dan Analisis}}{27}{chapter.5}
-\contentsline {section}{\numberline {5.1}Mengubah Tampilan Teks}{27}{section.5.1}
-\contentsline {section}{\numberline {5.2}Memberikan Catatan}{27}{section.5.2}
-\contentsline {section}{\numberline {5.3}Menambah Isi Daftar Isi}{27}{section.5.3}
-\contentsline {section}{\numberline {5.4}Memasukan PDF}{27}{section.5.4}
-\contentsline {section}{\numberline {5.5}Membuat Perintah Baru}{27}{section.5.5}
-\contentsline {chapter}{\numberline {6}\uppercase {Kesimpulan dan Saran}}{28}{chapter.6}
-\contentsline {section}{\numberline {6.1}Kesimpulan}{28}{section.6.1}
-\contentsline {section}{\numberline {6.2}Saran}{28}{section.6.2}
-\contentsline {chapter}{Daftar Referensi}{29}{section*.25}
-\contentsline {chapter}{LAMPIRAN}{1}{section*.26}
-\contentsline {chapter}{Lampiran 1}{2}{section*.27}
+\contentsline {section}{\numberline {1.5}Deep Learning}{5}{section.1.5}
+\contentsline {section}{\numberline {1.6}Deep Learning Training dan Inference}{7}{section.1.6}
+\contentsline {section}{\numberline {1.7}Operasi-operasi Deep Learning Inference}{8}{section.1.7}
+\contentsline {subsection}{\numberline {1.7.1}Perkalian Matriks-Vector}{9}{subsection.1.7.1}
+\contentsline {subsection}{\numberline {1.7.2}Konvolusi Matriks}{10}{subsection.1.7.2}
+\contentsline {section}{\numberline {1.8}Tensorflow}{11}{section.1.8}
+\contentsline {section}{\numberline {1.9}Tensorflow Lite}{12}{section.1.9}
+\contentsline {section}{\numberline {1.10}OpenCL}{13}{section.1.10}
+\contentsline {section}{\numberline {1.11}Vulkan}{17}{section.1.11}
+\contentsline {section}{\numberline {1.12}SIMD pada OpenCL dan Vulkan}{20}{section.1.12}
+\contentsline {chapter}{\numberline {2}\uppercase {Metodologi}}{22}{chapter.2}
+\contentsline {section}{\numberline {2.1}Metode Implementasi }{22}{section.2.1}
+\contentsline {section}{\numberline {2.2}Metode Pengujian }{24}{section.2.2}
+\contentsline {chapter}{\numberline {3}\uppercase {Implementasi}}{26}{chapter.3}
+\contentsline {section}{\numberline {3.1}OpenCL Matriks Multiplication}{26}{section.3.1}
+\contentsline {section}{\numberline {3.2}OpenCL Matriks Convolution}{29}{section.3.2}
+\contentsline {section}{\numberline {3.3}Vulkan Matriks Multiplication}{29}{section.3.3}
+\contentsline {section}{\numberline {3.4}Vulkan Matriks Convolution}{31}{section.3.4}
+\contentsline {chapter}{\numberline {4}\uppercase {Eksperimen dan Analisis}}{32}{chapter.4}
+\contentsline {section}{\numberline {4.1}Mengubah Tampilan Teks}{32}{section.4.1}
+\contentsline {section}{\numberline {4.2}Memberikan Catatan}{32}{section.4.2}
+\contentsline {section}{\numberline {4.3}Menambah Isi Daftar Isi}{32}{section.4.3}
+\contentsline {section}{\numberline {4.4}Memasukan PDF}{32}{section.4.4}
+\contentsline {section}{\numberline {4.5}Membuat Perintah Baru}{32}{section.4.5}
+\contentsline {chapter}{\numberline {5}\uppercase {Kesimpulan dan Saran}}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}Kesimpulan}{33}{section.5.1}
+\contentsline {section}{\numberline {5.2}Saran}{33}{section.5.2}
+\contentsline {chapter}{Daftar Referensi}{34}{section*.27}
+\contentsline {chapter}{LAMPIRAN}{1}{section*.28}
+\contentsline {chapter}{Lampiran 1}{2}{section*.29}

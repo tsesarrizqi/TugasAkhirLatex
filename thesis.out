@@ -15,42 +15,33 @@
 \BOOKMARK [2][-]{subsection.1.2.2}{1.2.2 Batasan Permasalahan}{section.1.2}% 15
 \BOOKMARK [1][-]{section.1.3}{1.3 Tujuan}{chapter.1}% 16
 \BOOKMARK [1][-]{section.1.4}{1.4 Metodologi Penelitian}{chapter.1}% 17
-\BOOKMARK [0][-]{chapter.2}{2 Landasan Teori}{}% 18
-\BOOKMARK [1][-]{section.2.1}{2.1 Deep Learning}{chapter.2}% 19
-\BOOKMARK [1][-]{section.2.2}{2.2 Deep Learning Training dan Inference}{chapter.2}% 20
-\BOOKMARK [1][-]{section.2.3}{2.3 Operasi-operasi Deep Learning Inference}{chapter.2}% 21
-\BOOKMARK [2][-]{subsection.2.3.1}{2.3.1 Perkalian Matriks}{section.2.3}% 22
-\BOOKMARK [2][-]{subsection.2.3.2}{2.3.2 Konvolusi Matriks}{section.2.3}% 23
-\BOOKMARK [2][-]{subsection.2.3.3}{2.3.3 Transpose Matriks}{section.2.3}% 24
-\BOOKMARK [2][-]{subsection.2.3.4}{2.3.4 Penjumlahan Matriks}{section.2.3}% 25
-\BOOKMARK [1][-]{section.2.4}{2.4 Tensorflow}{chapter.2}% 26
-\BOOKMARK [1][-]{section.2.5}{2.5 Tensorflow Lite}{chapter.2}% 27
-\BOOKMARK [1][-]{section.2.6}{2.6 OpenCL}{chapter.2}% 28
-\BOOKMARK [1][-]{section.2.7}{2.7 OpenCL Data Parallelism}{chapter.2}% 29
-\BOOKMARK [0][-]{chapter.3}{3 Metodologi}{}% 30
-\BOOKMARK [1][-]{section.3.1}{3.1 Menentukan OpenCL dan Tensorflow Lite sebagai framework Penelitian}{chapter.3}% 31
-\BOOKMARK [1][-]{section.3.2}{3.2 Mempelajari kode sumber Tensorflow Lite}{chapter.3}% 32
-\BOOKMARK [1][-]{section.3.3}{3.3 Mempelajari OpenCL}{chapter.3}% 33
-\BOOKMARK [1][-]{section.3.4}{3.4 Mengimplementasikan OpenCL accelerator untuk Tensorflow Lite }{chapter.3}% 34
-\BOOKMARK [1][-]{section.3.5}{3.5 Melakukan eksperimen terhadap hasil implementasi}{chapter.3}% 35
-\BOOKMARK [1][-]{section.3.6}{3.6 Mengoptimalkan implementasi sebelumnya}{chapter.3}% 36
-\BOOKMARK [1][-]{section.3.7}{3.7 Melakukan eksperimen terhadap hasil implementasi yang sudah dioptimalkan}{chapter.3}% 37
-\BOOKMARK [1][-]{section.3.8}{3.8 Mengevaluasi dan Membandingkan Performa Proses Inference}{chapter.3}% 38
-\BOOKMARK [1][-]{section.3.9}{3.9 Melaporkan hasil penelitian}{chapter.3}% 39
-\BOOKMARK [0][-]{chapter.4}{4 Implementasi}{}% 40
-\BOOKMARK [1][-]{section.4.1}{4.1 OpenCL Matriks Multiplication}{chapter.4}% 41
-\BOOKMARK [1][-]{section.4.2}{4.2 OpenCL Matriks Convolution}{chapter.4}% 42
-\BOOKMARK [1][-]{section.4.3}{4.3 OpenCL Matriks Transpose}{chapter.4}% 43
-\BOOKMARK [1][-]{section.4.4}{4.4 OpenCL Matriks Addition}{chapter.4}% 44
-\BOOKMARK [0][-]{chapter.5}{5 Eksperimen dan Analisis}{}% 45
-\BOOKMARK [1][-]{section.5.1}{5.1 Mengubah Tampilan Teks}{chapter.5}% 46
-\BOOKMARK [1][-]{section.5.2}{5.2 Memberikan Catatan}{chapter.5}% 47
-\BOOKMARK [1][-]{section.5.3}{5.3 Menambah Isi Daftar Isi}{chapter.5}% 48
-\BOOKMARK [1][-]{section.5.4}{5.4 Memasukan PDF}{chapter.5}% 49
-\BOOKMARK [1][-]{section.5.5}{5.5 Membuat Perintah Baru}{chapter.5}% 50
-\BOOKMARK [0][-]{chapter.6}{6 Kesimpulan dan Saran}{}% 51
-\BOOKMARK [1][-]{section.6.1}{6.1 Kesimpulan}{chapter.6}% 52
-\BOOKMARK [1][-]{section.6.2}{6.2 Saran}{chapter.6}% 53
-\BOOKMARK [0][-]{section*.25}{Daftar Referensi}{}% 54
-\BOOKMARK [0][-]{section*.26}{LAMPIRAN}{}% 55
-\BOOKMARK [0][-]{section*.27}{Lampiran 1}{}% 56
+\BOOKMARK [1][-]{section.1.5}{1.5 Deep Learning}{chapter.1}% 18
+\BOOKMARK [1][-]{section.1.6}{1.6 Deep Learning Training dan Inference}{chapter.1}% 19
+\BOOKMARK [1][-]{section.1.7}{1.7 Operasi-operasi Deep Learning Inference}{chapter.1}% 20
+\BOOKMARK [2][-]{subsection.1.7.1}{1.7.1 Perkalian Matriks-Vector}{section.1.7}% 21
+\BOOKMARK [2][-]{subsection.1.7.2}{1.7.2 Konvolusi Matriks}{section.1.7}% 22
+\BOOKMARK [1][-]{section.1.8}{1.8 Tensorflow}{chapter.1}% 23
+\BOOKMARK [1][-]{section.1.9}{1.9 Tensorflow Lite}{chapter.1}% 24
+\BOOKMARK [1][-]{section.1.10}{1.10 OpenCL}{chapter.1}% 25
+\BOOKMARK [1][-]{section.1.11}{1.11 Vulkan}{chapter.1}% 26
+\BOOKMARK [1][-]{section.1.12}{1.12 SIMD pada OpenCL dan Vulkan}{chapter.1}% 27
+\BOOKMARK [0][-]{chapter.2}{2 Metodologi}{}% 28
+\BOOKMARK [1][-]{section.2.1}{2.1 Metode Implementasi }{chapter.2}% 29
+\BOOKMARK [1][-]{section.2.2}{2.2 Metode Pengujian }{chapter.2}% 30
+\BOOKMARK [0][-]{chapter.3}{3 Implementasi}{}% 31
+\BOOKMARK [1][-]{section.3.1}{3.1 OpenCL Matriks Multiplication}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.2}{3.2 OpenCL Matriks Convolution}{chapter.3}% 33
+\BOOKMARK [1][-]{section.3.3}{3.3 Vulkan Matriks Multiplication}{chapter.3}% 34
+\BOOKMARK [1][-]{section.3.4}{3.4 Vulkan Matriks Convolution}{chapter.3}% 35
+\BOOKMARK [0][-]{chapter.4}{4 Eksperimen dan Analisis}{}% 36
+\BOOKMARK [1][-]{section.4.1}{4.1 Mengubah Tampilan Teks}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.2}{4.2 Memberikan Catatan}{chapter.4}% 38
+\BOOKMARK [1][-]{section.4.3}{4.3 Menambah Isi Daftar Isi}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.4}{4.4 Memasukan PDF}{chapter.4}% 40
+\BOOKMARK [1][-]{section.4.5}{4.5 Membuat Perintah Baru}{chapter.4}% 41
+\BOOKMARK [0][-]{chapter.5}{5 Kesimpulan dan Saran}{}% 42
+\BOOKMARK [1][-]{section.5.1}{5.1 Kesimpulan}{chapter.5}% 43
+\BOOKMARK [1][-]{section.5.2}{5.2 Saran}{chapter.5}% 44
+\BOOKMARK [0][-]{section*.27}{Daftar Referensi}{}% 45
+\BOOKMARK [0][-]{section*.28}{LAMPIRAN}{}% 46
+\BOOKMARK [0][-]{section*.29}{Lampiran 1}{}% 47
