@@ -1,51 +1,45 @@
 %-----------------------------------------------------------------------------%
 \chapter{\babSatu}
 %-----------------------------------------------------------------------------%
-Karya tulis yang berjudul "\judul" ini didahului dengan pembahasan mengenai latarbelakang penelitian, permasalahan yang ingin diselesaikan, tujuan penelitian, serta metodologi dari penelitian.
+Karya tulis yang berjudul "\judul" ini didahului dengan pembahasan mengenai latar belakang penelitian, permasalahan yang ingin diselesaikan, dan tujuan dari penelitian.
 
 %-----------------------------------------------------------------------------%
 \section{Latar Belakang}
 %-----------------------------------------------------------------------------%
-Deep Learning merupakan salah satu cabang dari Machine Learning yang dianggap memiliki performa lebih baik daripada algoritma Machine Learning konvensional. Deep Learning memanfaatkan \textit{Neural Network} untuk melakukan prediksi label atau skor dari data \cite{deeplearning}. Arsitektur \textit{Neural Network} pada Deep Learning memiliki struktur yang lebih kompleks dengan lebih dari satu hidden layer. Deep Learning bekerja dengan cara melakukan generalisasi dari sekumpulan pengalaman yang telah dipelajari. Proses mempelajari pengalaman dilakukan pada tahap training (latihan) menggunakan sekumpulan data hasil observasi. Neural Netowrk yang telah dilatih dapat digunakan untuk melakukan prediksi label atau skor dari data baru. 
+\textit{Deep Learning} merupakan algoritma \textit{Machine Learning} yang diketahui memiliki akurasi tinggi. \textit{Deep Learning} memanfaatkan arsitektur \textit{Neural Network} yang telah dilatih menggunakan sekumpulan data untuk melakukan prediksi skor atau label dari suatu data baru. Popularitas \textit{Deep Learning} meningkat pesat dalam beberapa tahun terakhir. Salah satu jenis arsitektur \textit{Deep Learning}, \textit{Convolutional Neural Network} (CNN), memiliki peran besar dalam meningkatnya popularitas \textit{Deep Learning}. CNN biasa digunakan dalam aplikasi pengenalan citra. Selain CNN, dalam \textit{Deep Learning} juga terdapat jenis model lain seperti \textit{Long Short-Term Memory} (LSTM) yang biasa digunakan untuk menyelesaikan permasalahan di bidang pengolahan bahasa.
 
-Popularitas Deep Learning dalam aplikasi Artificial Intelligence saat ini mulai meningkat pesat. Banyak inovasi di bidang Deep Learning yang mulai bermunculan. Salah satu inovasi yang menarik adalah penerapan Deep Learning pada Android sehingga memungkinkan aplikasi Artificial Intelligence dengan akurasi tinggi dapat diakses melalui perangkat kecil yang mudah dibawa kemana saja. Tesorflow \cite{tensorflow} merupakan contoh \deeplearning \framework yang menyediakan dukungan untuk Android melalui \textit{library} Tensorflow Mobile dan Tensorflow Lite. Penerapan Deep Learning pada perangkat \mobile memiliki tantangan tersendiri. Deep Learning dikenal memiliki beban komputasi yang sangat besar karena mengandung sangat banyak operasi-operasi matriks. Dengan kemampuan perangkat \mobile yang ada saat ini, Deep Learning hanya mungkin digunakan untuk melakukan \inference saja. 
+Seiring meningkatnya popularitas \textit{Deep Learning}, dukungan terus bermunculan dari berbagai pihak terutama yang terkait dengan peningkatan performa \textit{Deep Learning}. Saat ini CPU tidak lagi menjadi pilihan utama untuk menjalankan \textit{Deep Learning} pada komputer personal atau \textit{server}. GPU telah diketahui dapat menjalankan \textit{Deep Learning} dengan performa komputasi yang jauh lebih baik daripada CPU, terutama ketika melakukan \textit{training}. Selain dalam hal performa, dukungan untuk mobilitas Deep Learning juga mulai bermunculan. Belum lama ini, Google merilis \textit{open-source library} bernama Tensorflow Lite \cite{tflite} yang memungkinkan pengguna menjalankan \textit{Deep Learning inference} pada perangkat \textit{mobile} dengan performa tinggi.
 
-Meskipun Deep Learning sudah dapat diterapkan pada perangkat mobile, saat ini dukungan yang diberikan masih sedikit. Mayoritas pengembang masih berfokus pada perangkat desktop yang memang memiliki potensi lebih tinggi untuk \deeplearning. Sebagai contoh, pada perangkat PC Deep Learning inference maupun training dapat dijalankan dengan cepat menggunakan GPU. Hampir semua framework Deep Learning memiliki dukungan untuk penggunaan GPU. Pada perangkat mobile, dukungan untuk penggunaan GPU sangat sulit ditemui. Framework populer seperti Tensorflow pun hanya menyediakan dukungan untuk inference menggunakan CPU. Padahal Mobile GPU berpotensi dapat meningkatkan performa inference seperti halnya GPU pada PC. 
+Saat ini operasi-operasi \textit{Deep Learning inference} pada Tensorflow Lite hanya dapat dijalankan di CPU. Meskipun demikian performa yang dihasilkan sudah sangat baik. Pada Tugas Akhir ini penulis melakukan penelitian mengenai penggunaan GPU untuk menjalankan \textit{Deep Learning inference} pada perangkat \textit{mobile} melalui Tensorflow Lite. Penulis mengimplementasikan beberapa Tensorflow Lite \textit{kernel} untuk beberapa operasi matriks pada \textit{inference} yang berjalan di GPU. Menjalankan \textit{Deep Learning inference} pada \textit{mobile} GPU bukanlah hal yang baru. Sudah ada \textit{library} bernama CNNdroid \cite{cnndroid} yang dapat digunakan untuk menjalankan CNN \textit{inference} pada \textit{mobile} GPU. CNNdroid memanfaatkan Renderscript untuk menjalankan komputasi pada GPU.
 
-Hal ini menarik minat penulis untuk melaksanakan penelitian ini. Penulis mencoba menerapkan pemrograman GPU pada operasi-operasi \deeplearning \inference dengan hipotesis bahwa GPU dapat membantu meningkatkan performa Deep Learning inference pada perangkat mobile. Alasan pertama, GPU memiliki sangat banyak unit pemrosesan yang dapat mengeksekusi suatu pekerjaan secara paralel \cite{cudagpgpu}. Meskipun secara individu unit pemrosesan tersebut lebih lemah dari unit pemrosesan pada CPU, dengan teknik paralelisasi suatu pekerjaan besar dapat dibagi ke banyak unit pemrosesan sehingga secara keseluruhan komputasi dapat berjalan lebih cepat. Kedua, operasi-operasi \deeplearning \inference merupakan operasi-operasi matriks \cite{deeplearningmatrix}, sehingga berpotensi besar untuk diakselerasi dengan pemrograman paralel. Sebagai contoh, pada operasi penjumlahan matriks, masing-masing penjumlahan antara dua elemen dari dua matriks pada baris dan kolom yang sama dapat diproses oleh suatu unit pemrosesan tersendiri secara independen, sehingga penjumlahan semua elemen dilakukan secara paralel.
-
-Untuk menerapkan penggunaan GPU pada operasi-operasi \deeplearning \inference penulis menggunakan API OpenCL dan Vulkan. Keduanya merupakan API dalam bahasa C/C++, mendukung pemrograman paralel, dan dapat digunakan untuk \textit{multi-device}. Selain membandingkan inference antara CPU dan GPU, peulis juga tertarik membandingkan kedua API ini untuk melihat apakah terdapat pengaruh dari driver masing-masing API terhadap performa inference. Penulis menggunakan Tensorflow beserta Tensorflow Lite sebagai framework Deep Learning. Tensorflow dan Tensorflow Lite merupakan \framework \deeplearning paling populer yang didukung oleh Google dan memiliki fitur untuk penggunaan DNN, CNN, dan RNN. Tensorflow sendiri diimplementasikan dengan bahasa C/C++, sehingga kompatibel dengan OpenCL dan Vulkan.
+Dalam penelitian ini penulis menggunakan OpenCL untuk menjalankan \textit{Deep Learning inference} pada \textit{mobile} GPU. OpenCL \cite{opencl} merupakan API pemrograman paralel untuk berbagai jenis prosesor seperti CPU, GPU, dan FPGA. OpenCL merupakan API pemrograman paralel yang mendukung komputasi dengan paradigma SIMT (\textit{Single Instruction Multiple Thread}). \textit{Deep Learning inference} terdiri dari operasi-operasi matriks yang berpotensi untuk diimplementasikan secara SIMT pada GPU yang memiliki sangat banyak \textit{compute unit} (\textit{thread}). Implementasi \textit{Deep Learning inference} pada \textit{mobile} GPU melalui OpenCL diharapkan memberikan performa yang baik.
 
 %-----------------------------------------------------------------------------%
 \section{Permasalahan}
 %-----------------------------------------------------------------------------%
 Pada bagian ini akan dijelaskan mengenai definisi permasalahan 
-yang \saya~hadapi dan ingin diselesaikan serta asumsi dan batasan 
-yang digunakan dalam menyelesaikannya.
-
-
+yang penulis hadapi dan ingin diselesaikan serta asumsi dan batasan yang digunakan dalam menyelesaikannya.
 %-----------------------------------------------------------------------------%
 \subsection{Definisi Permasalahan}
 %-----------------------------------------------------------------------------%
-Berikut adalah permasalahan-permasalahan yang mendorong dilaksanakannya penelitian ini.
+Berikut adalah permasalahan-permasalahan yang akan dijawab dalam penelitian ini.
 \begin{enumerate}
-\item Apakah OpenCL dan Vulkan dapat diterapkan pada Tensorflow Lite untuk Deep Learning inference menggunakan \mobile GPU?
-\item Bagaimana pengaruh penerapan pemrograman GPU untuk \inference pada model-model \deeplearning pada perangkat \mobile?
-\item Bagaimana perbandingan kecepatan, penggunaan memori, dan penggunaan baterai pada \deeplearning \inference menggunakan CPU dan GPU?
-\item Operasi-operasi \deeplearning \inference apa saja yang lebih baik dijalankan pada \mobile GPU?
-\item Apakah terdapat perbedaan performa dari OpenCL dan Vulkan dalam melakukan komputasi pada GPU?
+\item Apakah OpenCL dapat digunakan untuk menjalankan operasi-operasi \textit{inference} di GPU melalui Tensorflow Lite?
+\item Bagaimana perbandingan kecepatan Tensorflow Lite \textit{kernel} yang berjalan di GPU melalui OpenCL dengan Tensorflow Lite \textit{kernel} yang berjalan di CPU?
+\item Dimanakah letak \textit{bottleneck} (pada komputasi atau pada baca/tulis memori) dari penggunaan OpenCL untuk menjalankan operasi-operasi \textit{inference} di GPU?
 
 \end{enumerate}
 
 %-----------------------------------------------------------------------------%
 \subsection{Batasan Permasalahan}
 %-----------------------------------------------------------------------------%
-Batasan-batasan penelitian pada Tugas Akhir ini antara lain:
+Berikut adalah batasan dan asumsi pada penelitian.
 \begin{enumerate}
-\item Implementasi OpenCL dan Vulkan hanya berlaku untuk perangkat \textit{Android} saja.
-\item OpenCL dan Vulkan hanya diterapkan pada beberapa operasi \deeplearning \inference pada kode sumber Tensorflow Lite, antara lain perkalian matriks dan konvolusi matriks.
-\item Pengujian hanya dilakukan terhadap beberapa arsitektur \conv \nn, antara lain Inception, LeNet, dan MobileNet, yang telah mencakup operasi konvolusi dan perkalian matriks.
-\item Penulis mengasumsikan bahwa perangkat yang digunakan hanya menggunakan sumber daya multi-core CPU dan GPU beserta memorinya, terlepas dari dorongan performa yang berasal dari perangkat tambahan.
+\item Implementasi Tensorflow Lite \textit{kernel} yang menggunakan OpenCL hanya dapat digunakan untuk perangkat \textit{Android} saja.
+\item Penulis hanya mengimplementasikan Tensorflow Lite \textit{kernel} melalui OpenCL untuk dua operasi \textit{inference} saja yaitu perkalian konvolusi matriks dan perkalian matriks-matriks.
+\item Implementasi konvolusi matriks hanya dapat digunakan untuk konvolusi dengan \textit{stride} sebesar 1 ke kanan dan 1 ke bawah.
+\item Hasil implementasi OpenCL hanya dapat digunakan untuk \textit{convolution layer} dan \textit{fully-connected layer} saja.
+\item Penulis mengasumsikan bahwa perangkat yang digunakan hanya menggunakan sumber daya \textit{multi-core} CPU dan GPU beserta memorinya, terlepas dari dorongan performa yang berasal dari perangkat tambahan.
 \end{enumerate}
 
 %-----------------------------------------------------------------------------%
@@ -53,11 +47,9 @@ Batasan-batasan penelitian pada Tugas Akhir ini antara lain:
 %-----------------------------------------------------------------------------%
 Tujuan dari penelitian ini adalah sebagai berikut.
 \begin{enumerate}
-\item Mengimplementasikan OpenCL dan Vulkan code untuk penggunaan mobile GPU pada operasi-operasi Deep Learning inference.
-\item Mengetahui pengaruh penggunaan mobile GPU melalui OpenCL dan Vulkan pada proses inference pada model-model Deep Learning.
-\item Membandingkan performa, penggunaan memori, dan penggunaan baterai pada proses inference pada CPU dan GPU.
-\item Mengetahui operasi-operasi Deep Learning inference pada yang lebih baik bila dijalankan pada GPU melalui OpenCL dan Vulkan.
-\item Mengetahui perbedaan pengaruh masing-masing API (OpenCL dan Vulkan) terhadap performa inference.
+\item Mengimplementasikan operasi-operasi \textit{Deep Learning inference} berupa Tensorflow Lite \textit{kernel} menggunakan OpenCL agar dapat dijalankan di GPU.
+\item Membandingkan kecepatan Tensorflow Lite \textit{kernel} \textit{inference} yang berjalan di GPU melalui OpenCL dengan Tensorflow Lite \textit{kernel} yang berjalan di CPU.
+\item Mengetahui letak \textit{bottleneck} (pada komputasi atau pada baca/tulis memori) dari penggunaan OpenCL untuk menjalankan operasi-operasi \textit{inference} di GPU.
 
 \end{enumerate}
 
@@ -65,19 +57,4 @@ Tujuan dari penelitian ini adalah sebagai berikut.
 %\section{Posisi Penelitian}
 %-----------------------------------------------------------------------------%
 
-
-%-----------------------------------------------------------------------------%
-\section{Metodologi Penelitian}
-%-----------------------------------------------------------------------------%
-Metodologi penelitian pada Tugas Akhir ini adalah sebagai berikut.
-\begin{enumerate}
-\item Menentukan Tensorflow Lite dan OpenCL sebagai \framework dan API yang digunakan untuk melakukan penelitian.
-\item Mempelajari kode sumber Tensorflow Lite.
-\item Mempelajari OpenCL beserta teknik pemrograman GPU.
-\item Mengimplementasikan OpenCL code untuk beberapa operasi \deeplearning \inference.
-\item Melakukan eksperimen menggunakan hasil implementasi.
-\item Mengoptimalkan implementasi sebelumnya.
-\item Melakukan eksperimen menggunakan hasil implementasi yang sudah dioptimalkan.
-\item Melaporkan hasil eksperimen sebagai karya tulis.
-\end{enumerate}
 

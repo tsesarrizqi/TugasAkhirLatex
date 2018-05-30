@@ -1,42 +1,66 @@
 \relax 
 \providecommand\hyper@newdestlabel[2]{}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}\uppercase {Metodologi}}{22}{chapter.2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}\uppercase {Metodologi}}{14}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Metode Implementasi }{22}{section.2.1}}
-\citation{matmulblock}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Bagian Tensorflow Lite yang dioptimasi.\relax }}{23}{figure.caption.23}}
-\newlabel{fig:modifieddiagram}{{2.1}{23}{Bagian Tensorflow Lite yang dioptimasi.\relax }{figure.caption.23}{}}
-\citation{convblock}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Perkalian matriks per blok.\relax }}{24}{figure.caption.24}}
-\newlabel{fig:matmulblock2}{{2.2}{24}{Perkalian matriks per blok.\relax }{figure.caption.24}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Metode Pengujian }{24}{section.2.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Metode Implementasi }{14}{section.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Modifikasi Tensorflow Lite \textit  {kernel} dengan menambahkan satu jenis \textit  {kernel} baru untuk operasi perkalian matriks-matriks dan konvolusi matriks yang diimplementasikan melalui OpenCL dan berjalan di GPU.\relax }}{15}{figure.caption.20}}
+\newlabel{fig:modifieddiagram}{{3.1}{15}{Modifikasi Tensorflow Lite \textit {kernel} dengan menambahkan satu jenis \textit {kernel} baru untuk operasi perkalian matriks-matriks dan konvolusi matriks yang diimplementasikan melalui OpenCL dan berjalan di GPU.\relax }{figure.caption.20}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Persiapan OpenCL yang dilakukan satu kali pada awal berjalannya aplikasi.\relax }}{15}{table.caption.21}}
+\newlabel{tab:SetupCL}{{3.1}{15}{Persiapan OpenCL yang dilakukan satu kali pada awal berjalannya aplikasi.\relax }{table.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Metode persiapan untuk OpenCL yang dilakukan hanya satu kali di awal berjalannya suatu aplikasi \textit  {Deep Learning}. Persiapan dilakukan ketika \textit  {interpreter} melakukan inisiasi model.\relax }}{16}{figure.caption.22}}
+\newlabel{fig:initcl}{{3.2}{16}{Metode persiapan untuk OpenCL yang dilakukan hanya satu kali di awal berjalannya suatu aplikasi \textit {Deep Learning}. Persiapan dilakukan ketika \textit {interpreter} melakukan inisiasi model.\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Proses menyalin data masukan dan keluaran antara memori CPU dan GPU dilakukan pada setiap \textit  {inference}. Proses menyalin data tidak dapat dilakukan satu kali saja karena data bersifat dinamis.\relax }}{16}{figure.caption.23}}
+\newlabel{fig:copydata}{{3.3}{16}{Proses menyalin data masukan dan keluaran antara memori CPU dan GPU dilakukan pada setiap \textit {inference}. Proses menyalin data tidak dapat dilakukan satu kali saja karena data bersifat dinamis.\relax }{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Metode Implementasi Konvolusi Matriks }{16}{subsection.3.1.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Struktur linear matriks masukan dan keluaran yang disimpan di memori GPU untuk operasi konvolusi. Elemen ke-15 dari data linear tersebut adalah elemen pada kanal ke-7, kolom ke-2, baris ke-1 dan \textit  {batch} ke-1 dari matriks.\relax }}{16}{figure.caption.24}}
+\newlabel{fig:linearconv}{{3.4}{16}{Struktur linear matriks masukan dan keluaran yang disimpan di memori GPU untuk operasi konvolusi. Elemen ke-15 dari data linear tersebut adalah elemen pada kanal ke-7, kolom ke-2, baris ke-1 dan \textit {batch} ke-1 dari matriks.\relax }{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Struktur \textit  {work-space} untuk konvolusi matriks. Dalam kasus ini $W_o$ adalah kelipatan 32 dan $H_o$ adalah kelipatan 8.\relax }}{17}{figure.caption.25}}
+\newlabel{fig:wiconv}{{3.5}{17}{Struktur \textit {work-space} untuk konvolusi matriks. Dalam kasus ini $W_o$ adalah kelipatan 32 dan $H_o$ adalah kelipatan 8.\relax }{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Blok pada matriks \textit  {output} yang dikomputasi oleh suatu \textit  {work-group}. Blok tersebut terdiri dari empat kanal. Blok berwarna abu-abu pada matriks \textit  {output} merupakan hasil konvolusi dari blok abu-abu dari matriks \textit  {image}.\relax }}{17}{figure.caption.26}}
+\newlabel{fig:convblock}{{3.6}{17}{Blok pada matriks \textit {output} yang dikomputasi oleh suatu \textit {work-group}. Blok tersebut terdiri dari empat kanal. Blok berwarna abu-abu pada matriks \textit {output} merupakan hasil konvolusi dari blok abu-abu dari matriks \textit {image}.\relax }{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Operasi konvolusi dilakukan dalam $ceil(C_i/4)$ iterasi dimana $C_i$ adalah kedalaman \textit  {image}. Setiap iterasi melibatkan blok matriks \textit  {image} dengan kedalaman 4, sesuai dengan panjang vektor $float4$.\relax }}{18}{figure.caption.27}}
+\newlabel{fig:conviter}{{3.7}{18}{Operasi konvolusi dilakukan dalam $ceil(C_i/4)$ iterasi dimana $C_i$ adalah kedalaman \textit {image}. Setiap iterasi melibatkan blok matriks \textit {image} dengan kedalaman 4, sesuai dengan panjang vektor $float4$.\relax }{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces \textit  {Local memory cahing} terhadap matriks \textit  {image} pada suatu iterasi dalam kasus \textit  {filter} berukuran panjang dan lebar $3 \times 3$. \textit  {Work-item} dengan nomor $i$ bertugas menyalin vektor-vektor $float4$ dari \textit  {image} dengan nomor $i$ ke local memory.\relax }}{18}{figure.caption.28}}
+\newlabel{fig:convlocal}{{3.8}{18}{\textit {Local memory cahing} terhadap matriks \textit {image} pada suatu iterasi dalam kasus \textit {filter} berukuran panjang dan lebar $3 \times 3$. \textit {Work-item} dengan nomor $i$ bertugas menyalin vektor-vektor $float4$ dari \textit {image} dengan nomor $i$ ke local memory.\relax }{figure.caption.28}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Metode Implementasi Perkalian Matriks-Matriks }{18}{subsection.3.1.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Struktur linear matriks A, B, dan C pada operasi perkalian matriks-matriks. A dan C disimpan secara \textit  {row-major}, sedangkan B secara \textit  {column-major}.\relax }}{19}{figure.caption.29}}
+\newlabel{fig:linearmatmat}{{3.9}{19}{Struktur linear matriks A, B, dan C pada operasi perkalian matriks-matriks. A dan C disimpan secara \textit {row-major}, sedangkan B secara \textit {column-major}.\relax }{figure.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Struktur \textit  {work-space} untuk perkalian matriks-matriks. Dalam kasus ini tinggi \textit  {work-space} adalah kelipatan 32 dan lebarnya adalah kelipatan 8.\relax }}{19}{figure.caption.30}}
+\newlabel{fig:wimatmat}{{3.10}{19}{Struktur \textit {work-space} untuk perkalian matriks-matriks. Dalam kasus ini tinggi \textit {work-space} adalah kelipatan 32 dan lebarnya adalah kelipatan 8.\relax }{figure.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Perkalian antara dua blok $32 \times K$ dan $K \times 32$ pada matriks A dan B sehingga menghasilkan satu blok $32 \times 32$ pada matriks C. Ukuran work-group dalam kasus ini adalah $32 \times 8$.\relax }}{20}{figure.caption.31}}
+\newlabel{fig:blockmatmat}{{3.11}{20}{Perkalian antara dua blok $32 \times K$ dan $K \times 32$ pada matriks A dan B sehingga menghasilkan satu blok $32 \times 32$ pada matriks C. Ukuran work-group dalam kasus ini adalah $32 \times 8$.\relax }{figure.caption.31}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces Operasi perklaian matriks-matriks yang dilakukan dalam $ceil(K/32)$ iterasi pada kasus ukuran work-group $32 \times 8$. Setiap iterasi melibatkan blok matriks A dengan lebar 32 dan blok matriks B dengan tinggi 32.\relax }}{20}{figure.caption.32}}
+\newlabel{fig:matmatiter}{{3.12}{20}{Operasi perklaian matriks-matriks yang dilakukan dalam $ceil(K/32)$ iterasi pada kasus ukuran work-group $32 \times 8$. Setiap iterasi melibatkan blok matriks A dengan lebar 32 dan blok matriks B dengan tinggi 32.\relax }{figure.caption.32}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.13}{\ignorespaces Pembagian kerja untuk menyalin blok matriks A dan B dari \textit  {global memory} ke \textit  {local memory} pada \textit  {work-group} dengan ukuran $32 \times 8$. Masing-masing \textit  {work-item} menyalin dua vektor $float4$. \textit  {Work-item} merah memuat vektor berwarna merah dan \textit  {work-item} biru memuat vektor berwarna biru.\relax }}{20}{figure.caption.33}}
+\newlabel{fig:localmatmat}{{3.13}{20}{Pembagian kerja untuk menyalin blok matriks A dan B dari \textit {global memory} ke \textit {local memory} pada \textit {work-group} dengan ukuran $32 \times 8$. Masing-masing \textit {work-item} menyalin dua vektor $float4$. \textit {Work-item} merah memuat vektor berwarna merah dan \textit {work-item} biru memuat vektor berwarna biru.\relax }{figure.caption.33}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Metode Eksperimen }{21}{section.3.2}}
 \@setckpt{bab3}{
-\setcounter{page}{26}
+\setcounter{page}{22}
 \setcounter{equation}{0}
-\setcounter{enumi}{8}
+\setcounter{enumi}{4}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
 \setcounter{enumiv}{0}
 \setcounter{footnote}{0}
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
-\setcounter{chapter}{2}
+\setcounter{chapter}{3}
 \setcounter{section}{2}
 \setcounter{subsection}{0}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{2}
-\setcounter{table}{0}
-\setcounter{Item}{48}
+\setcounter{figure}{13}
+\setcounter{table}{1}
+\setcounter{Item}{30}
 \setcounter{Hfootnote}{0}
-\setcounter{bookmark@seq@number}{30}
+\setcounter{bookmark@seq@number}{32}
 \setcounter{ContinuedFloat}{0}
 \setcounter{parentequation}{0}
 \setcounter{AM@survey}{0}
 \setcounter{float@type}{8}
-\setcounter{lstnumber}{13}
+\setcounter{lstnumber}{1}
 \setcounter{section@level}{1}
 \setcounter{lstlisting}{0}
 }

@@ -1,329 +1,185 @@
 %-----------------------------------------------------------------------------%
-chapter{\babDua}
+\chapter{\babDua}
 %-----------------------------------------------------------------------------%
 Bagian ini menjelaskan teori-teori yang digunakan dalam penelitian. Teori yang dimaksud adalah pengetahuan yang terkait dengan pelaksanaan penelitian.
 
 %-----------------------------------------------------------------------------%
 \section{Deep Learning}
-%-----------------------------------------------------------------------------%
-\deeplearning merupakan algoritma \ml yang memanfaatkan arsitektur \nn. Cara kerja arsitektur ini terinspirasi oleh struktur otak manusia yang tersusun dari neuron-neuron. Berbeda dengan Artificial Neural Network biasa, Neural Network pada Deep Learning memiliki struktur yang lebih kompleks, terdiri dari lebih dari satu hidden layer. Ide utama dari Deep Learning adalah bagaimana komputer dapat belajar dari pengalaman dengan cara melatih \nn menggunakan data-data yang berjumlah besar. \deeplearning merupakan salah satu contoh dari \textit{Supervised Learning} yang berarti \nn dilatih menggunakan data yang telah diketahui labelnya. \nn yang telah dilatih dapat digunakan untuk menentukan label atau skor dari data-data baru \cite{deeplearning2}. 
+%-----------------------------------------------------------------------------%7
+\textit{Deep Learning} merupakan salah satu bentuk \textit{Representation Learning} yang memungkinkan suatu mesin untuk diberikan sekumpulan data mentah, kemudian mesin tersebut dapat secara otomatis menemukan representasi data (\textit{feature vector}) yang diperlukan untuk melakukan klasifikasi atau deteksi. \textit{Deep Learning} dikenal memiliki akurasi yang lebih tinggi daripada algoritma \textit{Machine Learning} konvensional dalam melakukan klasifikasi atau deteksi. \textit{Deep Learning} memanfaatkan arsitektur \textit{Neural Network} sebagai model. Arsitektur ini terinspirasi dari otak manusia yang terdiri dari banyak neuron. Model \textit{Deep Learning} dilatih menggunakan sekumpulan data yang telah diketahui labelnya. Oleh karena itu, \textit{Deep Learning} merupakan salah satu bentuk dari \textit{Supervised Learning} \cite{deeplearning}. 
 
-Deep Learning dikenal memiliki akurasi yang lebih tinggi dibandingkan algoritma Machine Learning konvensional karena kompeksitas Neural network yang digunakan. Akurasi dari prediksi/inference bergantung pada jenis arsitektur \nn, kualitas dan kuantitas data yang digunakan untuk melatih, serta jenis permasalahan yang diselesaikan. Pada Deep Learning terdapat berbagai jenis arsitektur. Tiga arsitektur yang populer adalah Deep Neural Network, Convolutional Neural Network, dan Recurrent Neural Network. Deep Neural Network. Masing-masing arsitektur memiliki kelebihan dan kekurangan masing-masing. Untuk setiap permasalahan perlu dipilih arsitektur yang tepat agar mendapatkan akurasi maksimal.
-
-Deep Neural Network (DNN) merupakan jenis arsitektur Deep Learning yang paling sederhana. DNN merupakan \nn yang terdiri dari satu input layer, satu atau lebih hidden layer, dan satu output layer. Layer-layer pada arsitektur ini merupakan fully connected layer. Setiap layer tersusun dari node-node yang masing-masing terhubung dengan semua node dari layer-layer tetangganya. Nilai dari suatu node pada layer ke-l merupakan hasil penerapan suatu activation function terhadap perkalian dari node-node pada layer ke-(l-1) dengan weight parameter tertentu \cite{deeplearningmatrix}. \pic~\ref{fig:dnn} menunjukkan contoh arsitektur DNN.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.50\textwidth]
-	{pics/dnn.png}
-	\caption{Contoh Arsitektur Deep Neural Network.}
-	\label{fig:dnn}
-\end{figure}
-
-Karena arsitekturnya yang sederhana, DNN pada banyak kasus memiliki performa yang tidak sebaik arsitektur lain seperti CNN atau RNN. DNN lebih tepat digunakan untuk melakukan tugas-tugas prediksi sederhana. Fitur-fitur dari data harus sudah ditentukan terlebih dahulu apabila ingin melakukan training dan inference pada DNN. Beban komputasi DNN lebih ringan dari arsitektur lain seperti CNN.
-
-Convolutional Neural Network (CNN) merupakan arsitektur \deeplearning yang sering digunakan dalam bidang pengolahan citra. CNN pada umumnya terdiri dari beberapa convolution layer, pooling layer, dan fully-connected layer. Convolution layer dan Pooling layer merupakan jenis layer pada CNN yang tidak terdapat pada arsitektur-arsitektur lain. Convolution layer biasanya berfungsi untuk mengekstrak fitur-fitur dari data yang akan diprediksi secara otomatis. Pada DNN fitur-fitur dari data harus ditentukan sendiri secara manual. Pada convolution layer terjadi operasi konvolusi terhadap input menggunakan suatu kernel tertentu. Pooling layer berfungsi untuk mereduksi ukuran data dengan cara melakukan sampling. Data yang direduksi biasanya adalah keluaran dari convolution layer \cite{deeplearningmatrix}. Fully-connected layer biasanya diletakkan pada bagian akhir arsitektur CNN. layer ini berfungsi untuk melakukan prediksi, sama seperti DNN, dengan menggunakan fitur-fitur hasil ekstraksi convolution layer. \pic~\ref{fig:cnn} merupakan contoh arsitektur CNN.
+Contoh model \textit{Deep Learning} yang sangat terkenal adalah \textit{Convolutional Neural Network} (CNN). CNN didesain untuk memproses data berupa \textit{multi-dimensional array}, contohnya data citra. CNN sering digunakan dalam aplikasi pengenalan citra dan deteksi objek pada citra. CNN tersusun dari beberapa \textit{convolution layer} yang berfungsi untuk mengekstrak fitur-fitur dari data dengan cara melakukan konvolusi menggunakan suatu \textit{filter} \cite{deeplearningmatrix}. \textit{Convolution layer} biasanya disambungkan ke \textit{pooling layer}, yaitu \textit{layer} yang berfungsi untuk mereduksi ukuran matriks dengan cara melakukan \textit{downsampling}. Pada bagian akhir model biasanya juga terdapat \textit{fully-connected layer} yang bertugas melakukan klasifikasi menggunakan fitur-fitur yang didapat dari proses konvolusi pada \textit{convolution layer}. \pic~\ref{fig:cnn} merupakan contoh model CNN.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.50\textwidth]
 	{pics/cnn.png}
-	\caption{Contoh Arsitektur \conv \nn.}
+	\caption{Contoh model Convolutional Neural Network (CNN). Pada model ini terdapat \textit{convolution layer}, \textit{pooling layer}, dan \textit{fully-connected layer}.}
 	\label{fig:cnn}
 \end{figure}
 
-Recurrent Neural Network (RNN) merupakan arsitektur Deep Learning yang dapat digunakan untuk jenis data yang bersifat sekuensial. Arsitektur ini terdiri dari input layer, hidden layer, dan output layer yang mengandung loop. Hasil prediksi dari output layer pada suatu waktu \textit{t} digunakan untuk mengubah parameter dari layer-layer sebelumnya untuk melakukan prediksi pada waktu \textit{t+1}. Jadi dapat dikatakan bahwa output dari suatu layer pada suatu waktu bergantung pada output dari layer itu sendiri pada waktu-waktu sebelumnya \cite{deeplearning2}. \pic~\ref{fig:rnn} merupakan contoh arsitektur RNN.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.50\textwidth]
-	{pics/rnn.jpeg}
-	\caption{Contoh Arsitektur Recurrent Neural Netowork.}
-	\label{fig:rnn}
-\end{figure}
-
-RNN sering digunakan dalam bidang Natural Language Processing (NLP) karena tugas-tugas pada NLP pada umumnya melibatkan  pengolahan teks atau suara dengan aturan bahasa, sehingga datanya bersifat sekuensial. 
-
-Dengan melihat contoh-contoh arsitektur \deeplearning di atas, dapat diketahui bahwa Deep Learning memiliki beban komputasi yang cukup besar, terutama pada CNN, karena melibatkan banyak parameter dan banyak layer. Oleh karena itu, penggunaan CPU saja dirasa kurang cukup dalam menjalankan operasi-operasi pada Deep Learning.
 %-----------------------------------------------------------------------------%
 \section{Deep Learning Training dan Inference}
 %-----------------------------------------------------------------------------%
-Sama seperti \nn biasa, arsitektur \nn dalam Deep Learning memiliki parameter \weight pada setiap layer yang digunakan untuk menghitung skor dari input pada suatu \layer dan meneruskannya ke \layer berikutnya. Deep Learning terdiri dari dua  tahap yaitu training dan inference. Pada tahap training, model \nn dilatih menggunakan sekumpulan data. Dalam proses ini weight parameter terus-menerus memperbarui nilainya hingga pada akhirnya konvergen. Nilai parameter yang konvergen menandakan weight tersebut telah merepresentasikan data-data training \cite{deeplearningmatrix}.
+\textit{Deep Learning} merupakan algoritma yang terdiri dari dua tahap, yaitu \textit{training} dan \textit{inference}. Pada tahap \textit{training}, model dilatih menggunakan sekumpulan data. Pada awal \textit{training}, \textit{weight} inisial diberikan kepada model, biasanya berupa angka-angka acak berdasarkan suatu distribusi tertentu. Selanjutnya, data training dimasukkan ke model. Model melakukan \textit{forward pass} atau prediksi terhadap data tersebut menggunakan \textit{weight} sehingga akan diperoleh skor atau label dari data pada \textit{output layer}. Label hasil prediksi kemudian dibandingkan dengan label asli dari data dan dihitung nilai galatnya menggunakan fungsi tertentu. Informasi galat ini kemudian dikirim kembali ke semua \textit{layer} pada model dan digunakan untuk memperbarui nilai \weight pada tiap \textit{layer}. Proses mengirim kembali informasi galat ini disebut \textit{back propagation} \cite{trainvsinfer}. 
 
-Untuk mengawali proses \training, \weight awal diberikan terlebih dahulu kepada model. Biasanya \weight awal ini merupakan angka-angka acak berdasarkan suatu distribusi tertentu. Selanjutnya, model dengan \weight awal yang belum tersebut digunakan untuk melakukan prediksi label atau skor dari data-data training dengan cara melakukan \textit{forward pass} di sepanjang model, mulai dari \layer pertama (input \layer) hingga mencapai \layer terakhir (\outputa \layer). Hasil prediksi pada output layer kemudian dibandingkan dengan label aslinya. Nilai \error dari prediksi dapat dihitung menggunakan fungsi error tertentu, misalnya \textit{Mean Square Error}. Informasi \error ini kemudian dikirim kembali ke \layer-\layer sebelumnya dan akan digunakan oleh \layer-\layer terebut untuk memperbarui parameter \weight. \textit{Weight} dapat diperbarui menggunakan algoritma atau fungsi pembaruan \weight tertentu. Proses mengembalikan \error ke belakang ini disebut \textit{back propagation} \cite{trainvsinfer}. 
-
-Setelah \training selesai, model \nn dapat digunakan untuk melakukan proses \inference. Tahap \inference merupakan tahap dimana model yang telah dilatih digunakan untuk melakukan prediksi. Proses prediksi ini sama seperti prediksi ketika melakukan \training, yaitu dengan melakukan \textit{forward-pass} terhadap input data mulai dari \inputa \layer hingga \outputa \layer pada model. Letak perbedaan proses \inference dan \training adalah pada tahap \textit{back-propagation}. Setelah melakukan prediksi pada proses \inference, tidak lagi dilakukan \textit{back-propagation} terhadap \error hasil prediksi seperti pada proses \training. Tujuan dari \inference adalah hanyalah mendapatkan hasil prediksi skor atau label yang dikeluarkan oleh model yang telah dilatih \cite{trainvsinfer}. 
-
-\pic~\ref{fig:trainvsinfer} menunjukkan perbedaan proses \training dan \inference pada Deep Learning. Terlihat bahwa pada tahap \training terjadi pemrosesan data pada dua arah (forward-pass dan back-propagation), sedangkan pada \inference hanya terjadi satu arah (forward-pass saja).
+Model yang telah dilatih pada tahap \textit{training} dapat digunakan untuk melakukan \textit{inference}. \textit{Inference} merupakan tahap dimana model melakukan \textit{forward pass} terhadap data baru menggunakan model yang telah dilatih. Perbedaan utama dari \textit{training} dan \textit{inference} adalah bahwa pada \textit{inference} tidak terdapat \textit{back-propagation} setelah melakukan \textit{forward-pass}, karena tujuan dari \textit{inference} hanyalah mendapatkan hasil prediksi skor atau label dari data baru \cite{trainvsinfer}. \pic~\ref{fig:trainvsinfer} menunjukkan perbedaan proses \textit{training} dan \textit{inference}. Terlihat bahwa pada \textit{training} terjadi pemrosesan dua arah, sedangkan pada \textit{inference} hanya satu arah.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.50\textwidth]
 	{pics/trainingvsinference.png}
-	\caption{Perbedaan proses \training dan \inference pada \deeplearning.}
+	\caption{Perbedaan \textit{training} dan \textit{inference} pada \textit{Deep Learning}. \textit{Training} merupakan proses dua arah, sedangkan \textit{inference} hanya satu arah.}
 	\label{fig:trainvsinfer}
 \end{figure}
 
 \section{Operasi-operasi Deep Learning Inference}
 %-----------------------------------------------------------------------------%
-Tahap inference pada Deep Learning melibatakan banyak operasi matriks. Matriks yang dioperasikan biasanya adalah input data dan weight atau kernel pada suatu layer. Perkalian matriks-vector dan konvolusi merupakan dua operasi pada Deep Learning Inference yang memiliki kompleksitas tinggi. Berikut adalah penjelasan lebih lanjut mengenai dua operasi tersebut.
-
-\subsection{Perkalian Matriks-Vector}
-Operasi perkalian matriks-vector pada Deep Learning inference merupakan salah satu operasi yang memiliki beban komputasi terbesar. Perkalian matriks-vector dapat terjadi pada fully-connected layer. Pada layer ke-\textit{l}, parameter \textit{weight} disimpan dalam bentuk matriks yang berukuran \textit{MxN} dimana \textit{M} adalah banyaknya node pada layer ke-l dan \textit{N} adalah banyaknya node pada layer ke-(l-1) \cite{deeplearningmatrix}. Baris ke-i pada \textit{weight} matriks dari layer ke-l tersebut merupakan weight dari node ke-i pada layer ke-l. Untuk memperoleh nilai node-node pada layer ke-l, matrix \textit{MxN} tersebut dikalikan dengan vector sepanjang \textit{N} yang berisi nilai-nilai node pada layer ke-(l-1). Hasilnya adalah vector sepanjang \textit{M}. Jika ada, bias ditambahkan kepada vector tersebut. Selanjutnya, activation function diterapkan terhadap setiap elemen vector sehingga menghasilkan vector sepanjang \textit{M} yang merupakan nilai node-node pada layer ke-l. \pic~\ref{fig:fcmatmul} adalah ilustrasi dari operasi perkalian matriks-vector pada fully-connected layer.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.50\textwidth]
-	{pics/fcmatmul.png}
-	\caption{Ilustrasi perkalian matriks dengan vector pada fully-connected layer saat mengalikan weight dengan input.}
-	\label{fig:fcmatmul}
-\end{figure}
-
-Misalkan matrix weight untuk layer ke-l adalah \textit{Mat} dan vector input dari layer ke-(l-1) adalah \textit{Vec}, kompleksitas dari operasi perkalian matriks pada layer ke-l dapat dihitung sebagai berikut.
-
-\noindent \begin{align}\label{eq:mamulcomplexity} \nonumber
-	dot(Mat[row=1], Vec[col=1]) &= O(N) \\ \nonumber
-	dot(Mat[row=2], Vec[col=1]) &= O(N) \\ \nonumber
-	.\\ \nonumber
-	.\\ \nonumber
-	.\\ \nonumber
-	dot(Mat[row=M], Vec[col=1]) &= O(N) \\ 
-	\cline{1-2}
-	\nonumber Total kompelksitas &= M*O(N) \\ 
-	 &= O(MN)
-\end{align} 
+Tahap \textit{inference} pada \textit{Deep Learning} melibatakan banyak operasi-operasi matriks. Konvolusi matriks dan perkalian matriks-matriks merupakan beberapa operasi pada \textit{Deep Learning} \textit{inference} yang memiliki beban komputasi besar. Dua operasi ini merupakan dua operasi yang diamati pada penelitian ini. Berikut adalah penjelasan lebih lanjut mengenai tiga operasi tersebut.
 
 \subsection{Konvolusi Matriks}
-Operasi konvolusi terjadi pada convolution layer dari CNN. Konvolusi merupakan penerapan filter/kernel terhadap input dengan mengkonvolusikan kernel tersebut \cite{deeplearningmatrix}. Proses konvolusi dapat menggunakan satu atau lebih filter. Input, output, dan filter pada convolution layer masing-masing merupakan matriks 3 dimensi yang merepresentasikan lebar, tinggi, dan kedalaman (channel). Ukuran dari input, filter, dan output pada convolution layer memilliki beberapa aturan sebagai berikut. 
+Operasi konvolusi matriks terjadi pada \textit{convolution layer} dari CNN. Operasi ini melibatkan tiga buah matriks yaitu matriks \textit{image}, matriks \textit{filter}, dan matriks \textit{output}. Matriks-matriks tersebut memiliki tiga dimensi yang merepresentasikan kanal, baris, dan kolom. Kanal adalah sumbu-z dari matriks. Banyaknya kanal menyatakan kedalaman matriks. Baris merupakan sumbu-y dari matriks. Banyaknya baris menyatakan ketinggian matriks. Kolom merupakan sumbu-x dari matriks. Banyaknya kolom menyatakan lebar matriks.
+
+Pada \textit{convolution layer}, \textit{filter} dikonvolusikan terhadap matriks \textit{image}. Suatu \textit{image} dapat dikonvolusi menggunakan satu atau lebih \textit{filter}. Karena itu, \textit{filter} sebenarnya adalah matriks empat dimensi yaitu kanal, baris, kolom, dan \textit{batch}. Besarnya \textit{batch} menyatakan banyaknya \textit{filter} tiga dimensi kanal, baris, dan kolom. Konvolusi dari satu \textit{batch} dari \textit{filter} menghasilkan satu kanal tersendiri pada matriks \textit{output}, sehingga besarnya \textit{batch} dari \textit{filter} akan selalu sama dengan banyaknya kanal (kedalaman) \textit{output} \cite{deeplearningmatrix}. Berikut adalah beberapa aturan mengenai ukuran matriks \textit{image}, \textit{filter}, \textit{bias}, dan \textit{output} pada convolution layer. 
 
 \begin{enumerate}
-\item Tinggi dan lebar filter selalu lebih kecil atau sama dengan tinggi dan lebar intput.
-\item Kedalaman input selalu sama dengan kedalaman filter.
-\item Banyaknya filter sama dengan kedalaman output.
-\item Tinggi dan lebar output selalu lebih kecil atau sama dengan tinggi dan lebar intput.
+\item Tinggi dan lebar \textit{filter} selalu lebih kecil atau sama dengan tinggi dan lebar \textit{image}.
+\item Kedalaman \textit{image} selalu sama dengan kedalaman \textit{filter}.
+\item Besarnya \textit{batch} selalu sama dengan kedalaman \textit{output}.
+\item Tinggi dan lebar \textit{bias} selalu sama dengan satu.
+\item Kedalaman \textit{bias} selalu sama dengan kedalaman \textit{output}.
+\item Tinggi dan lebar \textit{output} selalu lebih kecil atau sama dengan tinggi dan lebar \textit{image}.
 \end{enumerate}	
 
-Pada proses konvolusi, posisi filter dimulai dari ujung kiri atas dari input. Filter kemudian bergeser ke kanan dan kebawah dengan stride (jarak geser) yang ditentukan. Pada suatu posisi filter, masing-masing elemen pada filter dikalikan dengan elemen-elemen matriks input yang bersesuaian dengan posisi filter tersebut (seperti dot product pada vector). Hasil dari satu kali operasi tersebut merupakan satu elemen dari matriks output pada posisi yang bersesuaian.  Sehingga, setelah proses konvolusi selesai untuk satu filter, akan terbentuk satu lapis output dua dimensi. Jika semua filter sudah diterapkan, maka akan terbentuk output tiga dimensi dengan kedalaman sesuai dengan banyaknya filter. \pic~\ref{fig:conv} menunjukkan contoh operasi konvolusi dengan input berukuran 5x5x1, filter berukuran 3x3x1, dan nilai stride 1.
+Pada operasi konvolusi, posisi \textit{filter} dimulai dari ujung kiri atas dari \textit{image}. \textit{Filter} kemudian bergeser ke kanan dan kebawah dengan jarak geser (\textit{stride}) yang ditentukan (pada umumnya \textit{stride} sama dengan satu). Pada suatu posisi \textit{filter}, dilakukan \textit{dot-product} antara \textit{filter} dengan sub-matriks dari \textit{image} yang bersesuaian dengan posisi filter. Satu kali operasi \textit{dot-product} tersebut menghasilkan skalar yang merupakan satu elemen dari matriks \textit{output} setelah ditambahkan bias dan diaktivasi. Setelah proses konvolusi selesai untuk satu \textit{filter}, akan terbentuk satu kanal \textit{output}. \pic~\ref{fig:conv} menunjukkan contoh operasi konvolusi dengan \textit{image} berukuran $5 \times 5 \times 1$, \textit{filter} berukuran $3 \times 3 \times 1$, dan nilai \textit{stride} satu.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.50\textwidth]
 	{pics/conv.png}
-	\caption{Contoh Operasi Konvolusi. Image merupakan gambar masukan, convolved feature merupakan keluaran dari konvolusi.}
+	\caption{Contoh operasi konvolusi. \textit{Convolved feature} adalah matriks keluaran dari konvolusi.}
 	\label{fig:conv}
 \end{figure}
 
-Pada operasi konvolusi dengan input berukuran MxNxD, filter berukuran M'xN'xD, banyak filter adalah K, kompleksitas dapat dihitung sebagai berikut. Pada suatu posisi filter, kompleksitas dot product untuk menghasilkan satu elemen output adalah sebagai berikut.
+Operasi konvolusi seperti di atas dapat dilakukan sekaligus untuk beberapa \textit{batch}. Jika \textit{batch} lebih dari satu, maka matriks-matriks \textit{image} dan \textit{output} adalah matriks empat dimensi yaitu kanal, baris, kolom, dan \textit{batch}. 
 
-\noindent \begin{align}\label{eq:dotcomplexity} Kompleksitas dot product = O(M'N'D) \end{align}
+\subsection{Perkalian Matriks-Matriks}
+Operasi perkalian matriks-matriks pada \textit{Deep Learning inference} terjadi pada \textit{fully-connected layer}. Pada \textit{layer} ke-\textit{l}, nilai \textit{weight} disimpan dalam bentuk matriks dua dimensi berukuran $M \times K$, dimana $M$ adalah banyaknya \textit{node} pada \textit{layer} ke-\textit{l} dan $K$ adalah banyaknya \textit{node} pada \textit{layer} ke-\textit{(l-1)} \cite{deeplearningmatrix}. Baris ke-\textit{i} dari matriks \textit{weight} pada \textit{layer} ke-\textit{l} tersebut merupakan vektor \textit{weight} untuk \textit{node} ke-\textit{i} pada \textit{layer} ke-\textit{l}. Untuk memperoleh nilai semua \textit{node} pada \textit{layer} ke-\textit{l}, matriks \textit{weight} dikalikan dengan vektor sepanjang $K$ yang elemen-elemennya adalah nilai-nilai \textit{node} pada \textit{layer} ke-\textit{(l-1)}. Hasilnya adalah vektor sepanjang $M$, sesuai banyaknya \textit{node} pada \textit{layer} ke-\textit{l}. Ini dapat dilihat pada \pic~\ref{fig:fcmatmul}. 
 
-\noindent Kernel bergeser sebanyak O(N) ke kanan dikalikan dengan sebanyak O(M) ke bawah. Diperoleh komleksitas geser sebagai berikut.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.50\textwidth]
+	{pics/fcmatmul.png}
+	\caption{Perkalian matriks-vektor pada \textit{fully-connected layer}. Elemen ke-$i$ pada vektor \textit{weightxinput} adalah nilai $outi$.}
+	\label{fig:fcmatmul}
+\end{figure}
 
-\noindent \begin{align}\label{eq:gesercomplexity} Kompleksitas geser kernel = O(MN) \end{align} 
+Operasi perkalian matriks $M \times K$ dengan vektor $K \times 1$ pada \textit{fully-connected layer} tersebut dapat dilakukan sekaligus untuk $N$ \textit{batch}, sehingga akan terjadi operasi perkalian matriks $M \times K$ dengan matriks $K \times N$ yang menghasilkan matriks $M \times N$.
 
-\noindent Menggunakan \equ~\ref{eq:dotcomplexity} dan \equ~\ref{eq:gesercomplexity}, diperoleh total kompleksitas sebagai berkut.
+Selain \textit{fully-connected layer}, operasi perkalian matriks-matriks juga dapat terjadi pada \textit{convolution layer}. Terdapat dua kasus yang menyebabkan terjadinya operasi ini. Kasus pertama adalah ketika operasi konvolusi melibatkan \textit{filter} yang berukuran tinggi dan lebar $1 \times 1$. \textit{Image} dapat dipandang sebagai matriks dua dimensi dengan tinggi $H_{i} \times W_{i} \times B_{i}$ dan lebar $C_{i}$ dimana $H_{i}$, $W_{i}$, $C_{i}$, dan $B_{i}$ berturut-turut adalah tinggi, lebar, banyaknya kanal, dan banyaknya \textit{batch} dari \textit{image}. Sementara itu \textit{filter} dapat dipandang sebagai matriks dua dimensi dengan tinggi $C_{f}$ dan lebar $H_{f} \times W_{f} \times B_{f}$ dimana $H_{f}$, $W_{f}$, $C_{f}$, dan $B_{f}$ berturut-turut adalah tinggi, lebar, banyaknya kanal, dan banyaknya \textit{batch} dari \textit{filter}.
 
-\noindent \begin{align}\label{eq:convcomplexity} \nonumber Total ompleksitas &= kompleksitas dot product * kompleksitas geser kernel \\ &= O(MM'NN'DK) \end{align}
-
-\noindent Dengan kompleksitas \textit{O(MM'NN'DK)}, konvolusi merupakan operasi paling mahal jika dibandingkan operasi pada layer-layer lain. 
-
-\section{Tensorflow}
-%-----------------------------------------------------------------------------%
-Tensorflow merupakan perangkat lunak \textit{open-source} yang digunakan untuk komputasi numerik menggunakan representasi graf yang membentuk serangkaian operasi \cite{tensorflow}. Node pada graf merepresentasikan suatu operasi sedangkan edge mereperesentasikan tensor atau multidimensional array yang merupakan input atau output dari suatu operasi. Tensorflow dikembangkan oleh Google untuk mendukung penelitian pada bidang \ml dan Deep Learning. Salah satu fitur menarik dari Tensorflow adalah adanya dukungan untuk Deep Learning inference pada perangkat \textit{mobile} melalui \textit{library} Tensorflow Mobile dan Tensorflow Lite. Tensorflow dan Tensorflow Lite diimplementasikan menggunakan bahasa C/C++ dengan menyediakan API dalam bahasa C++, Python, dan Java.
+Kasus kedua terjadinya perkalian matriks-matriks pada \textit{convolution layer} adalah ketika operasi konvolusi melibatkan \textit{filter} yang tinggi dan lebarnya sama dengan tinggi dan lebar \textit{image}. \textit{Image} dapat dipandang sebagai matriks dua dimensi dengan tinggi $B_{i}$ dan lebar $H_{i} \times W_{i} \times C_{i}$, sedangkan \textit{filter} dapat dipandang sebagai matriks dua dimensi dengan tinggi $H_{f} \times W_{f} \times C_{f}$ dan lebar $B_{f}$.
 
 \section{Tensorflow Lite}
 %-----------------------------------------------------------------------------%
-Tensorflow Lite merupakan salah satu library dari Tensorflow yang dapat digunakan untuk \deeplearning \inference pada perangkat mobile \cite{tflite}. Selain Tensorflow Lite, terdapat library sejenis yaitu Tensorflow Mobile. Tensorflow Lite, yang dirilis pada November 14, 2017, merupakan versi perbaikan dari Tensorflow Mobile yang telah dirilis terlebih dahulu. Tensorflow Lite mendukung penggunaan CNN, DNN, dan RNN sebagai model Neural Network. 
+TensorFlow \cite{tensorflow} adalah perangkat lunak \textit{open-source} yang merupakan \textit{library} untuk melakukan komputasi numerik menggunakan graf. \textit{Node} pada graf merepresentasikan operasi matematika, sedangkan \textit{edge} pada graf merepresentasikan \textit{multidimensional data array} (\textit{tensor}) sebagai masukan atau keluaran dari operasi pada \textit{node}. TensorFlow pada awalnya dikembangkan oleh para pengembang dan peneliti dari Google untuk keperluan penelitian di bidang \textit{Machine Learning} and \textit{Deep Learning}. Saat ini Tensorflow merupakan salah satu \textit{Machine Learning library} paling populer. API Tensorflow tersedia dalam bahasa C++, Python, Java, dan Javascript. Selain digunakan pada komputer personal atau \textit{server}, Tensorflow juga dapat digunakan untuk menjalankan \textit{Deep Learning inference} pada perangkat \textit{mobile} melalui Tensorflow Mobile dan Tensorflow Lite.
 
-Untuk menjalankan inference, Tensorflow Lite menggunakan model Neural Network yang telah dilatih dan direpresentasikan dalam file dengan ekstensi .tflite. File ini sebenarnya merupakan graf komputasi yang berisi serangkaian node (operation) dan edge (tensor). Model file tersebut dimuat oleh C++ API untuk kemudian diteruskan ke interpreter. Interpreter mengeksekusi model menggunakan serangkaian kernel yang dimuat secara selektif (hanya kernel terkait saja yang dimuat). \pic~\ref{fig:tflite} merupakan ilustrasi dari arsitektur Tensorfow Lite.
+Tensorflow Lite merupakan \textit{Machine Learning library} terbaru dari Tensorflow yang ditujukan untuk perangkat Android dan IoS \cite{tflite}. Saat ini Tensorflow Lite dapat memproses tiga jenis model \textit{Deep Learning} yaitu CNN, DNN, dan LSTM. Berbeda dengan Tensorflow Mobile, Tensorflow Lite memiliki \textit{kernel} tersendiri yang terpisah dari \textit{core} Tensorflow. \textit{Kernel} adalah implementasi operasi-operasi \textit{Deep Learning infernce} seperti perkalian matriks, konvolusi, dan transpose matriks. Tensorflow Lite memiliki suatu jenis \textit{kernel} yang telah dioptimalkan untuk perangkat \textit{mobile} (\textit{optimized kernel}) yang memiliki performa yang sangat baik. Selain \textit{optimized kernel}, terdapat pula \textit{kernel} biasa (\textit{naive kernel}) pada Tensorflow Lite. Namun tentu saja performanya tidak lebih baik dari \textit{optimized kernel}.
+
+Untuk melakukan \textit{inference}, Tensorflow Lite menerima masukan model dengan format ".tflite". API akan meneruskan model masukan ke \textit{interpreter} untuk diinterpretasi. \textit{Interpreter} akan memuat semua \textit{kernel} yang diperlukan oleh model tersebut secara selektif. \pic~\ref{fig:tflite} menjelaskan arsitektur Tensorfow Lite.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.50\textwidth]
 	{pics/tflite.jpg}
-	\caption{Ilustrasi dari arsitektur Tensorflow Lite.}
+	\caption{Arsitektur Tensorflow Lite. \textit{Interpreter} bertugas menginterpretasikan model ".tflite" dan memuat \textit{kernels} yang diperlukan. \textit{Kernels} tersebut terpisah dari \textit{core} Tensorflow.}
 	\label{fig:tflite}
 \end{figure}
 
-Berbeda dengan Tensorflow Mobile, Tensorflow memiliki kernel tersendiri yang berisi operasi-operasi \deeplearning \inference dan terpisah dari core Tensorflow. Sehingga, modifikasi kernel Tensorflow Lite dengan menambahkan program OpenCL atau Vulkan  tidak akan mengubah perilaku dari program utama Tensorflow.
-
-Dibandingkan dengan Tensorflow Mobile, Tensorflow Lite telah mendapatkan berbagai macam optimisasi.Performa inference yang dihasilkan lebih baik daripada Tensorflow Mobile. Beberapa bug pada Tensorflow Mobile juga telah diperbaiki pada Tensorlfow Lite. Selain itu, fitur-fitur yang ditawarkan Tensorflow Lite juga lebih banyak dibandingkan Tensorflow Mobile. Berikut adalah beberapa keunggulan Tensorflow Lite dibandingkan Tensorflow Mobile \cite{tflite}.
-
-\begin{enumerate}
-	\item Memiliki fitur yang dapat memprune node dari operation graph yang tidak terpakai pada proses inference.
-	\item Memiliki kernel yang mendukung komputasi dalam 8-bit fixed point.
-	\item Optimasi performa untuk operasi floating point maupun fixed point.
-	\item Menggunakan pre-fused activation pada model Deep Learning.
-	\item Memuat kernel secara selektif sehingga menghemat memori.
-\end{enumerate}
-
 \section{OpenCL}
 %-----------------------------------------------------------------------------%
-OpenCL merupakan API untuk pemrograman paralel dengan memanfaatkan prosesor yang berbeda-beda seperti CPU, GPU, DSP, dan FPGA, sehingga dapat meningkatkan performa komputasi secara signifikan \cite{opencl}. Pada OpenCL terdapat dua sisi program, yaitu host dan device. Device adalah prosesor target, sedangkan host adalah yang mengatur jalannya program pada device. Tugas yang dilakukan oleh host antara lain mencari device, menginisialisasi konteks, mengkompilasi kernel, menyalin data dari host ke device memory, menjalankan kernel, dan mengambil data hasil komputasi dari device memory. Program host ditulis dalam bahasa C++ dengan ekstensi OpenCL. \pic~\ref{fig:hostdevice} mengilustrasikan bagaimana host mengatur komputasi pada device.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.50\textwidth]
-	{pics/openclhostdevice.jpg}
-	\caption{Host mengatur jalannya komputasi pada satu atau lebih device.}
-	\label{fig:hostdevice}
-\end{figure}
-
-Program yang dijalankan pada device merupakan sekumpulan OpenCL kernel. Kernel ditulis menggunakan bahasa C dengan ekstensi OpenCL. Pada bagian host, kernel ditulis sebagai string dan dikompilasi terlebih dahulu sebelum dapat dieksekusi. Beberapa hal yang perlu dilakukan host sebelum menjalankan kernel pada OpenCL device adalah sebagai berikut.
+OpenCL merupakan API untuk melakukan pemrograman paralel pada prosesor yang berbeda-beda seperti CPU, GPU, DSP, dan FPGA \cite{opencl}. OpenCL dapat digunakan untuk meningkatkan performa komputasi secara signifikan. OpenCL API menggunakan bahasa C/C++ dengan ekstensi. Pada OpenCL terdapat dua sisi program, yaitu \textit{host} dan \textit{device}. \textit{Device} adalah prosesor target, tempat berjalannya komputasi. Sementara itu \textit{host} adalah yang mengatur jalannya komputasi pada \textit{device}. Menyalin data matriks dari \textit{host memory} ke \textit{device memory} dan menentukan banyaknya unit komputasi yang bekerja adalah contoh tugas dari \textit{host}. Dalam penelitian ini program \textit{host} berjalan pada CPU. \textit{Device} pada penelitian ini adalah GPU. Dalam suatu program OpenCL terdapat istilah-istilah yang perlu dipahami sebagai berikut.
 
 \begin{enumerate}
-	\item Membuat context. Context adalah environment dimana kernel dieksekusi. Pada context didefiniskan kernel yang digunakan, device yang digunakan, buffer/memory yang dapat diakses oleh device, properti dari memori tersebut, dan satu atau lebih command-queue untuk penjadwalan eksekusi kernel.
-	\item Mempersiapkan kernel. Kernel adalah serangkaian instruksi yang dijalankan pada device. Kernel ditulis sebagai string dan dikompilasi menggunakan fungsi clBuildKernel() dari OpenCL API.
-	\item Mempersiapkan buffer. Buffer object merupakan memory object yang menyimpan koleksi data secara linear dalam bytes. Buffer object dapat diakses menggunakan pointer pada kernel yang berjalan pada device. Konten dari buffer juga dapat dimanipulasi melalui host.
-	\item Membuat command-queue. Command-queue merupakan objek yang menampung perintah-perintah yang akan dieksekusi pada device. Suatu command-queue dibuat unutk device yang spesifik dalam sebuah konteks.
+	\item \textbf{\textit{Context}}. \textit{Context} adalah lingkungan dimana komputasi pada \textit{device} akan dilakukan. Pada \textit{context} didefiniskan OpenCL \textit{kernel} yang digunakan, \textit{device} yang digunakan, memori (\textit{buffer}) yang dapat diakses, properti dari memori tersebut, dan satu atau lebih \textit{command queue} untuk penjadwalan eksekusi OpenCL \textit{kernel}.
+	
+	\item \textbf{\textit{Kernel}}. OpenCL \textit{kernel} merupakan serangkaian instruksi yang mendefinisikan suatu fungsi tertentu, contohnya perkalian matriks atau penjumlahan matriks, yang dieksekusi pada \textit{device}. OpenCL \textit{kernel} dikompilasi dan dijadwalkan eksekusinya oleh \textit{host}. OpenCL \textit{kernel} pada bagian \textit{host} direpresentasikan dalam format \textit{string} dan dikompilasi menggunakan fungsi $clBuildKernel()$ pada OpenCL API.
+	
+	\item \textbf{\textit{Buffer}}. \textit{Buffer} atau \textit{buffer object} merupakan \textit{memory object} yang menyimpan koleksi data secara linear dalam \textit{bytes}. \textit{Buffer} berada pada \textit{device memory} (dalam penelitian ini adalah memori GPU). OpenCL \textit{kernel} dapat mengakses data pada \textit{buffer} menggunakan \textit{pointer} yang diberikan melalui argumen \textit{kernel}. Data pada \textit{buffer} juga dapat dimanipulasi oleh \textit{host}.
+	
+	\item \textbf{\textit{Command Queue}}. \textit{Command queue} merupakan objek yang menampung perintah-perintah yang akan dieksekusi pada \textit{device}.
 \end{enumerate}
 
-Kernel dapat disubmit ke command-queue dengan mendefinisikan banyaknya work-item dan work-group yang megeksekusi kernel. \pic~\ref{fig:context} mengilustrasikan bagaimana OpenCL kernel dieksekusi pada device.
+Tahap-tahap berjalannya suatu program OpenCL dapat dilihat pada \tab~\ref{tab:OpenCLexecutionorder}. Sebelum suatu OpenCL \textit{kernel} dapat dieksekusi pada \textit{device}, \textit{host} perlu melakukan beberapa persiapan seperti pada \tab~\ref{tab:OpenCLexecutionorder}. Ketika persiapan telah selesai, OpenCL \textit{kernel} dapat dijadwalkan eksekusinya dengan cara melakukan \textit{enqueue} terhadap \textit{command queue}. Perhatikan bahwa data-data yang terkait dengan eksekusi OpenCL \textit{kernel} (data masukan dan data keluaran) perlu disalin secara manual dari \textit{host memory} (CPU) ke \textit{device memory} (GPU) dan sebaliknya.
 
-\begin{figure}
+\begin{table}
 	\centering
-	\includegraphics[width=0.50\textwidth]
-	{pics/opencl-context.png}
-	\caption{Cara kerja OpenCL.}
-	\label{fig:context}
-\end{figure}
+	\caption{Tahap-tahap eksekusi program OpenCL dari awal hingga akhir.}
+	\label{tab:OpenCLexecutionorder}
+	\begin{tabular}{| l | l |}
+		\hline
+		\textbf{No.} & \textbf{Tahap}\\ 
+		\hline
+		1 & Membuat \textit{context} \\ 
+		\hline 
+		2 & Membuat \textit{kernel}\\ 
+		\hline 
+		3 & Membuat \textit{comand-queue}\\ 
+		\hline
+		4 & Membuat \textit{buffer}\\ 
+		\hline
+		5 & Menyalin data masukan dari \textit{host memory} ke \textit{device memory}.\\
+		\hline
+		6 & Mendefinisikan struktur \textit{work-space}.\\
+		\hline
+		7 & Mendefinisikan argumen-argumen \textit{kernel}.\\
+		\hline
+		8 & Eksekusi \textit{kernel}. \\
+		\hline
+		9 & Menyalin data keluaran dari 
+		\textit{device memory} ke \textit{host memory}. \\
+		\hline
+	\end{tabular}
+\end{table}				
 
-OpenCL program dapat berjalan pada perangkat yang memiliki dukungan library OpenCL (libOpenCl.so). Pada NVidia GPU, library dapat diperoleh dalam paket installasi CUDA. Sedangkan pada perangkat android, beberapa vendor GPU seperti Adreno dan Mali menyertakan library OpenCL pada perangkat mereka. Library libOpenCl.so biasanya terletak pada direktori /system/vendor/lib/ dan dapat diambil melalui perintah adb pull pada Linux. Berikut adalah contoh program host dan device (kernel) pada OpenCL.
+Untuk mengimplementasikan OpenCL, diperlukan OpenCL \textit{library} ("libOpenCL.so") dan OpenCL \textit{headers} ("cl.h" dan "cl\_platform.h"). Pada NVIDIA GPU, OpenCL \textit{library} dapat diperoleh dalam paket instalasi CUDA. Pada perangkat Android, OpenCL \textit{library} disediakan oleh vendor dari masing-masing prosesor. Perangkat Android dengan vendor GPU Adreno atau Mali biasanya menyertakan OpenCL \textit{library} yang terletak pada direktori "/system/vendor/lib/". \textit{Library} tersebut dapat diambil menggunakan perintah "adb pull" pada Linux.
 
-\begin{lstlisting}[frame=single]
-/* OpenCL Host Example */
-void clHello() {
-    cl_device_id device_id = NULL;
-    cl_context context = NULL;
-    cl_command_queue command_queue = NULL;
-    cl_mem memobj = NULL;
-    cl_program program = NULL;
-    cl_kernel kernel = NULL;
-    cl_platform_id platform_id = NULL;
-    cl_uint ret_num_devices;
-    cl_uint ret_num_platforms;
-    cl_int ret;
-
-    char string[MEM_SIZE];
-
-    /* Get Platform and Device Info */
-    ret = clGetPlatformIDs(1, &platform_id, 
-    &ret_num_platforms);
-    ret = clGetDeviceIDs( platform_id, 
-    CL_DEVICE_TYPE_DEFAULT, 1, &device_id, 
-    &ret_num_devices);
-
-    /* Create OpenCL context */
-    context = clCreateContext( NULL, 1, &device_id, 
-    NULL, NULL, &ret);
-
-    /* Create Command Queue */
-    command_queue = clCreateCommandQueue(context, 
-    device_id, 0, &ret);
-
-    /* Create Memory Buffer */
-    memobj = clCreateBuffer(context, 
-    CL_MEM_READ_WRITE,MEM_SIZE * sizeof(char), NULL, 
-    &ret);
-
-    /* Create Kernel Program from the source */
-    program = clCreateProgramWithSource(context, 1, 
-    (const char **)&CLCL_HELLO,
-    NULL, &ret);
-
-    /* Build Kernel Program */
-    ret = clBuildProgram(program, 1, &device_id, NULL, 
-    NULL, NULL);
-
-    /* Create OpenCL Kernel */
-    kernel = clCreateKernel(program, "hello", &ret);
-
-    /* Set OpenCL Kernel Arguments */
-    ret = clSetKernelArg(kernel, 0, sizeof(cl_mem), 
-    (void *)&memobj);
-
-    /* Execute OpenCL Kernel */
-    ret = clEnqueueTask(command_queue, kernel, 0, 
-    NULL,NULL);
-
-    /* Copy results from the memory buffer */
-    ret = clEnqueueReadBuffer(command_queue, memobj, 
-    CL_TRUE, 0,
-    MEM_SIZE * sizeof(char),string, 0, NULL, NULL);
-
-    /* Display Result */
-    __android_log_print(ANDROID_LOG_DEBUG, "OpenCL", 
-    "Hello: %s", string);
-
-
-    /* Finalization */
-    ret = clFlush(command_queue);
-    ret = clFinish(command_queue);
-    ret = clReleaseKernel(kernel);
-    ret = clReleaseProgram(program);
-    ret = clReleaseMemObject(memobj);
-    ret = clReleaseCommandQueue(command_queue);
-    ret = clReleaseContext(context);
-}
-\end{lstlisting}
-
-\begin{lstlisting}[frame=single]
-/* OpenCL kernel example */
-const char *CLCL_HELLO =
-    "__kernel void hello(__global char* string)\n"
-    "{\n"
-    "   string[0] = 'H';\n"
-    "   string[1] = 'e';\n"
-    "   string[2] = 'l';\n"
-    "   string[3] = 'l';\n"
-    "   string[4] = 'o';\n"
-    "   string[5] = '\\0';\n"
-    "}\n"
-    "";
-\end{lstlisting}
-
-\section{Vulkan}
+\section{SIMT pada OpenCL}
 %-----------------------------------------------------------------------------%
-Vulkan merupakan API untuk menjalankan operasi-operasi grafik dan komputasi pada GPU. Vulkan merupakan generasi baru dari API pemrograman GPU pada android yang sebelumnya memanfaatkan OpenGL \cite{vkspec}. Vulkan memungkinkan akses multi-device dan menawarkan efisiensi yang tinggi untuk komputasi pada GPU. Vulkan memiliki driver yang sederhana dengan overhead CPU yang lebih kecil pada bagian host. Sama seperti OpenCL, Vulkan dirancang untuk dapat menjalankan program dengan multithreading.
+GPU merupakan prosesor yang memiliki banyak unit komputasi (\textit{thread}). Melalui OpenCL, komputasi pada GPU dapat dijalankan oleh banyak \textit{thread} yang bekerja secara paralel, sehinnga dapat meningkatkan kecepatan komputasi. Konsep paralelisasi pada OpenCL pada dasarnya adalah semua \textit{thread} menjalakan instruksi yang sama, namun bagian data yang diproses oleh masing-masing \textit{thread} berbeda-beda. Misalnya operasi penjumlahan dua vektor sepanjang $N$ dapat dikerjakan oleh $N$ \textit{thread}, dimana \textit{thread} ke-\textit{i} hanya menjumlahkan elemen ke-\textit{i} dari dua vektor tersebut. Pada OpenCL, unit komputasi atau \textit{thread} ini disebut \textit{work-item} \cite{opencl}. 
 
-Program pada Vulkan terdiri dari host dan device. Jika pada OpenCL instruksi yang dieksekusi pada device disebut kernel, pada Vulkan disebut shader. Selain untuk grafik, Vulkan juga dapat digunakan untuk melakukan komputasi sederhana sebagaimana yang dapat dilakukan pada OpenCL, misalnya perkalian matriks, penjumlahan vektor, atau dot product. Shader yang hanya melakukan operasi-operasi komputasi tersebut dinamakan Compute Shader. Pada Vulkan, compute shader dapat ditulis dalam GLSL (OpenGL Shading Language) yang selanjutnya dicompile menjadi SPIR-V binary. 
+OpenCL \textit{kernel} dieksekusi dalam suatu \textit{work-space} yang terdiri dari sekumpulan \textit{work-item} yang membentuk struktur satu hingga tiga dimensi. Pada suatu \textit{work-space}, semua \textit{work-item} mengeksekusi OpenCL \textit{kernel} yang sama. \textit{Work-space} dapat dibagi ke dalam beberapa \textit{work-group}. \textit{Work-group} terdiri dari beberapa \textit{work-item} yang membentuk blok satu hingga tiga dimensi. Secara umum, seluruh \textit{work-item} pada \textit{work-space} bekerja secara independen, namun sinkronisasi dapat dilakukan antar \textit{work-item} yang berada pada \textit{work-group} yang sama.
 
-GLSL merupakan bahasa high-level yang mirip dengan C/C++. Untuk komputasi sederhana seperti perkalian matriks atau konvolusi, shader terdiri dari layout dan main function. Main function merupakan fungsi yang mendefinisikan operasi utama. Layout digunakan untuk merepresentasikan data-data yang digunakan dalam komputasi. Data dibind pada host, kemudian layout juga definisikan binding pada bagian memory yang berisi data tersebut.
-
-Pada OpenCL, kompilasi kernel dilakukan bersama dengan jalannya program dan pada umumnya memakan waktu yang cukup lama. Kompilasi merupakan salah satu operasi paling memakan waktu dari keseluruhan program OpenCL. Dalam hal ini, Vulkan memiliki keunggulan. Selain dapat melakukan kompilasi shader sebagai bagian dari program, Vulkan juga dapat menerima shader dalam bentuk SPIR-V binary. Shader dapat dikompile terlebih dahulu di luar program. Selain menghemat waktu, penggunaan binary shader dapat menjaga kerahasiaan shader pada kode sumber.
-
-Driver yang sederhana pada Vulkan memiliki konsekuensi API yang lebih low-level. Untuk melakukan komputasi diperlukan persiapan yang lebih rumit pada bagian host jika dibandingkan dengan OpenCL. Beberapa hal yang perlu dilakukan antara lain sebagai berikut \cite{vkspec}.
-
-\begin{enumerate}
-\item Membauat Vulkan Instance. Instance merupakan representasi dari Vulkan library yang menyimpan state komputasi. Instance pada Vulkan mirip seperti konteks pada OpenCL. Untuk membuat instance perlu diketahui informasi mengenai API Vulkan pada perangkat android yang digunakan, misalnya versi dari Vulkan.
-
-\item Mencari Physical Device. Physical device adalah representasi dari fisik device (GPU) yang mendukung Vulkan. Masing-masing device mendukung jenis pekerjaan tertentu. Harus ditemukan device sesuai dengan jenis pekerjaan yang akan dilakukan. Jenis pekerjaan dapat berupa pemrosesan grafik atau komputasi. Physical device akan digunakan untuk membuat logical device.
-
-\item Membuat logical device dan queue. Logical device merupakan perantara yang memungkinkan aplikasi untuk berinteraksi dengan device fisik. Pembuatan logical device disertai dengan membuatan queue. Setiap physical device memiliki beberapa jenis queue untuk jenis pekerjaan yang berbeda-beda, misalnya pemrosesan grafis atau komputasi biasa. Queue digunakan untuk menampung dan menjadwalkan perintah-perintah yang akan dieksekusi pada device. Pada logical device perlu diberikan informasi jenis queue yang digunakan.
-
-\item Membuat Buffer. Sama seperti pada OpenCL, buffer merupakan tempat untuk meletakkan data-data yang diperlukan dalam eksekusi shader. Data-data tersebut disalin dari host. Buffer pada Vulkan tidak dapat mengalokasikan memory sendiri. Alokasi memori untuk buffer dilakukan secara manual oleh programmer. Seperti queue, terdapat beberapa jenis buffer untuk jenis pekerjaan yang berbeda-beda.
-
-\item Membuat Descriptor Set. Descriptor set merupakan set yang berisi referensi-referensi terhadap resource yang digunakan pada eksekusi shader. Buffer merupakan salah satu contoh resource. Agar dapat digunakan oleh shader, descriptor set diikat ke pipeline. Pembuatan descriptor set didahului dengan pembuatan descriptor set layout. Descriptor set layout mendeskripsikan jenis, ukuran, dan urutan dari sumber daya pada descriptor set. Pada descriptor set layout didefinisikan binding dari setiap buffer object. Selain layout, perlu juga mengalokasikan descriptor pool yang menampung setiap descriptor set yang akan dibuat.
-
-\item Membuat shader. Shader adalah perintah yang akan dijalankan di device. Terdapat beberapa jenis shader pada Vulkan, misalnya vertex shader dan compute shader. Compute shader digunakan untuk keperluan komputasi biasa, contohnya perkalian matriks. Shader dapat ditulis dalam bahasa GLSL (OpenGL Shading Language) yang mirip dengan C/C++. Shader dapat dikompilasi bersama dengan jalnnya program atau dapat langsung diimport sebagai SPIR-V binary. Shader yang telah dibungkus sebagai suatu objek (dinamakan shader module) akan diikat ke pipeline bersama dengan sumber daya yang diperlukan.
-
-\item Membuat Compute Pipeline. Compute pipeline merupakan jalur yang digunakan oleh perintah-perintah komputasi untuk dapat dieksekusi oleh GPU. dalam membuat pipeline perlu didefinisikan shader yang digunakan beserta jenis dan fungsi utamanya. Selain itu juga perlu didefinisikan descriptor set yang digunakan.
-
-\item Membuat Command Buffer. Command buffer digunakan untuk merekam semua perintah-perintah yang akan dikirimkan ke GPU. Untuk membuat command buffer perlu dialokasikan terlebih dahulu command pool yang menampung command buffer tersebut. Pada command pool perlu didefinisikan queue yang digunakan. Eksekusi shader dilakukan dengan perintah dispatch pada command buffer. Command buffer yang telah selesai merekam perintah dapat disubmit ke queue untuk dieksekusi oleh device.
-\end{enumerate}
-
-\section{SIMD pada OpenCL dan Vulkan}
-%-----------------------------------------------------------------------------%
-GPU merupakan device yang memiliki banyak unit komputasi (thread). OpenCL dan Vulkan mendukung pemrograman paralel pada level data. Instruksi untuk GPU dijalankan oleh banyak unit komputasi yang bekerja secara paralel. Masing-masing unit komputasi menjalakan instruksi yang sama namun pada bagian data yang berbeda-beda. Misalnya pada penjumlahan matriks, masing-masing unit pemrosesan hanya memproses elemen pada baris dan kolom yang sama saja. Dalam OpenCL dan Vulkan, unit komputasi ini disebut work item \cite{opencl}~\cite{vkspec}. Setiap work item mengeksekusi kernel atau shader yang sama. Beberapa work item dapat membentuk suatu local group (work group). Jika secara global work item bekerja secara independen, sinkronisasi komputasi dapat terjadi pada seluruh work item dalam satu work group. 
-
-Setiap work item memiliki identifier (ID) yang unik. ID adalah bilangan bulat positif yang dimulai dari 0. ID dari work-item terdiri dari dua jenis, yaitu global ID yang berlaku secara global dan local ID yang berlaku secara local dalam satu work gorup. Setiap work group juga memiliki ID yang unik. Setiap work item dapat mengakses beberapa jenis memori, antara lain private memory, local memory, dan global memory. Masing-masing private memory hanya bisa diakses oleh satu work item. Local memory merupakan shared memory pada level work group. Semua work item dalam satu work group dapat mengakses memory ini. Sedangkan global memory dapat diakses oleh semua work item yang terlibat dalam komputasi. Urutan kecepatan akses memory pada OpenCL dan Vulkan dari yang tercepat hingga yang terlambat adalah private memory, local memory, kemudian global memory. \pic~\ref{fig:work} merupakan ilustrasi dari work item dan work group pada OpenCL dan Vulkan.
+Setiap \textit{work-item} memiliki \textit{identifier} (ID) yang unik. ID adalah bilangan bulat yang lebih besar dari atau sama dengan nol. Setiap \textit{work-item} memiliki dua jenis ID, yaitu \textit{global} ID dan \textit{local} ID. \textit{Global} ID mengidentifikasi \textit{work-item} dalam suatu \textit{work-space}, sedangkan \textit{local} ID mengidentifikasi \textit{work-item} dalam suatu \textit{work-group}. Setiap \textit{work-group} juga memiliki ID yang unik. Saat suatu proses berjalan pada \textit{device}, ID dari \textit{work-item} dan \textit{work-group} yang menjalankan proses tersebut dapat diambil. ID tersebut dapat dimanfaatkan untuk mengatur paralelisasi dari eksekusi OpenCL \textit{kernel}. \pic~\ref{fig:work} adalah contoh \textit{work-space} dua dimensi pada OpenCL.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.50\textwidth]
 	{pics/opencl-work.jpg}
-	\caption{Work group dan work item pada OpenCL dan Vulkan .}
+	\caption{Contoh \textit{work-space} dua dimensi. \textit{Work-space} terbagi menjadi empat \textit{work-group} dua dimensi. Semua \textit{work-group} selalu memiliki ukuran yang sama.}
 	\label{fig:work}
 \end{figure}
 
-Saat suatu proses berjalan pada device, dapat diambil ID dari work item atau work group yang menjalankan proses tersebut. Dengan demikian dapat diatur bagian data mana yang diproses oleh masing-masing ID. Misalnya dalam penjumlahan vektor, work item dengan ID i hanya memproses elemen ke i dari vektor-vektor yang dijumlahkan.
+Pada OpenCL terdapat batasan terhadap ukuran \textit{work-group} yang dapat digunakan untuk menjalankan suatu OpenCL \textit{kernel}. Terdapat dua jenis batasan, yaitu batasan dari \textit{device} dan batasan dari OpenCL \textit{kernel}. Setiap \textit{mobile} GPU memiliki batasan banyak maksimal \textit{work-item} yang dapat berada dalam satu \textit{work-group}. Misalnya pada beberapa Adreno GPU, banyak maksimal \textit{work-item} dalam satu \textit{work-group} adalah 1024. Setiap OpenCL \textit{kernel} juga memiliki batasan tersendiri yang ditentukan oleh kompleksitas OpenCL \textit{kernel} tersebut. Jika \textit{kernel} semakin kompleks maka banyak maksimal \textit{work-item} dalam satu \textit{work-group} akan semakin kecil. Batasan yang berasal dari OpenCL \textit{kernel} ini selalu lebih kecil atau sama dengan batasan dari \textit{device}.
+
+\section{Jenis Memori pada OpenCL}
+%-----------------------------------------------------------------------------%
+Setiap \textit{work-item} yang menjalankan OpenCL \textit{kernel} dapat mengakses beberapa jenis memori \cite{opencl}. Setiap jenis memori memiliki kelebihan dan kekurangan masing-masing dalam hal latensi dan kapasitas. Berikut adalah empat jenis memori yang secara konsep terdapat pada OpenCL.
+
+\begin{enumerate}
+
+\item \textbf{\textit{Global Memory}}. \textit{Global memory} merupakan memori yang dapat diakses oleh seluruh \textit{work-item} pada suatu \textit{work-space}. Memori ini digunakan untuk menyimpan \textit{buffer object}. Memori ini memiliki latensi paling besar di antara empat jenis memori. Meskipun lambat, memori ini memiliki kapasitas yang paling besar dibandingkan jenis memori lain.
+
+\item \textbf{\textit{Constant Memory}}. \textit{Constant memory} merupakan memori dengan latensi kecil. \textit{Constant memory} digunakan untuk menyimpan data-data yang bersifat konstan. Argumen-argumen OpenCL \textit{kernel} yang berupa skalar atau vektor disimpan di \textit{constant memory}. Jika suatu data konstan tidak dapat lagi disimpan di \textit{constant memory} karena sudah penuh, maka data akan disimpan di lokasi lain dan dapat menyebabkan latensinya lebih tinggi.
+
+\item \textbf{\textit{Local Memory}}. \textit{Local memory} merupakan memori yang dapat diakses oleh semua \textit{work-item} yang berada dalam satu \textit{work-group}. Latensi dari memori ini relatif kecil. \textit{Local memory} sering digunakan untuk melakukan \textit{caching} dalam kasus ketika \textit{work-items} dalam suatu \textit{work-group} perlu mengakses data yang sama berkali-kali.
+
+\item \textbf{\textit{Private Memory}}. Memori ini bersifat \textit{private} untuk suatu \textit{work-item} dan tidak dapat diakses oleh \textit{work-item} lain. Memori ini digunakan untuk menyimpan \textit{private variable}. Jika \textit{private memory} yang berada di \textit{regsiter} sudah penuh, maka \textit{private variable} akan disimpan di lokasi lain sehingga menyebabkan latensinya lebih tinggi.  
+
+\end{enumerate}
+
+Pada OpenCL \textit{kernel}, akses memori sering menjadi \textit{bottleneck}. Meminimalkan \textit{read}/\textit{write} terhadap jenis memori yang lambat dan maksimal \textit{read}/\textit{write} terhadap jenis memori yang cepat dapat membantu meningkatkan performa OpenCL \textit{kernel} secara signifikan. Secara umum \textit{local memory} dan \textit{constant memory} sangat disarankan penggunaannya \cite{opencl}.
+
+\section{Tipe Data Vektor pada OpenCL}
+%-----------------------------------------------------------------------------%
+Tipe data vektor merupakan sebuah tipe data berupa vektor sepanjang $N$ yang mengandung $N$ skalar di dalamnya. Pada OpenCL, contoh tipe data vektor adalah $floatN$ yang merupakan vektor berisi $N$ buah \textit{floating point} \cite{opencl}. Nilai $N$ yang mungkin pada OpenCL adalah 2, 4, 8, dan 16. Penggunaan tipe data vektor dapat membantu mengurangi biaya operasi \textit{read}/\textit{write} terhadap memori sehingga meningkatkan performa OpenCL \textit{kernel}. Dengan menggunakan tipe data $float4$ misalnya, suatu vektor yang berisi empat buah \textit{floating point} dibaca hanya melalui satu kali instruksi. Nilai $N$ yang disarankan untuk digunakan pada tipe data vektor adalah 4. Pada beberapa jenis GPU, contohnya Adreno, untuk mengakses vektor yang panjangnya lebih dari 4 diperlukan lebih dari satu instruksi \textit{read}/\textit{write}.

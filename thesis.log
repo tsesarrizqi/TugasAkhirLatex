@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2018.2.28)  2 APR 2018 19:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2018.2.28)  30 MAY 2018 18:08
 entering extended mode
 **thesis.tex
 (C:\Users\tsesa\uistyle\thesis.tex
@@ -32,6 +32,14 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 (C:\Users\tsesa\uistyle\uithesis.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen103
+\extrarowheight=\dimen104
+\NC@list=\toks14
+\extratabsurround=\skip43
+\backup@length=\skip44
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tocbibind\tocbibind.sty"
 Package: tocbibind 2010/10/13 v1.5k extra ToC listings
 Package tocbibind Info: The document has chapter divisions on input line 50.
@@ -89,7 +97,7 @@ Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks14
+\KV@toks@=\toks15
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
@@ -100,7 +108,7 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen103
+\@linkdim=\dimen105
 \Hy@linkcounter=\count88
 \Hy@pagecounter=\count89
 
@@ -127,10 +135,10 @@ Package hyperref Info: Bookmarks ON on input line 4688.
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen104
+\XeTeXLinkMargin=\dimen106
 \Fld@menulength=\count92
-\Field@Width=\dimen105
-\Fld@charsize=\dimen106
+\Field@Width=\dimen107
+\Fld@charsize=\dimen108
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -157,16 +165,16 @@ Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip43
+\Hy@SectionHShift=\skip45
 )
 
 Package hyperref Warning: Option `a4paper' is no longer used.
 
-Package hyperref Info: Option `colorlinks' set `false' on input line 57.
-Package hyperref Info: Option `bookmarksopen' set `false' on input line 57.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 57.
+Package hyperref Info: Option `colorlinks' set `false' on input line 62.
+Package hyperref Info: Option `bookmarksopen' set `false' on input line 62.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 62.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
-\bigstrutjot=\dimen107
+\bigstrutjot=\dimen109
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
@@ -186,8 +194,8 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 \Gread@gobject=\count98
 ))
-\Gin@req@height=\dimen108
-\Gin@req@width=\dimen109
+\Gin@req@height=\dimen110
+\Gin@req@width=\dimen111
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
 Package: setspace 2011/12/19 v6.7a set line spacing
@@ -197,15 +205,15 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@cnth=\count99
 \Gm@cntv=\count100
 \c@Gm@tempcnt=\count101
-\Gm@bindingoffset=\dimen110
-\Gm@wd@mp=\dimen111
-\Gm@odd@mp=\dimen112
-\Gm@even@mp=\dimen113
-\Gm@layoutwidth=\dimen114
-\Gm@layoutheight=\dimen115
-\Gm@layouthoffset=\dimen116
-\Gm@layoutvoffset=\dimen117
-\Gm@dimlist=\toks15
+\Gm@bindingoffset=\dimen112
+\Gm@wd@mp=\dimen113
+\Gm@odd@mp=\dimen114
+\Gm@even@mp=\dimen115
+\Gm@layoutwidth=\dimen116
+\Gm@layoutheight=\dimen117
+\Gm@layouthoffset=\dimen118
+\Gm@layoutvoffset=\dimen119
+\Gm@dimlist=\toks16
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
@@ -214,20 +222,20 @@ Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen118
-\captionmargin@=\dimen119
-\captionwidth=\dimen120
-\caption@tempdima=\dimen121
-\caption@indent=\dimen122
-\caption@parindent=\dimen123
-\caption@hangindent=\dimen124
+\captionmargin=\dimen120
+\captionmargin@=\dimen121
+\captionwidth=\dimen122
+\caption@tempdima=\dimen123
+\caption@indent=\dimen124
+\caption@parindent=\dimen125
+\caption@hangindent=\dimen126
 )
 \c@ContinuedFloat=\count102
 Package caption Info: hyperref package is loaded.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
-\@mathmargin=\skip44
+\@mathmargin=\skip46
 
 For additional information on amsmath, use the `?' option.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
@@ -235,12 +243,12 @@ Package: amstext 2000/06/29 v2.01
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks16
-\ex@=\dimen125
+\@emptytoks=\toks17
+\ex@=\dimen127
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen126
+\pmbraise@=\dimen128
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
@@ -257,7 +265,7 @@ LaTeX Info: Redefining \dots on input line 381.
 LaTeX Info: Redefining \cdots on input line 466.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
-\big@size=\dimen127
+\big@size=\dimen129
 LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \macc@depth=\count108
@@ -265,21 +273,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \dotsspace@=\muskip11
 \c@parentequation=\count110
 \dspbrk@lvl=\count111
-\tag@help=\toks17
+\tag@help=\toks18
 \row@=\count112
 \column@=\count113
 \maxfields@=\count114
-\andhelp@=\toks18
-\eqnshift@=\dimen128
-\alignsep@=\dimen129
-\tagshift@=\dimen130
-\tagwidth@=\dimen131
-\totwidth@=\dimen132
-\lineht@=\dimen133
-\@envbody=\toks19
-\multlinegap=\skip45
-\multlinetaggap=\skip46
-\mathdisplay@stack=\toks20
+\andhelp@=\toks19
+\eqnshift@=\dimen130
+\alignsep@=\dimen131
+\tagshift@=\dimen132
+\tagwidth@=\dimen133
+\totwidth@=\dimen134
+\lineht@=\dimen135
+\@envbody=\toks20
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
@@ -321,15 +329,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 ("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
 s
-\f@nch@headwidth=\skip47
-\f@nch@O@elh=\skip48
-\f@nch@O@erh=\skip49
-\f@nch@O@olh=\skip50
-\f@nch@O@orh=\skip51
-\f@nch@O@elf=\skip52
-\f@nch@O@erf=\skip53
-\f@nch@O@olf=\skip54
-\f@nch@O@orf=\skip55
+\f@nch@headwidth=\skip49
+\f@nch@O@elh=\skip50
+\f@nch@O@erh=\skip51
+\f@nch@O@olh=\skip52
+\f@nch@O@orh=\skip53
+\f@nch@O@elf=\skip54
+\f@nch@O@erf=\skip55
+\f@nch@O@olf=\skip56
+\f@nch@O@orf=\skip57
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pdfpages.sty"
 Package: pdfpages 2017/10/31 v0.5l Insert pages of external PDF documents (AM)
@@ -341,14 +349,14 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count115
 \calc@Bcount=\count116
-\calc@Adimen=\dimen134
-\calc@Bdimen=\dimen135
-\calc@Askip=\skip56
-\calc@Bskip=\skip57
+\calc@Adimen=\dimen136
+\calc@Bdimen=\dimen137
+\calc@Askip=\skip58
+\calc@Bskip=\skip59
 LaTeX Info: Redefining \setlength on input line 76.
 LaTeX Info: Redefining \addtolength on input line 77.
 \calc@Ccount=\count117
-\calc@Cskip=\skip58
+\calc@Cskip=\skip60
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty"
 Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
@@ -370,39 +378,30 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 ))
-\AM@pagewidth=\dimen136
-\AM@pageheight=\dimen137
+\AM@pagewidth=\dimen138
+\AM@pageheight=\dimen139
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pppdftex.def"
 File: pppdftex.def 2017/10/31 v0.5l Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box28
-\AM@global@opts=\toks21
-\AM@toc@title=\toks22
+\AM@global@opts=\toks22
+\AM@toc@title=\toks23
 \c@AM@survey=\count118
 \AM@templatesizebox=\box29
 )
 (C:\Users\tsesa\uistyle\fncychap.sty
 Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
-\RW=\skip59
-\mylen=\skip60
-\myhi=\skip61
-\px=\skip62
-\py=\skip63
-\pyy=\skip64
-\pxx=\skip65
+\RW=\skip61
+\mylen=\skip62
+\myhi=\skip63
+\px=\skip64
+\py=\skip65
+\pyy=\skip66
+\pxx=\skip67
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty"
 Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
-Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen138
-\extrarowheight=\dimen139
-\NC@list=\toks23
-\extratabsurround=\skip66
-\backup@length=\skip67
-)
 \everycr=\toks24
 \minrowclearance=\skip68
 )
@@ -450,11 +449,8 @@ Package: listings 2015/06/04 1.6 (Carsten Heinz)
 (C:\Users\tsesa\uistyle\persetujuan_publikasi.aux)
 (C:\Users\tsesa\uistyle\abstrak.aux) (C:\Users\tsesa\uistyle\abstract.aux)
 (C:\Users\tsesa\uistyle\bab1.aux) (C:\Users\tsesa\uistyle\bab2.aux)
-(C:\Users\tsesa\uistyle\bab3.aux) (C:\Users\tsesa\uistyle\bab4.aux
-
-LaTeX Warning: Label `fig:matmulblock' multiply defined.
-
-) (C:\Users\tsesa\uistyle\bab5.aux) (C:\Users\tsesa\uistyle\bab6.aux)
+(C:\Users\tsesa\uistyle\bab3.aux) (C:\Users\tsesa\uistyle\bab4.aux)
+(C:\Users\tsesa\uistyle\bab5.aux) (C:\Users\tsesa\uistyle\bab6.aux)
 (C:\Users\tsesa\uistyle\pustaka.aux) (C:\Users\tsesa\uistyle\markLampiran.aux)
 (C:\Users\tsesa\uistyle\lampiran.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
@@ -558,7 +554,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 \c@lstlisting=\count135
 
 (C:\Users\tsesa\uistyle\sampul.tex
-<pics/makara.png, id=191, 154.86429pt x 154.34807pt>
+<pics/makara.png, id=183, 154.86429pt x 154.34807pt>
 File: pics/makara.png Graphic file (type png)
  <use pics/makara.png>
 Package pdftex.def Info: pics/makara.png used on input line 14.
@@ -606,11 +602,6 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 14.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 14.
-
-Underfull \hbox (badness 1348) in paragraph at lines 15--16
-[]|\OT1/ptm/m/n/12 Deep Learn-ing In-fer-ence pada An-droid GPU Meng-gu-nakan
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 13--19
 
@@ -680,39 +671,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--36
 
 
 ]) (C:\Users\tsesa\uistyle\abstrak.tex
+Underfull \hbox (badness 3907) in paragraph at lines 15--16
+[]|\OT1/ptm/m/n/12 Deep Learn-ing In-fer-ence pada Mo-bile GPU de-ngan
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 12--17
 
  []
 
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
 
-Underfull \hbox (badness 1342) in paragraph at lines 23--25
-[]\OT1/ptm/m/n/12 We have im-ple-mented OpenCL code on some Deep Learn-ing in-f
-er-ence
+Underfull \hbox (badness 1132) in paragraph at lines 20--23
+\OT1/ptm/m/n/12 pada Ten-sor-flow Lite un-tuk op-erasi perkalian matriks-matrik
+s dan kon-vo-lusi
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--25
+Underfull \hbox (badness 10000) in paragraph at lines 20--23
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 28--31
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--31
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--31
+Underfull \hbox (badness 10000) in paragraph at lines 26--28
 
  []
 
@@ -720,59 +700,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--31
 
 
 
-]
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
-[8]) (C:\Users\tsesa\uistyle\abstract.tex
+]) (C:\Users\tsesa\uistyle\abstract.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--17
 
  []
 
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
 
-Underfull \hbox (badness 1342) in paragraph at lines 23--25
-[]\OT1/ptm/m/n/12 We have im-ple-mented OpenCL code on some Deep Learn-ing in-f
-er-ence
+Underfull \hbox (badness 1132) in paragraph at lines 20--23
+\OT1/ptm/m/n/12 pada Ten-sor-flow Lite un-tuk op-erasi perkalian matriks-matrik
+s dan kon-vo-lusi
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--25
+Underfull \hbox (badness 10000) in paragraph at lines 20--23
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 28--30
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--30
+Underfull \hbox (badness 10000) in paragraph at lines 26--28
 
  []
 
-[9
+[8
 
 
 
-]
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[10]) (C:\Users\tsesa\uistyle\thesis.toc [11
+]) (C:\Users\tsesa\uistyle\thesis.toc [9
 
 
 ])
@@ -784,18 +737,111 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12] (C:\Users\tsesa\uistyle\thesis.lof)
-\tf@lof=\write5
- [13
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
+[10] (C:\Users\tsesa\uistyle\thesis.lof [11
 
 
 ]
-(C:\Users\tsesa\uistyle\thesis.lot)
+Underfull \hbox (badness 10000) in paragraph at lines 21--21
+ [][] [][]\OT1/ptm/m/n/12 Operasi perk-la-ian matriks-matriks yang di-lakukan d
+alam 
+ []
+
+
+Underfull \hbox (badness 1968) in paragraph at lines 24--24
+ [][] [][]\OT1/ptm/m/n/12 Perbandingan ke-cepatan em-pat ker-nel pada op-erasi 
+perkalian 
+ []
+
+
+Underfull \hbox (badness 1968) in paragraph at lines 25--25
+ [][] [][]\OT1/ptm/m/n/12 Perbandingan ke-cepatan em-pat ker-nel pada op-erasi 
+perkalian 
+ []
+
+
+Underfull \hbox (badness 1968) in paragraph at lines 26--26
+ [][] [][]\OT1/ptm/m/n/12 Perbandingan ke-cepatan em-pat ker-nel pada op-erasi 
+perkalian 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12]
+Underfull \hbox (badness 1968) in paragraph at lines 27--27
+ [][] [][]\OT1/ptm/m/n/12 Perbandingan ke-cepatan em-pat ker-nel pada op-erasi 
+perkalian 
+ []
+
+)
+\tf@lof=\write5
+
+
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13] (C:\Users\tsesa\uistyle\thesis.lot
+Underfull \hbox (badness 2653) in paragraph at lines 8--8
+ \OT1/ptm/m/n/12 vektor. Waktu di-hi-tung meng-gu-nakan sat-uan de-tik de-ngan 
+
+ []
+
+
+Underfull \hbox (badness 2653) in paragraph at lines 9--9
+ \OT1/ptm/m/n/12 vektor. Waktu di-hi-tung meng-gu-nakan sat-uan de-tik de-ngan 
+
+ []
+
+
+Underfull \hbox (badness 2653) in paragraph at lines 10--10
+ \OT1/ptm/m/n/12 vektor. Waktu di-hi-tung meng-gu-nakan sat-uan de-tik de-ngan 
+
+ []
+
+
+Underfull \hbox (badness 2653) in paragraph at lines 11--11
+ \OT1/ptm/m/n/12 vektor. Waktu di-hi-tung meng-gu-nakan sat-uan de-tik de-ngan 
+
+ []
+
+
+Underfull \hbox (badness 2653) in paragraph at lines 12--12
+ \OT1/ptm/m/n/12 vektor. Waktu di-hi-tung meng-gu-nakan sat-uan de-tik de-ngan 
+
+ []
+
+
+Underfull \hbox (badness 2653) in paragraph at lines 13--13
+ \OT1/ptm/m/n/12 vektor. Waktu di-hi-tung meng-gu-nakan sat-uan de-tik de-ngan 
+
+ []
+
+
+Underfull \hbox (badness 2653) in paragraph at lines 14--14
+ \OT1/ptm/m/n/12 vektor. Waktu di-hi-tung meng-gu-nakan sat-uan de-tik de-ngan 
+
+ []
+
+)
 \tf@lot=\write6
  [14
 
 
-] (C:\Users\tsesa\uistyle\bab1.tex
+]
+
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[15] (C:\Users\tsesa\uistyle\bab1.tex
 BAB 1.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -811,96 +857,40 @@ l.14
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 22--25
-\OT1/ptm/m/n/12 Pada bagian ini akan di-je-laskan me-nge-nai de-fi-nisi per-ma-
-sa-lahan yang
- []
-
-
-Underfull \hbox (badness 1515) in paragraph at lines 30--31
-\OT1/ptm/m/n/12 Berikut adalah permasalahan-permasalahan yang men-dorong di-lak
--sanakan-nya
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (0.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2]
-Underfull \hbox (badness 1389) in paragraph at lines 36--37
-[]\OT1/ptm/m/n/12 Apakah ter-da-pat perbe-daan per-forma dari OpenCL dan Vulkan
- dalam
- []
-
+[2])
 
 Package Fancyhdr Warning: \headheight is too small (0.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3])
+[3] (C:\Users\tsesa\uistyle\bab2.tex
+BAB 2.
 
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\uppercase' on input line 2.
 
-[4] (C:\Users\tsesa\uistyle\bab2.tex
-<pics/dnn.png, id=453, 562.1pt x 280.04625pt>
-File: pics/dnn.png Graphic file (type png)
- <use pics/dnn.png>
-Package pdftex.def Info: pics/dnn.png used on input line 18.
-(pdftex.def)             Requested size: 199.1693pt x 99.22694pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[5
-
-
-] <pics/cnn.png, id=462, 634.37pt x 152.57pt>
+<pics/cnn.png, id=563, 634.37pt x 152.57pt>
 File: pics/cnn.png Graphic file (type png)
  <use pics/cnn.png>
-Package pdftex.def Info: pics/cnn.png used on input line 30.
+Package pdftex.def Info: pics/cnn.png used on input line 16.
 (pdftex.def)             Requested size: 199.1693pt x 47.90149pt.
+ [4
 
 
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[6 <C:/Users/tsesa/uistyle/pics/dnn.png> <C:/Users/tsesa/uistyle/pics/cnn.png (
-PNG copy)>] <pics/rnn.jpeg, id=470, 307.1475pt x 165.61874pt>
-File: pics/rnn.jpeg Graphic file (type jpg)
-
-<use pics/rnn.jpeg>
-Package pdftex.def Info: pics/rnn.jpeg used on input line 40.
-(pdftex.def)             Requested size: 199.1693pt x 107.39566pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[7 <C:/Users/tsesa/uistyle/pics/rnn.jpeg>]
-Underfull \hbox (badness 2035) in paragraph at lines 55--56
-[]\OT1/ptm/m/n/12 Setelah \OT1/ptm/m/it/12 train-ing \OT1/ptm/m/n/12 se-le-sai,
- model \OT1/ptm/m/it/12 Neu-ral Net-work \OT1/ptm/m/n/12 da-pat di-gu-nakan un-
-tuk
- []
-
-<pics/trainingvsinference.png, id=479, 453.695pt x 291.0875pt>
+ <C:/Users/tsesa/uistyle/pics/cnn.png (PNG copy)>]
+<pics/trainingvsinference.png, id=573, 453.695pt x 291.0875pt>
 File: pics/trainingvsinference.png Graphic file (type png)
 
 <use pics/trainingvsinference.png>
-Package pdftex.def Info: pics/trainingvsinference.png used on input line 62.
+Package pdftex.def Info: pics/trainingvsinference.png used on input line 31.
 (pdftex.def)             Requested size: 199.1693pt x 127.78574pt.
 
 
@@ -909,24 +899,11 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8 <C:/Users/tsesa/uistyle/pics/trainingvsinference.png (PNG copy)>]
-<pics/fcmatmul.png, id=487, 527.571pt x 642.7212pt>
-File: pics/fcmatmul.png Graphic file (type png)
- <use pics/fcmatmul.png>
-Package pdftex.def Info: pics/fcmatmul.png used on input line 77.
-(pdftex.def)             Requested size: 199.1693pt x 242.63803pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[9 <C:/Users/tsesa/uistyle/pics/fcmatmul.png>]
-<pics/conv.png, id=495, 594.72188pt x 450.9347pt>
+[5 <C:/Users/tsesa/uistyle/pics/trainingvsinference.png (PNG copy)>]
+<pics/conv.png, id=581, 594.72188pt x 450.9347pt>
 File: pics/conv.png Graphic file (type png)
  <use pics/conv.png>
-Package pdftex.def Info: pics/conv.png used on input line 111.
+Package pdftex.def Info: pics/conv.png used on input line 59.
 (pdftex.def)             Requested size: 199.1693pt x 151.01073pt.
 
 
@@ -935,19 +912,38 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10]
+[6] <pics/fcmatmul.png, id=595, 798.8244pt x 341.1144pt>
+File: pics/fcmatmul.png Graphic file (type png)
+
+<use pics/fcmatmul.png>
+Package pdftex.def Info: pics/fcmatmul.png used on input line 72.
+(pdftex.def)             Requested size: 199.1693pt x 85.04936pt.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 73.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 73.
+
 
 Package Fancyhdr Warning: \headheight is too small (0.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11 <C:/Users/tsesa/uistyle/pics/conv.png>]
-<pics/tflite.jpg, id=522, 1262.7175pt x 1164.35pt>
+[7 <C:/Users/tsesa/uistyle/pics/conv.png> <C:/Users/tsesa/uistyle/pics/fcmatmul
+.png>]
+
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8] <pics/tflite.jpg, id=610, 1262.7175pt x 1164.35pt>
 File: pics/tflite.jpg Graphic file (type jpg)
  <use pics/tflite.jpg>
-Package pdftex.def Info: pics/tflite.jpg used on input line 143.
+Package pdftex.def Info: pics/tflite.jpg used on input line 94.
 (pdftex.def)             Requested size: 199.1693pt x 183.65259pt.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 104.
 
 
 Package Fancyhdr Warning: \headheight is too small (0.0pt): 
@@ -955,13 +951,11 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12 <C:/Users/tsesa/uistyle/pics/tflite.jpg>]
-<pics/openclhostdevice.jpg, id=531, 746.01291pt x 559.50967pt>
-File: pics/openclhostdevice.jpg Graphic file (type jpg)
-
-<use pics/openclhostdevice.jpg>
-Package pdftex.def Info: pics/openclhostdevice.jpg used on input line 167.
-(pdftex.def)             Requested size: 199.1693pt x 149.37068pt.
+[9 <C:/Users/tsesa/uistyle/pics/tflite.jpg>]
+Underfull \hbox (badness 3098) in paragraph at lines 145--146
+[]\OT1/ptm/m/n/12 Untuk mengim-ple-men-tasikan OpenCL, diper-lukan OpenCL \OT1/
+ptm/m/it/12 li-brary \OT1/ptm/m/n/12 ("li-
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (0.0pt): 
@@ -969,63 +963,11 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13] <pics/opencl-context.png, id=543, 1112.155pt x 508.90125pt>
-File: pics/opencl-context.png Graphic file (type png)
-
-<use pics/opencl-context.png>
-Package pdftex.def Info: pics/opencl-context.png used on input line 186.
-(pdftex.def)             Requested size: 199.1693pt x 91.13235pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[14 <C:/Users/tsesa/uistyle/pics/openclhostdevice.jpg>]
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 194.
-
-
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[15 <C:/Users/tsesa/uistyle/pics/opencl-context.png>]
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[16]
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[17]
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[18]
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[19] <pics/opencl-work.jpg, id=675, 187.902pt x 162.3666pt>
+[10] <pics/opencl-work.jpg, id=630, 187.902pt x 162.3666pt>
 File: pics/opencl-work.jpg Graphic file (type jpg)
 
 <use pics/opencl-work.jpg>
-Package pdftex.def Info: pics/opencl-work.jpg used on input line 324.
+Package pdftex.def Info: pics/opencl-work.jpg used on input line 158.
 (pdftex.def)             Requested size: 199.1693pt x 172.11024pt.
 
 
@@ -1034,226 +976,267 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[20])
+[11]
 
 Package Fancyhdr Warning: \headheight is too small (0.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[21 <C:/Users/tsesa/uistyle/pics/opencl-work.jpg>]
-(C:\Users\tsesa\uistyle\bab3.tex
-BAB 2.
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\uppercase' on input line 2.
-
-
-Underfull \hbox (badness 1466) in paragraph at lines 8--9
-\OT1/ptm/m/n/12 Learn-ing In-fer-ence meng-gu-nakan GPU da-pat di-lakukan de-ng
-an men-er-ap-kan
- []
-
-<pics/modifieddiagram.png, id=686, 474.77374pt x 332.24126pt>
-File: pics/modifieddiagram.png Graphic file (type png)
-
-<use pics/modifieddiagram.png>
-Package pdftex.def Info: pics/modifieddiagram.png used on input line 15.
-(pdftex.def)             Requested size: 199.1693pt x 139.37814pt.
- [22
-
-
-
-]
-<pics/matmul-block1.png, id=694, 602.25pt x 515.9275pt>
-File: pics/matmul-block1.png Graphic file (type png)
-
-<use pics/matmul-block1.png>
-Package pdftex.def Info: pics/matmul-block1.png used on input line 27.
-(pdftex.def)             Requested size: 199.1693pt x 170.61873pt.
-
+[12 <C:/Users/tsesa/uistyle/pics/opencl-work.jpg>])
 
 Package Fancyhdr Warning: \headheight is too small (0.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23 <C:/Users/tsesa/uistyle/pics/modifieddiagram.png>]
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[24 <C:/Users/tsesa/uistyle/pics/matmul-block1.png>])
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[25] (C:\Users\tsesa\uistyle\bab4.tex
+[13] (C:\Users\tsesa\uistyle\bab3.tex
 BAB 3.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 2.
 
-File: pics/matmul-block1.png Graphic file (type png)
-<use pics/matmul-block1.png>
-Package pdftex.def Info: pics/matmul-block1.png used on input line 17.
-(pdftex.def)             Requested size: 199.1693pt x 170.61873pt.
+<pics/modifieddiagram.png, id=651, 471.7625pt x 369.38pt>
+File: pics/modifieddiagram.png Graphic file (type png)
 
-Underfull \hbox (badness 5475) in paragraph at lines 22--23
-[]\OT1/ptm/m/n/12 Motivasi dari peng-gu-naan blok pada perkalian ma-triks adala
-h un-tuk
- []
-
-[26
+<use pics/modifieddiagram.png>
+Package pdftex.def Info: pics/modifieddiagram.png used on input line 15.
+(pdftex.def)             Requested size: 199.1693pt x 155.94452pt.
+ [14
 
 
 
 ]
+<pics/initcl.png, id=659, 422.57875pt x 182.6825pt>
+File: pics/initcl.png Graphic file (type png)
+ <use pics/initcl.png>
+Package pdftex.def Info: pics/initcl.png used on input line 46.
+(pdftex.def)             Requested size: 199.1693pt x 86.10329pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (0.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27]
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 49.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlptm.fd"
-File: omlptm.fd 
+[15 <C:/Users/tsesa/uistyle/pics/modifieddiagram.png>]
+<pics/copydata.png, id=666, 352.31625pt x 221.82875pt>
+File: pics/copydata.png Graphic file (type png)
+ <use pics/copydata.png>
+Package pdftex.def Info: pics/copydata.png used on input line 54.
+(pdftex.def)             Requested size: 199.1693pt x 125.40115pt.
+
+<pics/linearconv.png, id=668, 668.4975pt x 108.405pt>
+File: pics/linearconv.png Graphic file (type png)
+
+<use pics/linearconv.png>
+Package pdftex.def Info: pics/linearconv.png used on input line 65.
+(pdftex.def)             Requested size: 199.1693pt x 32.29678pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16 <C:/Users/tsesa/uistyle/pics/initcl.png> <C:/Users/tsesa/uistyle/pics/copyd
+ata.png> <C:/Users/tsesa/uistyle/pics/linearconv.png>]
+<pics/wiconv.png, id=677, 674.52pt x 282.05376pt>
+File: pics/wiconv.png Graphic file (type png)
+ <use pics/wiconv.png>
+Package pdftex.def Info: pics/wiconv.png used on input line 75.
+(pdftex.def)             Requested size: 199.1693pt x 83.2826pt.
+
+<pics/convblock.png, id=679, 680.5425pt x 374.39874pt>
+File: pics/convblock.png Graphic file (type png)
+
+<use pics/convblock.png>
+Package pdftex.def Info: pics/convblock.png used on input line 85.
+(pdftex.def)             Requested size: 199.1693pt x 109.5726pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[17 <C:/Users/tsesa/uistyle/pics/wiconv.png> <C:/Users/tsesa/uistyle/pics/convb
+lock.png>] <pics/conviter.png, id=688, 451.6875pt x 362.35374pt>
+File: pics/conviter.png Graphic file (type png)
+
+<use pics/conviter.png>
+Package pdftex.def Info: pics/conviter.png used on input line 95.
+(pdftex.def)             Requested size: 199.1693pt x 159.77893pt.
+ <pics/convlocal.png, id=689, 606.265pt x 389.455pt>
+File: pics/convlocal.png Graphic file (type png)
+
+<use pics/convlocal.png>
+Package pdftex.def Info: pics/convlocal.png used on input line 103.
+(pdftex.def)             Requested size: 199.1693pt x 127.9441pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[18 <C:/Users/tsesa/uistyle/pics/conviter.png> <C:/Users/tsesa/uistyle/pics/con
+vlocal.png>] <pics/linearmatmat.png, id=697, 479.7925pt x 226.8475pt>
+File: pics/linearmatmat.png Graphic file (type png)
+
+<use pics/linearmatmat.png>
+Package pdftex.def Info: pics/linearmatmat.png used on input line 114.
+(pdftex.def)             Requested size: 199.1693pt x 94.16763pt.
+ <pics/wimatmat.png, id=698, 310.15875pt x 240.9pt>
+File: pics/wimatmat.png Graphic file (type png)
+
+<use pics/wimatmat.png>
+Package pdftex.def Info: pics/wimatmat.png used on input line 124.
+(pdftex.def)             Requested size: 199.1693pt x 154.69376pt.
+
+
+LaTeX Warning: Reference `fig:blackmatmat' on page 19 undefined on input line 1
+29.
+
+
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[19 <C:/Users/tsesa/uistyle/pics/linearmatmat.png> <C:/Users/tsesa/uistyle/pics
+/wimatmat.png>] <pics/blockmatmat.png, id=706, 835.12pt x 282.05376pt>
+File: pics/blockmatmat.png Graphic file (type png)
+
+<use pics/blockmatmat.png>
+Package pdftex.def Info: pics/blockmatmat.png used on input line 134.
+(pdftex.def)             Requested size: 199.1693pt x 67.2639pt.
+
+<pics/matmatiter.png, id=709, 633.36626pt x 302.12875pt>
+File: pics/matmatiter.png Graphic file (type png)
+
+<use pics/matmatiter.png>
+Package pdftex.def Info: pics/matmatiter.png used on input line 144.
+(pdftex.def)             Requested size: 199.1693pt x 95.00508pt.
+
+<pics/localmatmat.png, id=710, 692.5875pt x 272.01625pt>
+File: pics/localmatmat.png Graphic file (type png)
+
+<use pics/localmatmat.png>
+Package pdftex.def Info: pics/localmatmat.png used on input line 152.
+(pdftex.def)             Requested size: 199.1693pt x 78.22273pt.
 )
-LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 49.
-
 
 Package Fancyhdr Warning: \headheight is too small (0.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28]
-File: pics/matmul-block1.png Graphic file (type png)
- <use pics/matmul-block1.png>
-Package pdftex.def Info: pics/matmul-block1.png used on input line 93.
-(pdftex.def)             Requested size: 199.1693pt x 170.61873pt.
-
-Underfull \hbox (badness 5475) in paragraph at lines 98--99
-[]\OT1/ptm/m/n/12 Motivasi dari peng-gu-naan blok pada perkalian ma-triks adala
-h un-tuk
- []
-
+[20 <C:/Users/tsesa/uistyle/pics/blockmatmat.png> <C:/Users/tsesa/uistyle/pics/
+matmatiter.png> <C:/Users/tsesa/uistyle/pics/localmatmat.png>]
 
 Package Fancyhdr Warning: \headheight is too small (0.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[29]
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[30])
-
-Package Fancyhdr Warning: \headheight is too small (0.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[31] (C:\Users\tsesa\uistyle\bab5.tex
+[21] (C:\Users\tsesa\uistyle\bab4.tex) (C:\Users\tsesa\uistyle\bab5.tex
 BAB 4.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 2.
 
-) [32
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 13.
+[22
 
 
 
-] (C:\Users\tsesa\uistyle\bab6.tex
-BAB 5.
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\uppercase' on input line 2.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--5
-[]
+] <pics/matmatmul.png, id=733, 826.08624pt x 432.61626pt>
+File: pics/matmatmul.png Graphic file (type png)
+
+<use pics/matmatmul.png>
+Package pdftex.def Info: pics/matmatmul.png used on input line 74.
+(pdftex.def)             Requested size: 199.1693pt x 104.2987pt.
+
+Underfull \hbox (badness 1314) in paragraph at lines 75--75
+[]\OT1/ptm/b/n/10 Gambar 4.1: |\OT1/ptm/m/n/10 Per-bandin-gan ke-cepatan em-pat
+ ker-nel pada op-erasi perkalian matriks-vektor
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--5
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
- []
+[23 <C:/Users/tsesa/uistyle/pics/matmatmul.png (PNG copy)>]
 
-) [33
-
-
-
-] (C:\Users\tsesa\uistyle\pustaka.tex
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no “ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ¦ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no “ in font ptmr7t!
-
-Underfull \hbox (badness 4792) in paragraph at lines 21--22
-[]\OT1/ptm/m/n/12 Liu, S., & Deng, W. (2015). Very deep con-vo-lu-tional neu-ra
-l net-
- []
+LaTeX Warning: Reference `tab:imagefilterspec1' on page 24 undefined on input l
+ine 86.
 
 
-Underfull \hbox (badness 3417) in paragraph at lines 21--22
-\OT1/ptm/m/n/12 work based im-age clas-si-fi-ca-tion us-ing small train-ing sam
--ple size. In
- []
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no ­ in font ptmr7t!
+[24] <pics/convvarhw.png, id=745, 825.0825pt x 434.62375pt>
+File: pics/convvarhw.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
-[]\OT1/ptm/m/n/12 A Tool De-vel-oper's Guide to Ten-sor-Flow Model Files |
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
-\OT1/ptm/m/n/12 Ten-sor-Flow. (n.d.). Re-trieved De-cem-ber 19, 2017, from
- []
-
-[34
+<use pics/convvarhw.png>
+Package pdftex.def Info: pics/convvarhw.png used on input line 165.
+(pdftex.def)             Requested size: 199.1693pt x 104.91531pt.
 
 
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
-]
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
+[25 <C:/Users/tsesa/uistyle/pics/convvarhw.png (PNG copy)>]
 
-Underfull \hbox (badness 1975) in paragraph at lines 51--52
-[]\OT1/ptm/m/n/12 Huang, S., Xiao, S., & Feng, W. (2009). On the en-ergy ef-fi-
-ciency
- []
-
-
-Underfull \hbox (badness 3803) in paragraph at lines 51--52
-\OT1/ptm/m/n/12 of graph-ics pro-cess-ing units for sci-en-tific com-put-ing. I
-n 2009 IEEE
- []
+LaTeX Warning: Reference `tab:imagefilterspec2' on page 26 undefined on input l
+ine 173.
 
 
-Underfull \hbox (badness 4036) in paragraph at lines 51--52
-\OT1/ptm/m/n/12 In-ter-na-tional Sym-po-sium on Par-al-lel & Dis-tributed Pro-c
-ess-ing. IEEE.
- []
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
+[26] <pics/convvarchn.png, id=759, 824.07875pt x 433.62pt>
+File: pics/convvarchn.png Graphic file (type png)
+
+<use pics/convvarchn.png>
+Package pdftex.def Info: pics/convvarchn.png used on input line 252.
+(pdftex.def)             Requested size: 199.1693pt x 104.79874pt.
+
+
+LaTeX Warning: Reference `tab:imagefilterspec3' on page 27 undefined on input l
+ine 260.
+
+
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[27 <C:/Users/tsesa/uistyle/pics/convvarchn.png (PNG copy)>]
+
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[28] <pics/convvarbchn.png, id=776, 824.07875pt x 433.62pt>
+File: pics/convvarbchn.png Graphic file (type png)
+
+<use pics/convvarbchn.png>
+Package pdftex.def Info: pics/convvarbchn.png used on input line 339.
+(pdftex.def)             Requested size: 199.1693pt x 104.79874pt.
 )
 
 Package Fancyhdr Warning: \headheight is too small (0.0pt): 
@@ -1261,7 +1244,43 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[35] (C:\Users\tsesa\uistyle\markLampiran.texpdfTeX warning (ext4): destination
+[29 <C:/Users/tsesa/uistyle/pics/convvarbchn.png (PNG copy)>]
+(C:\Users\tsesa\uistyle\bab6.tex
+BAB 5.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\uppercase' on input line 2.
+
+) [30
+
+
+
+] (C:\Users\tsesa\uistyle\pustaka.tex
+Underfull \hbox (badness 2150) in paragraph at lines 18--19
+[]\OT1/ptm/m/n/12 Introduction to Ten-sor-Flow Lite | Ten-sor-Flow. (n.d.). Re-
+trieved from
+ []
+
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no ­ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ¦ in font ptmr7t!
+[31
+
+
+
+])
+
+Package Fancyhdr Warning: \headheight is too small (0.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[32] (C:\Users\tsesa\uistyle\markLampiran.texpdfTeX warning (ext4): destination
  with the same identifier (name{page.1}) has been already used, duplicate ignor
 ed
 <to be read again> 
@@ -1296,32 +1315,65 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 117.
 (C:\Users\tsesa\uistyle\lampiran.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 117.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 117.
-Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 005EC78BCB61B9908C860B5A78E1C310;3061.
 
 
-LaTeX Warning: There were multiply-defined labels.
+Package rerunfilecheck Warning: File `thesis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `thesis.out':
+(rerunfilecheck)             Before: B78C23244C0BCB6B0D69432CA387F5EC;3206
+(rerunfilecheck)             After:  D27BA37DE221F186D86BC387EC07DBF5;3206.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 117.
  ) 
 Here is how much of TeX's memory you used:
- 10930 strings out of 493921
- 161721 string characters out of 3147282
- 280296 words of memory out of 3000000
- 13482 multiletter control sequences out of 15000+200000
- 29382 words of font info for 58 fonts, out of 3000000 for 9000
+ 10813 strings out of 493921
+ 160487 string characters out of 3147282
+ 279828 words of memory out of 3000000
+ 13542 multiletter control sequences out of 15000+200000
+ 43743 words of font info for 84 fonts, out of 3000000 for 9000
  910 hyphenation exceptions out of 8191
- 44i,12n,45p,1159b,1659s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/time
-s/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (52 pages, 1158683 bytes).
+ 44i,12n,45p,1380b,456s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{table.caption.44} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.40} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.45} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.42} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.39} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.48} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.47} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.46} has been referenced but does not exist
+, replaced by a fixed one
+
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
+w/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (50 pages, 1112453 bytes).
 PDF statistics:
- 980 PDF objects out of 1000 (max. 8388607)
- 378 named destinations out of 1000 (max. 500000)
- 442 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 877 PDF objects out of 1000 (max. 8388607)
+ 185 named destinations out of 1000 (max. 500000)
+ 481 words of extra memory for PDF output out of 10000 (max. 10000000)
 
