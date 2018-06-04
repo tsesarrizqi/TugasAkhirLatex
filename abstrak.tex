@@ -18,12 +18,12 @@
 \vspace*{0.5cm}
 
 \noindent 
-\textit{Deep Learning inference} saat ini sudah dapat dijalankan pada perangkat \textit{mobile}. Mayoritas \textit{library} untuk \textit{mobile Deep Learning} hanya memungkinkan operasi-operasi matriks pada \textit{inference} dijalankan menggunakan CPU. Penulis meneliti penggunaan GPU untuk menjalankan operasi-operasi matriks pada \textit{mobile Deep Learning inference}. Penulis telah mengimplementasikan beberapa \textit{kernel} tambahan pada Tensorflow Lite untuk operasi perkalian matriks-matriks dan konvolusi matriks yang berjalan di \textit{mobile} GPU dan dapat digunakan oleh \textit{convolution layer} dan \textit{fully-connected layer} ketika \textit{inference}. Penulis menggunakan OpenCL, API pemrograman paralel untuk berbagai jenis prosesor, untuk mengimplementasikan \textit{kernel} tersebut. Pengujian yang dilakukan menunjukkan bahwa Tensorflow Lite OpenCL \textit{kernels} untuk operasi perkalian matriks-matriks memiliki performa yang mampu mengungguli performa \textit{naive kernel} dan \textit{optimized kernel} dari Tensorflow Lite yang berjalan di CPU. Sementara itu OpenCL \textit{kernel} untuk operasi konvolusi matriks mampu mengungguli performa \textit{naive kernel} dan \textit{optimized kernel} ketika kanal matriks masukan dan keluaran berukuran kecil.
+\textit{Deep Learning inference} saat ini sudah dapat dijalankan pada perangkat \textit{mobile}. Mayoritas \textit{library} untuk \textit{mobile Deep Learning} hanya memungkinkan operasi-operasi matriks pada \textit{inference} dijalankan menggunakan CPU. Penulis meneliti penggunaan GPU untuk menjalankan operasi-operasi matriks pada \textit{mobile Deep Learning inference}. Penulis telah mengimplementasikan beberapa \textit{kernel} tambahan pada Tensorflow Lite untuk operasi perkalian matriks-matriks dan konvolusi matriks yang berjalan di \textit{mobile} GPU ketika \textit{inference}. Penulis menggunakan OpenCL, API pemrograman paralel untuk berbagai jenis prosesor, untuk mengimplementasikan \textit{kernel} tersebut. Hasil pengujian yang dilakukan menunjukkan bahwa OpenCL \textit{kernels} yang berjalan di GPU untuk operasi perkalian matriks-matriks memiliki performa yang lebih baik daripada \textit{naive kernel} dan \textit{optimized kernel} dari Tensorflow Lite yang berjalan di CPU, terutama ketika matriks berukuran besar. Sementara itu, OpenCL \textit{kernel} untuk operasi konvolusi matriks mampu mengungguli performa \textit{naive kernel} dan \textit{optimized kernel} ketika banyaknya \textit{batch} dan kanal dari matriks \textit{output} cukup sedikit.
 \\
 
 \vspace*{0.2cm}
 
 \noindent Kata Kunci: \\ 
-\noindent Deep Learning; GPU; OpenCL; \\
+\noindent Deep Learning; Mobile GPU; OpenCL; \\
 
 \newpage

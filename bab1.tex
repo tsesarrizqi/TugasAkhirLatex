@@ -6,13 +6,13 @@ Karya tulis yang berjudul "\judul" ini didahului dengan pembahasan mengenai lata
 %-----------------------------------------------------------------------------%
 \section{Latar Belakang}
 %-----------------------------------------------------------------------------%
-\textit{Deep Learning} merupakan algoritma \textit{Machine Learning} yang diketahui memiliki akurasi tinggi. \textit{Deep Learning} memanfaatkan arsitektur \textit{Neural Network} yang telah dilatih menggunakan sekumpulan data untuk melakukan prediksi skor atau label dari suatu data baru. Popularitas \textit{Deep Learning} meningkat pesat dalam beberapa tahun terakhir. Salah satu jenis arsitektur \textit{Deep Learning}, \textit{Convolutional Neural Network} (CNN), memiliki peran besar dalam meningkatnya popularitas \textit{Deep Learning}. CNN biasa digunakan dalam aplikasi pengenalan citra. Selain CNN, dalam \textit{Deep Learning} juga terdapat jenis model lain seperti \textit{Long Short-Term Memory} (LSTM) yang biasa digunakan untuk menyelesaikan permasalahan di bidang pengolahan bahasa.
+\textit{Deep Learning} merupakan teknik \textit{Machine Learning} yang mampu mempelajari representasi data secara otomatis melalui suatu model \textit{Neural Network} yang terdiri dari beberapa lapisan pemrosesan \cite{deeplearning}. Model \textit{Deep Learning} dapat menerima masukan berupa data mentah untuk melakukan klasifikasi. Model \textit{Deep Learning} ditingkatkan akurasinya melalui proses latihan dan digunakan untuk memprediksi label atau kelas dari suatu data melalui proses \textit{inference}. Salah satu jenis model \textit{Deep Learning}, \textit{Convolutional Neural Network} (CNN) \cite{cnnori}, memiliki peran besar dalam meningkatnya popularitas \textit{Deep Learning} dalam beberapa tahun terakhir. CNN memiliki kemampuan yang sangat baik dalam memproses data berupa citra, video, maupun audio. Selain CNN, dalam \textit{Deep Learning} juga terdapat jenis model lain seperti \textit{Long Short-Term Memory} (LSTM) \cite{lstm} yang dapat digunakan untuk melakukan pemrosesan data bersifat sekuensial.
 
-Seiring meningkatnya popularitas \textit{Deep Learning}, dukungan terus bermunculan dari berbagai pihak terutama yang terkait dengan peningkatan performa \textit{Deep Learning}. Saat ini CPU tidak lagi menjadi pilihan utama untuk menjalankan \textit{Deep Learning} pada komputer personal atau \textit{server}. GPU telah diketahui dapat menjalankan \textit{Deep Learning} dengan performa komputasi yang jauh lebih baik daripada CPU, terutama ketika melakukan \textit{training}. Selain dalam hal performa, dukungan untuk mobilitas Deep Learning juga mulai bermunculan. Belum lama ini, Google merilis \textit{open-source library} bernama Tensorflow Lite \cite{tflite} yang memungkinkan pengguna menjalankan \textit{Deep Learning inference} pada perangkat \textit{mobile} dengan performa tinggi.
+Seiring meningkatnya popularitas \textit{Deep Learning}, usaha-usaha untuk meningkatkan kecepatan proses latihan maupun \textit{inference} pada \textit{Deep Learning} terus bermunculan. Saat ini CPU tidak lagi menjadi pilihan utama untuk menjalankan proses latihan maupun \textit{inference} pada komputer personal atau \textit{server}. Perangkat lunak Deep Learning untuk komputer personal atau \textit{server} saat ini sudah dapat menjalankan proses-proses \textit{Deep Learning} di GPU. Proses latihan dan \textit{inference} pada \textit{Deep Learning} mengandung operasi-operasi matriks yang berat seperti perkalian matriks-matriks dan konvolusi matriks. GPU yang memiliki performa komputasi yang tinggi dapat menjalankan operasi-operasi tersebut dengan lebih cepat. Usaha juga dilakukan untuk membawa \textit{Deep Learning} kepada perangkat yang lebih kecil, yaitu perangkat \textit{mobile}. Belum lama ini, Google merilis perangkat lunak sumber terbuka bernama Tensorflow Lite \cite{tflite} yang memungkinkan pengguna menjalankan proses \textit{inference} pada \textit{Deep Learning} pada perangkat \textit{mobile}.
 
-Saat ini operasi-operasi \textit{Deep Learning inference} pada Tensorflow Lite hanya dapat dijalankan di CPU. Meskipun demikian performa yang dihasilkan sudah sangat baik. Pada Tugas Akhir ini penulis melakukan penelitian mengenai penggunaan GPU untuk menjalankan \textit{Deep Learning inference} pada perangkat \textit{mobile} melalui Tensorflow Lite. Penulis mengimplementasikan beberapa Tensorflow Lite \textit{kernel} untuk beberapa operasi matriks pada \textit{inference} yang berjalan di GPU. Menjalankan \textit{Deep Learning inference} pada \textit{mobile} GPU bukanlah hal yang baru. Sudah ada \textit{library} bernama CNNdroid \cite{cnndroid} yang dapat digunakan untuk menjalankan CNN \textit{inference} pada \textit{mobile} GPU. CNNdroid memanfaatkan Renderscript untuk menjalankan komputasi pada GPU.
+Tensorflow Lite saat ini hanya dapat menjalankan proses \textit{inference} di CPU. Penulis melihat peluang penggunaan GPU untuk menjalankan proses \textit{inference} pada Tensorflow Lite, yaitu dengan cara mengimplementasikan program untuk operasi-operasi matriks pada proses \textit{inference} yang berjalan di GPU dan mengintegrasikannya ke Tensorflow Lite. Penulis ingin mengetahui apakah penggunaan \textit{mobile} GPU untuk menjalankan operasi-operasi matriks tersebut dapat meningkatkan kecepatan proses \textit{inference} pada Tensorflow Lite. Menjalankan proses \textit{inference} di \textit{mobile} GPU sebenarnya bukanlah hal yang baru. Sudah ada perangkat lunak bernama CNNdroid \cite{cnndroid} yang dapat digunakan untuk menjalankan proses \textit{inference} di GPU untuk model CNN. CNNdroid memanfaatkan Renderscript untuk menjalankan komputasi pada GPU.
 
-Dalam penelitian ini penulis menggunakan OpenCL untuk menjalankan \textit{Deep Learning inference} pada \textit{mobile} GPU. OpenCL \cite{opencl} merupakan API pemrograman paralel untuk berbagai jenis prosesor seperti CPU, GPU, dan FPGA. OpenCL merupakan API pemrograman paralel yang mendukung komputasi dengan paradigma SIMT (\textit{Single Instruction Multiple Thread}). \textit{Deep Learning inference} terdiri dari operasi-operasi matriks yang berpotensi untuk diimplementasikan secara SIMT pada GPU yang memiliki sangat banyak \textit{compute unit} (\textit{thread}). Implementasi \textit{Deep Learning inference} pada \textit{mobile} GPU melalui OpenCL diharapkan memberikan performa yang baik.
+Dalam penelitian ini penulis mencoba menggunakan OpenCL untuk mengimplementasikan program untuk operasi-operasi matriks pada proses \textit{inference} yang berjalan di GPU. OpenCL merupakan API pemrograman paralel untuk berbagai jenis prosesor seperti CPU, GPU, dan FPGA \cite{opencl}. Program yang diimplementasikan menggunakan OpenCL memiliki portabilitas tinggi karena dapat dijalankan pada berbagai prosesor yang berbeda-beda. OpenCL merupakan API pemrograman paralel yang mendukung komputasi dengan menggunakan banyak \textit{thread}. GPU merupakan prosesor dengan ratusan \textit{core} yang mendukung komputasi secara paralel. Penggunaan \textit{mobile} GPU untuk menjalankan operasi-operasi matriks pada proses \textit{inference} diharapkan dapat meningkatkan kecepatan proses \textit{inference} pada Tensorflow Lite.
 
 %-----------------------------------------------------------------------------%
 \section{Permasalahan}
@@ -24,10 +24,8 @@ yang penulis hadapi dan ingin diselesaikan serta asumsi dan batasan yang digunak
 %-----------------------------------------------------------------------------%
 Berikut adalah permasalahan-permasalahan yang akan dijawab dalam penelitian ini.
 \begin{enumerate}
-\item Apakah OpenCL dapat digunakan untuk menjalankan operasi-operasi \textit{inference} di GPU melalui Tensorflow Lite?
-\item Bagaimana perbandingan kecepatan Tensorflow Lite \textit{kernel} yang berjalan di GPU melalui OpenCL dengan Tensorflow Lite \textit{kernel} yang berjalan di CPU?
-\item Dimanakah letak \textit{bottleneck} (pada komputasi atau pada baca/tulis memori) dari penggunaan OpenCL untuk menjalankan operasi-operasi \textit{inference} di GPU?
-
+\item Apakah OpenCL dapat digunakan untuk menjalankan operasi-operasi matriks pada proses \textit{inference} di GPU pada Tensorflow Lite?
+\item Bagaimana perbandingan kecepatan operasi-operasi matriks pada proses \textit{inference} antara yang berjalan di GPU (melalui OpenCL) dengan yang berjalan di CPU (implementasi asli Tensorflow Lite)?
 \end{enumerate}
 
 %-----------------------------------------------------------------------------%
@@ -35,10 +33,9 @@ Berikut adalah permasalahan-permasalahan yang akan dijawab dalam penelitian ini.
 %-----------------------------------------------------------------------------%
 Berikut adalah batasan dan asumsi pada penelitian.
 \begin{enumerate}
-\item Implementasi Tensorflow Lite \textit{kernel} yang menggunakan OpenCL hanya dapat digunakan untuk perangkat \textit{Android} saja.
-\item Penulis hanya mengimplementasikan Tensorflow Lite \textit{kernel} melalui OpenCL untuk dua operasi \textit{inference} saja yaitu perkalian konvolusi matriks dan perkalian matriks-matriks.
-\item Implementasi konvolusi matriks hanya dapat digunakan untuk konvolusi dengan \textit{stride} sebesar 1 ke kanan dan 1 ke bawah.
-\item Hasil implementasi OpenCL hanya dapat digunakan untuk \textit{convolution layer} dan \textit{fully-connected layer} saja.
+\item Penulis hanya mengimplementasikan dua operasi matriks pada proses \textit{inference} menggunakan OpenCL, yaitu operasi perkalian matriks-matriks dan operasi konvolusi matriks.
+\item Program OpenCL yang telah diimplementasikan hanya dapat digunakan untuk perangkat \textit{Android} saja.
+\item Operasi konvolusi matriks yang diimplementasikan menggunakan OpenCL diasumsikan memiliki jangkah sebesar satu.
 \item Penulis mengasumsikan bahwa perangkat yang digunakan hanya menggunakan sumber daya \textit{multi-core} CPU dan GPU beserta memorinya, terlepas dari dorongan performa yang berasal dari perangkat tambahan.
 \end{enumerate}
 
@@ -47,10 +44,8 @@ Berikut adalah batasan dan asumsi pada penelitian.
 %-----------------------------------------------------------------------------%
 Tujuan dari penelitian ini adalah sebagai berikut.
 \begin{enumerate}
-\item Mengimplementasikan operasi-operasi \textit{Deep Learning inference} berupa Tensorflow Lite \textit{kernel} menggunakan OpenCL agar dapat dijalankan di GPU.
-\item Membandingkan kecepatan Tensorflow Lite \textit{kernel} \textit{inference} yang berjalan di GPU melalui OpenCL dengan Tensorflow Lite \textit{kernel} yang berjalan di CPU.
-\item Mengetahui letak \textit{bottleneck} (pada komputasi atau pada baca/tulis memori) dari penggunaan OpenCL untuk menjalankan operasi-operasi \textit{inference} di GPU.
-
+\item Mengimplementasikan operasi-operasi matriks pada proses \textit{inference} pada Tensorflow Lite menggunakan OpenCL sehingga dapat berjalan di GPU.
+\item Membandingkan kecepatan operasi-operasi matriks pada proses \textit{inference} antara yang berjalan di GPU (melalui OpenCL) dengan yang berjalan di CPU (implementasi asli Tensorflow Lite)?
 \end{enumerate}
 
 %-----------------------------------------------------------------------------%
