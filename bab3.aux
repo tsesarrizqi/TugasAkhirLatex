@@ -5,12 +5,12 @@
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}Metode Implementasi }{15}{section.3.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Metode Implementasi Konvolusi Matriks }{15}{subsection.3.1.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Contoh struktur linear matriks masukan, matriks filter, dan keluaran yang disimpan di memori GPU untuk operasi konvolusi.\relax }}{15}{figure.caption.20}}
-\newlabel{fig:linearconv}{{3.1}{15}{Contoh struktur linear matriks masukan, matriks filter, dan keluaran yang disimpan di memori GPU untuk operasi konvolusi.\relax }{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Contoh struktur \textit  {NDRange} untuk operasi konvolusi matriks.\relax }}{16}{figure.caption.21}}
-\newlabel{fig:wiconv}{{3.2}{16}{Contoh struktur \textit {NDRange} untuk operasi konvolusi matriks.\relax }{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Blok pada matriks keluaran (berwarna abu-abu) yang merupakan hasil konvolusi dari blok (berwarna abu-abu) pada matriks masukan yang dikomputasi oleh suatu \textit  {work-group}.\relax }}{16}{figure.caption.22}}
-\newlabel{fig:convblock}{{3.3}{16}{Blok pada matriks keluaran (berwarna abu-abu) yang merupakan hasil konvolusi dari blok (berwarna abu-abu) pada matriks masukan yang dikomputasi oleh suatu \textit {work-group}.\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Contoh matriks pada operasi konvolusi yang disimpan secara linear di memori GPU.\relax }}{15}{figure.caption.20}}
+\newlabel{fig:linearconv}{{3.1}{15}{Contoh matriks pada operasi konvolusi yang disimpan secara linear di memori GPU.\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Struktur \textit  {NDRange} untuk operasi konvolusi matriks.\relax }}{16}{figure.caption.21}}
+\newlabel{fig:wiconv}{{3.2}{16}{Struktur \textit {NDRange} untuk operasi konvolusi matriks.\relax }{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Contoh blok pada matriks masukan yang terlibat dalam konvolusi untuk menghasilkan blok pada matriks keluaran yang diproses oleh suatu \textit  {work-group}.\relax }}{16}{figure.caption.22}}
+\newlabel{fig:convblock}{{3.3}{16}{Contoh blok pada matriks masukan yang terlibat dalam konvolusi untuk menghasilkan blok pada matriks keluaran yang diproses oleh suatu \textit {work-group}.\relax }{figure.caption.22}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Operasi konvolusi yang dilakukan dalam $ceil(C_i/4)$ iterasi dimana $C_i$ adalah kedalaman matriks masukan.\relax }}{17}{figure.caption.23}}
 \newlabel{fig:conviter}{{3.4}{17}{Operasi konvolusi yang dilakukan dalam $ceil(C_i/4)$ iterasi dimana $C_i$ adalah kedalaman matriks masukan.\relax }{figure.caption.23}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Contoh \textit  {local memory caching} terhadap matriks masukan pada suatu iterasi dimana \textit  {work-item} dengan nomor $i$ bertugas menyalin vektor-vektor $float4$ dari matriks masukan dengan nomor $i$ ke memori lokal.\relax }}{18}{figure.caption.24}}
@@ -18,23 +18,25 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Contoh \textit  {local memory caching} terhadap blok matriks filter yang terkait dengan blok matriks masukan pada suatu iterasi, dimana \textit  {work-item} dengan nomor $i$ bertugas menyalin vektor-vektor $float4$ dari matriks filter dengan nomor $i$ ke memori lokal.\relax }}{19}{figure.caption.25}}
 \newlabel{fig:convlocalfilter}{{3.6}{19}{Contoh \textit {local memory caching} terhadap blok matriks filter yang terkait dengan blok matriks masukan pada suatu iterasi, dimana \textit {work-item} dengan nomor $i$ bertugas menyalin vektor-vektor $float4$ dari matriks filter dengan nomor $i$ ke memori lokal.\relax }{figure.caption.25}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Metode Implementasi Perkalian Matriks-Matriks }{19}{subsection.3.1.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Contoh struktur linear matriks A, B, dan C pada operasi perkalian matriks-matriks.\relax }}{20}{figure.caption.26}}
-\newlabel{fig:linearmatmat}{{3.7}{20}{Contoh struktur linear matriks A, B, dan C pada operasi perkalian matriks-matriks.\relax }{figure.caption.26}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Contoh struktur \textit  {NDRange} untuk perkalian matriks-matriks.\relax }}{20}{figure.caption.27}}
-\newlabel{fig:wimatmat}{{3.8}{20}{Contoh struktur \textit {NDRange} untuk perkalian matriks-matriks.\relax }{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Contoh matriks pada pada operasi perkalian matriks-matriks yang disimpan secara linear di memori GPU.\relax }}{20}{figure.caption.26}}
+\newlabel{fig:linearmatmat}{{3.7}{20}{Contoh matriks pada pada operasi perkalian matriks-matriks yang disimpan secara linear di memori GPU.\relax }{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Struktur \textit  {NDRange} untuk operasi perkalian matriks-matriks.\relax }}{20}{figure.caption.27}}
+\newlabel{fig:wimatmat}{{3.8}{20}{Struktur \textit {NDRange} untuk operasi perkalian matriks-matriks.\relax }{figure.caption.27}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Perkalian antara dua blok berukuran $32 \times K$ dan $K \times 32$ pada matriks A dan matriks B sehingga menghasilkan satu blok berukuran $32 \times 32$ pada matriks C.\relax }}{21}{figure.caption.28}}
 \newlabel{fig:blockmatmat}{{3.9}{21}{Perkalian antara dua blok berukuran $32 \times K$ dan $K \times 32$ pada matriks A dan matriks B sehingga menghasilkan satu blok berukuran $32 \times 32$ pada matriks C.\relax }{figure.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Operasi perklaian matriks-matriks yang dilakukan dalam $ceil(K/32)$ iterasi dimana setiap iterasi melibatkan blok matriks A dengan lebar 32 dan blok matriks B dengan tinggi 32.\relax }}{22}{figure.caption.29}}
-\newlabel{fig:matmatiter}{{3.10}{22}{Operasi perklaian matriks-matriks yang dilakukan dalam $ceil(K/32)$ iterasi dimana setiap iterasi melibatkan blok matriks A dengan lebar 32 dan blok matriks B dengan tinggi 32.\relax }{figure.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Contoh operasi perkalian matriks-matriks yang dilakukan dalam $ceil(K/32)$ iterasi dimana setiap iterasi melibatkan blok matriks A dengan lebar 32 dan blok matriks B dengan tinggi 32.\relax }}{22}{figure.caption.29}}
+\newlabel{fig:matmatiter}{{3.10}{22}{Contoh operasi perkalian matriks-matriks yang dilakukan dalam $ceil(K/32)$ iterasi dimana setiap iterasi melibatkan blok matriks A dengan lebar 32 dan blok matriks B dengan tinggi 32.\relax }{figure.caption.29}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Contoh \textit  {local memory caching} pada perkalian matriks-matriks, dimana masing-masing \textit  {work-item} menyalin dua vektor $float4$ (\textit  {work-item} merah memuat vektor berwarna merah dan \textit  {work-item} biru memuat vektor berwarna biru).\relax }}{22}{figure.caption.30}}
 \newlabel{fig:localmatmat}{{3.11}{22}{Contoh \textit {local memory caching} pada perkalian matriks-matriks, dimana masing-masing \textit {work-item} menyalin dua vektor $float4$ (\textit {work-item} merah memuat vektor berwarna merah dan \textit {work-item} biru memuat vektor berwarna biru).\relax }{figure.caption.30}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Metode Integrasi OpenCL \textit  {Kernel} ke Tensorflow Lite }{22}{subsection.3.1.3}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces Skema modifikasi kode sumber Tensorflow Lite dengan menambahkan satu jenis \textit  {kernel} baru untuk operasi perkalian matriks-matriks dan konvolusi matriks yang diimplementasikan melalui OpenCL dan berjalan di GPU.\relax }}{23}{figure.caption.31}}
 \newlabel{fig:modifieddiagram}{{3.12}{23}{Skema modifikasi kode sumber Tensorflow Lite dengan menambahkan satu jenis \textit {kernel} baru untuk operasi perkalian matriks-matriks dan konvolusi matriks yang diimplementasikan melalui OpenCL dan berjalan di GPU.\relax }{figure.caption.31}{}}
+\citation{inceptionv3a}
+\citation{mobilenet}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.13}{\ignorespaces Ilustrasi persiapan untuk OpenCL yang dilakukan hanya satu kali di awal berjalannya suatu aplikasi \textit  {Deep Learning}.\relax }}{24}{figure.caption.32}}
 \newlabel{fig:initcl}{{3.13}{24}{Ilustrasi persiapan untuk OpenCL yang dilakukan hanya satu kali di awal berjalannya suatu aplikasi \textit {Deep Learning}.\relax }{figure.caption.32}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces Ilustrasi proses transfer data antara memori CPU dan GPU yang dilakukan pada setiap proses \textit  {inference}.\relax }}{24}{figure.caption.33}}
-\newlabel{fig:copydata}{{3.14}{24}{Ilustrasi proses transfer data antara memori CPU dan GPU yang dilakukan pada setiap proses \textit {inference}.\relax }{figure.caption.33}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces Ilustrasi proses transfer data antara memori CPU dan GPU yang dilakukan setiap kali suatu operasi perkalian matriks-matriks atau konvolusi matriks pada proses \textit  {inference} berlangsung.\relax }}{24}{figure.caption.33}}
+\newlabel{fig:copydata}{{3.14}{24}{Ilustrasi proses transfer data antara memori CPU dan GPU yang dilakukan setiap kali suatu operasi perkalian matriks-matriks atau konvolusi matriks pada proses \textit {inference} berlangsung.\relax }{figure.caption.33}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Metode Eksperimen }{24}{section.3.2}}
 \@setckpt{bab3}{
 \setcounter{page}{26}

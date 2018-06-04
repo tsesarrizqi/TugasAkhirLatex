@@ -14,7 +14,7 @@ Operasi konvolusi matriks melibatkan tiga buah matriks yaitu matriks masukan, ma
 	\centering
 	\includegraphics[width=0.75\textwidth]
 	{pics/linearconv.png}
-	\caption{Contoh struktur linear matriks masukan, matriks filter, dan keluaran yang disimpan di memori GPU untuk operasi konvolusi.}
+	\caption{Contoh matriks pada operasi konvolusi yang disimpan secara linear di memori GPU.}
 	\label{fig:linearconv}
 \end{figure}
 
@@ -24,7 +24,7 @@ Misalkan ukuran $tinggi \times lebar \times kanal \times \textit{batch}$ dari ma
 	\centering
 	\includegraphics[width=0.75\textwidth]
 	{pics/wiconv.png}
-	\caption{Contoh struktur \textit{NDRange} untuk operasi konvolusi matriks.}
+	\caption{Struktur \textit{NDRange} untuk operasi konvolusi matriks.}
 	\label{fig:wiconv}
 \end{figure}
 
@@ -34,7 +34,7 @@ Dengan struktur tersebut, setiap vektor $float4$ pada matriks keluaran dikomputa
 	\centering
 	\includegraphics[width=0.75\textwidth]
 	{pics/convblock.png}
-	\caption{Blok pada matriks keluaran (berwarna abu-abu) yang merupakan hasil konvolusi dari blok (berwarna abu-abu) pada matriks masukan yang dikomputasi oleh suatu \textit{work-group}.}
+	\caption{Contoh blok pada matriks masukan yang terlibat dalam konvolusi untuk menghasilkan blok pada matriks keluaran yang diproses oleh suatu \textit{work-group}.}
 	\label{fig:convblock}
 \end{figure}
 
@@ -75,7 +75,7 @@ Dalam pembahasan ini dimisalkan matriks masukan adalah matriks A dan matriks B, 
 	\centering
 	\includegraphics[width=0.75\textwidth]
 	{pics/linearmatmat.png}
-	\caption{Contoh struktur linear matriks A, B, dan C pada operasi perkalian matriks-matriks.}
+	\caption{Contoh matriks pada pada operasi perkalian matriks-matriks yang disimpan secara linear di memori GPU.}
 	\label{fig:linearmatmat}
 \end{figure}
 
@@ -85,7 +85,7 @@ Misalkan ukuran $tinggi \times lebar$ dari matriks A adalah $M \times K$ sedangk
 	\centering
 	\includegraphics[width=0.75\textwidth]
 	{pics/wimatmat.png}
-	\caption{Contoh struktur \textit{NDRange} untuk perkalian matriks-matriks.}
+	\caption{Struktur \textit{NDRange} untuk operasi perkalian matriks-matriks.}
 	\label{fig:wimatmat}
 \end{figure}
 
@@ -105,7 +105,7 @@ Seperti pada konvolusi, perkalian dua blok matriks tersebut juga mengandung redu
 	\centering
 	\includegraphics[width=0.75\textwidth]
 	{pics/matmatiter.png}
-	\caption{Operasi perklaian matriks-matriks yang dilakukan dalam $ceil(K/32)$ iterasi dimana setiap iterasi melibatkan blok matriks A dengan lebar 32 dan blok matriks B dengan tinggi 32.}
+	\caption{Contoh operasi perkalian matriks-matriks yang dilakukan dalam $ceil(K/32)$ iterasi dimana setiap iterasi melibatkan blok matriks A dengan lebar 32 dan blok matriks B dengan tinggi 32.}
 	\label{fig:matmatiter}
 \end{figure}
 
@@ -131,9 +131,9 @@ Tensorflow Lite telah memiliki dua jenis \textit{kernel} untuk dua operasi matri
 	\label{fig:modifieddiagram}
 \end{figure}
 
-Persiapan-persiapan OpenCL seperti yang disebutkan pada Bagian 2.5 memerlukan cukup banyak waktu. Untuk mengurangi biaya persiapan yang mahal, beberapa persiapan tidak dilakukan pada setiap proses \textit{inference}, namun hanya dilakukan satu kali pada awal berjalannya aplikasi \textit{Deep Learning}. Hal ini dilakukan dengan cara meletakkan persiapan-persiapan tersebut pada \textit{interpreter} Tensorflow Lite. Persiapan tersebut hanya dilakukan ketika \textit{interpreter} akan melakukan \textit{node parsing} terhadap graf Tensorflow Lite. \textit{Node parsing} adalah proses dimana \textit{interpreter} membuat objek-objek \textit{node} berdasarkan graf masukan, termasuk di dalamnya adalah objek lapisan \textit{fully-connected} dan objek lapisan konvolusi. Objek-objek hasil dari persiapan OpenCL seperti \textit{context} dan \textit{buffer} kemudian dapat diberikan sebagai argumen ketika \textit{interpreter} melakukan \textit{parsing} terhadap \textit{node} lapisan \textit{fully-connected} dan lapisan konvolusi. Ketika proses \textit{inference} berlagsung, objek lapisan \textit{fully-connected} dan lapisan konvolusi pada Tensorflow Lite dapat menggunakan objek-objek OpenCL yang telah dipersiapkan di awal. 
+Persiapan-persiapan OpenCL seperti pembuatan \textit{context}, \textit{buffer}, dan lain-lain memerlukan cukup banyak waktu. Untuk mengurangi biaya persiapan yang mahal, beberapa persiapan tidak dilakukan setiap kali operasi perkalian matriks-matriks atau konvolusi matriks pada proses \textit{inference} berlangsung, namun hanya dilakukan satu kali pada awal berjalannya aplikasi \textit{Deep Learning}. Hal ini dilakukan dengan cara meletakkan persiapan-persiapan tersebut pada \textit{interpreter} Tensorflow Lite. Persiapan tersebut hanya dilakukan ketika \textit{interpreter} akan melakukan \textit{node parsing} terhadap graf Tensorflow Lite. \textit{Node parsing} adalah proses dimana \textit{interpreter} membuat objek-objek \textit{node} berdasarkan graf masukan, termasuk di dalamnya adalah objek lapisan \textit{fully-connected} dan objek lapisan konvolusi. Objek-objek hasil dari persiapan OpenCL seperti \textit{context} dan \textit{buffer} kemudian dapat diberikan sebagai argumen ketika \textit{interpreter} melakukan \textit{parsing} terhadap \textit{node} lapisan \textit{fully-connected} dan lapisan konvolusi. Ketika proses \textit{inference} berlagsung, objek lapisan \textit{fully-connected} dan lapisan konvolusi pada Tensorflow Lite dapat menggunakan objek-objek OpenCL yang telah dipersiapkan di awal. 
 
-Persiapan untuk OpenCL yang dilakukan pada awal berjalannya aplikasi adalah membuat \textit{context}, membuat \textit{command queue}, membuat \textit{kernel}, dan membuat \textit{buffer}. Persiapan yang tidak dapat dilakukan hanya satu kali adalah menyalin data masukan operasi matriks dari memori CPU ke memori GPU. Proses menyalin data ini harus selalu dikerjakan pada setiap proses \textit{inference} karena data masukan bersifat dinamis. Perhatikan \pic~\ref{fig:initcl} dan \pic~\ref{fig:copydata} untuk mengetahui lebih jelas bagaimana persiapan untuk OpenCL dilakukan pada penelitian ini.
+Persiapan untuk OpenCL yang dilakukan pada awal berjalannya aplikasi adalah membuat \textit{context}, membuat \textit{command queue}, membuat \textit{kernel}, dan membuat \textit{buffer}. Persiapan yang tidak dapat dilakukan hanya satu kali adalah menyalin data masukan operasi matriks dari memori CPU ke memori GPU. Proses menyalin data ini harus selalu dikerjakan setiap kali operasi perkalian matriks-matriks atau konvolusi matriks pada proses \textit{inference} berlangsung karena data masukan bersifat dinamis. Perhatikan \pic~\ref{fig:initcl} dan \pic~\ref{fig:copydata} untuk mengetahui lebih jelas bagaimana persiapan untuk OpenCL dilakukan pada penelitian ini.
 
 \begin{figure}
 	\centering
@@ -147,10 +147,12 @@ Persiapan untuk OpenCL yang dilakukan pada awal berjalannya aplikasi adalah memb
 	\centering
 	\includegraphics[width=0.75\textwidth]
 	{pics/copydata.png}
-	\caption{Ilustrasi proses transfer data antara memori CPU dan GPU yang dilakukan pada setiap proses \textit{inference}.}
+	\caption{Ilustrasi proses transfer data antara memori CPU dan GPU yang dilakukan setiap kali suatu operasi perkalian matriks-matriks atau konvolusi matriks pada proses \textit{inference} berlangsung.}
 	\label{fig:copydata}
 \end{figure}
 
 \section{Metode Eksperimen }
 %-----------------------------------------------------------------------------%
-Eksperimen dilakukan terhadap masing-masing jenis Tensorflow Lite \textit{kernel} untuk operasi perkalian matriks-matriks dan konvolusi matriks, yaitu Tensorflow Lite \textit{naive kernel} yang berjalan di CPU, Tensorflow Lite \textit{optimized kernel} yang berjalan di CPU, dan Tensorflow Lite OpenCL \textit{kernel} yang berjalan di GPU. Dalam eksperimen ini penulis mengukur kecepatan eksekusi tiga \textit{kernel} tersebut pada berbagai kasus ukuran matriks masukan. Hasil pengukuran kecepatan dari masing-masing \textit{kernel} kemudian dibandingkan. Untuk OpenCL \textit{kernel}, penulis melakukan dua jenis pengukuran kecepatan. Pertama, pengukuran dilakukan terhadap eksekusi OpenCL \textit{kernel} saja, tidak termasuk transfer data antara memori CPU dan GPU. Kedua, pengukuran dilakukan terhadap OpenCL \textit{kernel} beserta transfer data antara memori CPU dan GPU. Dengan demikian, penulis dapat mengetahui apakah \textit{bottleneck} dari program OpenCL yang telah diimplementasikan terletak terletak pada transfer data antar memori atau terletak pada eksekusi OpenCL \textit{kernel}. Untuk menghitung kecepatan dari suatu Tensorflow Lite \textit{kernel} penulis menggunakan \textit{wall-clock time} dengan cara menghitung selisih dari \textit{wall-clock time} sebelum dan sesudah Tensorflow Lite \textit{kernel} berjalan.
+Terdapat dua jenis eksperimen yang dilakukan. Eksperimen pertama dilakukan terhadap keseluruhan proses \textit{inference}. Eksperimen ini bertujuan untuk menguji bahwa OpenCL \textit{kernel} yang telah diimplementasikan sudah dapat berjalan dengan benar dan telah terintegrasi dengan benar pada Tensroflow Lite. Untuk melakukan pengujian ini penulis menggunakan aplikasi demo yang telah disediakan pada Tensorflow Lite. Aplikasi ini adalah sebuah aplikasi pengenalan citra yang diimplementasikan menggunakan pustaka Tensorflow Lite. Penulis menggunakan dua jenis model CNN untuk menjalankan aplikasi ini, yaitu Inception-V3 \cite{inceptionv3a} dan MobileNet \cite{mobilenet}. Pada Inception-V3 terdapat lapisan konvolusi dan lapisan \textit{fully-connected}, sedangkan pada MobileNet terdapat lapisan konvolusi namun tidak terdapat lapisan \textit{fully-connected}. Pada kedua model terdapat lapisan konvolusi yang menggunakan filter dengan $tinggi \times lebar = 1 \times 1$.
+
+Eksperimen kedua dilakukan untuk menguji kecepatan OpenCL \textit{kernel} yang telah diimplementasikan. Dalam eksperimen ini penulis mengukur kecepatan eksekusi dari tiga jenis Tensorflow Lite \textit{kernel}, yaitu \textit{naive kernel}, \textit{optimized kernel}, dan OpenCL \textit{kernel}, untuk operasi perkalian matriks-matriks dan konvolusi matriks. Kecepatan dari masing-masing \textit{kernel} kemudian dibandingkan. Untuk OpenCL \textit{kernel}, penulis melakukan dua jenis pengukuran kecepatan. Pertama, pengukuran dilakukan terhadap eksekusi OpenCL \textit{kernel} saja, tidak termasuk transfer data antara memori CPU dan GPU. Kedua, pengukuran dilakukan terhadap OpenCL \textit{kernel} beserta transfer data antara memori CPU dan GPU. Dengan demikian, penulis dapat mengetahui apakah \textit{bottleneck} dari program OpenCL yang telah diimplementasikan terletak terletak pada transfer data antar memori atau terletak pada eksekusi OpenCL \textit{kernel}. Untuk menghitung kecepatan dari suatu Tensorflow Lite \textit{kernel} penulis menggunakan \textit{wall-clock time} dengan cara menghitung selisih dari \textit{wall-clock time} sebelum dan sesudah Tensorflow Lite \textit{kernel} berjalan.
